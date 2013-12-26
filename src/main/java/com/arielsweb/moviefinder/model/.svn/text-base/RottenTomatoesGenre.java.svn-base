@@ -1,0 +1,59 @@
+package com.arielsweb.moviefinder.model;
+
+/**
+ * Abstractization for genres
+ * 
+ * @author Ariel
+ * 
+ */
+public enum Genre {
+
+    /**
+     * <pre>
+     * <option value="1">Action &amp; Adventure</option>
+     * <option value="22">Adult</option>
+     * <option value="2">Animation</option>
+     * <option value="3">Anime &amp; Manga</option>
+     * <option value="4">Art House &amp; International</option>
+     * <option value="5">Classics</option>
+     * <option value="6">Comedy</option>
+     * <option value="7">Cult Movies</option>
+     * <option value="8">Documentary</option>
+     *     <option value="9">Drama</option>
+     *     <option value="19">Faith &amp; Spirituality</option>
+     *     <option value="20">Gay &amp; Lesbian</option>
+     *     <option value="10" selected="selected">Horror</option>
+     *     <option value="11">Kids &amp; Family</option>
+     *     <option value="12">Musical &amp; Performing Arts</option>
+     *     <option value="13">Mystery &amp; Suspense</option>
+     *     <option value="18">Romance</option>
+     *     <option value="14">Science Fiction &amp; Fantasy</option>
+     *     <option value="15">Special Interest</option>
+     *     <option value="21">Sports &amp; Fitness</option>
+     *     <option value="16">Television</option>
+     *     <option value="17">Western</option>
+     * </pre>
+     */
+    ACTION_ADVENTURE,
+    ADULT,
+    ANIMATION,
+    ANIME_MANGA,
+    ART_HOUSE_INTERNATIONAL,
+    CLASSICS,
+    COMEDY,
+    CULT_MOVIES,
+    DOCUMENTARY,
+    DRAMA,
+    FAITH_SPIRITUALITY,
+    GAY_LESBIAN,
+    HORROR,
+    KIDS_FAMILY,
+    MUSICAL_PERFORMING_ARTS,
+    MYSTERY_SUSPENSE,
+    ROMANCE,
+    SCIENCE_FICTION_FANTASY,
+    SPECIAL_INTEREST,
+    SPORTS_FITNESS,
+    TELEVISION, 
+    WESTERN;
+}

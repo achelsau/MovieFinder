@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user id="1" username="Ion" password="abcd" real_name="abcd" location="No" is_online="0" />
+	<user id="2" username="Vasile" password="abcd" real_name="abcd" location="No" is_online="1" />
+	<user id="3" username="Florin" password="abcd" real_name="abcd" location="No"  is_online="0"  />
+	<user id="4" username="Lionel" password="abcd" real_name="abcd" location="No"  is_online="1"  />
+	
+	<moviesource id="1" name="Rotten Tomatoes" location="http://rottentomatoes.com" />
+	
+	<RELEVANT_MOVIES user_id="1" movie_id="1" />
+	<RELEVANT_MOVIES user_id="1" movie_id="2" />
+	
+	<moviedescriptor id="1" name="Ion movie" year="2012" remote_path="C:\\documents" remote_id="12345" source="1" synopsis="Atlantis, the greatest machine realized by engineers, lands safely after a long journey." />
+	<moviedescriptor id="2" name="Vasile movie" year="2012" remote_path="C:\\documents" remote_id="12346" source="1" synopsis="The first interstellar journey will be the greatest ever to be realized by mankind." />
+	<moviedescriptor id="3" name="Ion movie 2" year="2012" remote_path="C:\\documents" remote_id="12347" source="1" synopsis="Icarus is an interstellar space ship that will go to the stars in a great journey." />
+	<moviedescriptor id="4" name="Abcd" year="2012" remote_path="C:\\documents" remote_id="12348" source="1"  synopsis="Loooong resource desc greatest" />
+	<moviedescriptor id="5" name="Uiop" year="2012" remote_path="C:\\documents" remote_id="12349" source="1"  synopsis="Loooong resource desc greatness" />
+	<moviedescriptor id="6" name="Popcorn" year="2012" remote_path="C:\\documents" remote_id="12350" source="1"  synopsis="Loooong resource desc" />
+	<moviedescriptor id="7" name="Cucurigu" year="2012" remote_path="C:\\documents" remote_id="12351" source="1" synopsis="Loooong resource desc" />
+	<moviedescriptor id="8" name="Boieri Mari" year="2012" remote_path="C:\\documents" remote_id="12352" source="1" synopsis="Loooong resource desc" />
+	<moviedescriptor id="9" name="The book of awesomeness" year="2012" remote_path="C:\\documents" remote_id="12353" source="1" synopsis="Loooong resource desc" />
+	<moviedescriptor id="10" name="Punguta cu 2 bani" year="2012" remote_path="C:\\documents" remote_id="12354" source="1" synopsis="Loooong resource desc" />
+	<moviedescriptor id="11" name="Punguta cu 2 euro" year="2012" remote_path="C:\\documents" remote_id="12355" source="1" synopsis="Loooong resource desc" />
+	<moviedescriptor id="12" name="Ion resource 3" year="2012" remote_path="C:\\documents" remote_id="12356" source="1" synopsis="Icarus is an interstellar space ship that will go to the stars in a great journey." />
+	
+	<!-- Clean all cast and crew for a movie -->
+	<MOVIECREWPERSON  />
+	
+	<CAST_CREW_IN_MOVIE />
+	
+	<persistentquery id="1" query_string="Interstellar mission" owner="1" interv="1000"/>
+	<persistentquery id="2" query_string="Earth seen from moon" owner="1" interv="500"/>
+	<persistentquery id="3" query_string="Solar system" owner="2" interv="1500"/>
+	<persistentquery id="4" query_string="Future Mars exploration" owner="3" interv="2500"/>
+	<persistentquery id="5" query_string="Hypersonic planes" owner="3" interv="2000"/>
+	<persistentquery id="6" query_string="Suborbital intercontinental journey" owner="2" interv="500"/>
+	<persistentquery id="7" query_string="Europa mission 2020" owner="4" interv="500"/>
+</dataset>

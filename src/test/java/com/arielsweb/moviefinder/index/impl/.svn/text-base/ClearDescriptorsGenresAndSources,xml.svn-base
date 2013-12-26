@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<!-- Clean the movie genres table -->
+	<tab_movie_genres  />
+	
+	<!-- Clean the movie descriptors table -->
+	<tab_movie_descriptors />
+	
+	<!-- Clean the movie source table -->
+	<tab_movie_sources />
+</dataset>

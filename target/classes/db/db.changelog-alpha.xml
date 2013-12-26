@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+	<!-- 0000039: Connect to RT API and populate the index - add the year column 
+		to resource descriptor -->
+	<changeSet id="1.0-1" author="ariel">
+		<sql>
+			ALTER TABLE `MOVIEDESCRIPTOR` ADD COLUMN
+			`year` INT NOT NULL
+			AFTER `name`;
+		</sql>
+	</changeSet>
+
+
+	<!-- 0000039: Connect to RT API and populate the index - add remote id and 
+		unique index to <remote_id, source> -->
+	<changeSet id="1.0-2" author="ariel">
+		<sql>
+			ALTER TABLE `MOVIEDESCRIPTOR` ADD COLUMN
+			`remote_id` VARCHAR(30)
+			NOT NULL AFTER `remote_path`;
+
+			<!-- each id is unique per owner -->
+			ALTER TABLE `MOVIEDESCRIPTOR`
+			ADD UNIQUE INDEX
+			`remote_id_owner_UNIQUE` (`remote_id`, `source`)
+		</sql>
+	</changeSet>
+
+	<!-- 0000039: Connect to RT API and populate the index -->
+	<changeSet id="1.0-3" author="ariel">
+		<sql>
+			<!-- Additional information -->
+			ALTER TABLE `MOVIEDESCRIPTOR` ADD COLUMN
+			`alternate_synopsis` TEXT NULL AFTER `synopsis`,
+			 ADD COLUMN `alternate_id` VARCHAR(30) NULL AFTER `remote_id`,
+			 ADD COLUMN `image_path` VARCHAR(255) NULL AFTER `alternate_synopsis`;
+		</sql>
+	</changeSet>
+	
+	<changeSet id="1.0-4" author="ariel">
+		<sql>
+		CREATE  TABLE `MOVIECREWPERSON` (
+		  `id` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT ,
+		  `full_name` VARCHAR(255) NOT NULL ,
+		  `type` TINYINT(1),
+		  PRIMARY KEY (`id`) 
+		) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8 , COLLATE = utf8_general_ci;
+		
+		CREATE  TABLE `CAST_CREW_IN_MOVIE` (
+		  `movie_id` INT(5) UNSIGNED NOT NULL,
+		  `cast_crew_id` INT(5) UNSIGNED NOT NULL,
+		  CONSTRAINT `FK_CAST_CREW_MOVIE` FOREIGN KEY (`movie_id`) REFERENCES `MOVIEDESCRIPTOR` (`id`) ON DELETE CASCADE,
+		  CONSTRAINT `FK_CAST_CREW_PERSON` FOREIGN KEY (`cast_crew_id`) REFERENCES `MOVIECREWPERSON` (`id`) ON DELETE CASCADE
+		) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8 , COLLATE = utf8_general_ci;
+		</sql>
+	</changeSet>
+	
+	<changeSet id="1.0-5" author="ariel">
+		<sql>			
+			<!-- the table MOVIECREWPERSON has to have only unique names -->
+			ALTER TABLE `MOVIECREWPERSON` ADD UNIQUE INDEX `full_name_UNIQUE` (`full_name` ASC) ;
+			
+			<!-- Year, alternate_id and release_date are not necessary to be non null -->
+			ALTER TABLE `MOVIEDESCRIPTOR` CHANGE COLUMN `year` `year` INT(11) NULL  , 
+			      <!-- instead of INT year it'll be DATE year -->
+				  ADD COLUMN `release_date` DATE NULL  AFTER `image_path`,
+				  ADD COLUMN `rating` decimal(2,1) unsigned NULL AFTER `release_date`,
+			      CHANGE COLUMN `alternate_id` `alternate_id` VARCHAR(30) NULL;
+
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

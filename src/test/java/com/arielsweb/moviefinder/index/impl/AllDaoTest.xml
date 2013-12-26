@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<tab_users id="1" username="Ion" password="abcd" real_name="abcd" location="No" is_online="0" />
+	<tab_users id="2" username="Vasile" password="abcd" real_name="abcd" location="No" is_online="1" />
+	<tab_users id="3" username="Florin" password="abcd" real_name="abcd" location="No"  is_online="0"  />
+	<tab_users id="4" username="Lionel" password="abcd" real_name="abcd" location="No"  is_online="1"  />
+	
+	<tab_movie_sources id="1" name="Rotten Tomatoes" location="http://rottentomatoes.com" />
+	
+	<tab_relevant_movies user_id="1" movie_id="1" />
+	<tab_relevant_movies user_id="1" movie_id="2" />
+	
+	<!-- assign genres to movies -->
+	<tab_movie_genres movie_descriptor_id="1" genre_name="ACTION_ADVENTURE" />
+	<tab_movie_genres movie_descriptor_id="1" genre_name="SCIENCE_FICTION_FANTASY" />
+	
+	<!-- Drama, Television, Art House & International, Science Fiction & Fantasy -->
+	<tab_movie_genres movie_descriptor_id="2" genre_name="DRAMA" />
+	<tab_movie_genres movie_descriptor_id="2" genre_name="TELEVISION" />
+	<tab_movie_genres movie_descriptor_id="2" genre_name="ART_HOUSE_INTERNATIONAL" />
+	<tab_movie_genres movie_descriptor_id="2" genre_name="SCIENCE_FICTION_FANTASY" />
+	
+	<tab_movie_genres movie_descriptor_id="3" genre_name="DRAMA" />
+	<tab_movie_genres movie_descriptor_id="3" genre_name="ACTION_ADVENTURE" />
+	<tab_movie_genres movie_descriptor_id="3" genre_name="SCIENCE_FICTION_FANTASY" />
+	
+	<tab_movie_genres movie_descriptor_id="4" genre_name="SCIENCE_FICTION_FANTASY" />
+	<tab_movie_genres movie_descriptor_id="4" genre_name="COMEDY" />
+
+	<tab_movie_genres movie_descriptor_id="5" genre_name="MYSTERY_SUSPENSE" />
+	<tab_movie_genres movie_descriptor_id="5" genre_name="SCIENCE_FICTION_FANTASY" />
+	
+	<tab_movie_genres movie_descriptor_id="6" genre_name="DRAMA" />
+	<tab_movie_genres movie_descriptor_id="6" genre_name="ACTION_ADVENTURE" />
+	<tab_movie_genres movie_descriptor_id="6" genre_name="SCIENCE_FICTION_FANTASY" />
+	
+	<tab_movie_genres movie_descriptor_id="7" genre_name="DRAMA" />
+	<tab_movie_genres movie_descriptor_id="7" genre_name="ACTION_ADVENTURE" />
+	<tab_movie_genres movie_descriptor_id="7" genre_name="HORROR" />
+	<tab_movie_genres movie_descriptor_id="7" genre_name="SCIENCE_FICTION_FANTASY" />
+	
+	<tab_movie_genres movie_descriptor_id="8" genre_name="HORROR" />
+	
+	<!-- Descriptors taken from the rotten tomatoes website -->
+	<tab_movie_descriptors id="1" name="Serenity" year="2005" remote_path="http://www.rottentomatoes.com/m/serenity/" remote_id="12345" source="1" synopsis="A band of renegades on the run in outer space get in more hot water than they anticipated in this sci-fi action-adventure adapted from the television series Firefly. In the 26th century, the galaxy has been colonized by a military force known as the Alliance, but its leadership has not gone unquestioned. The Alliance was once challenged by a league of rebels known as the Independents, but the Alliance emerged victorious after a brutal civil war, with the surviving Independents scattering around the galaxy." alternate_synopsis="Snappy dialogue and goofy characters make this Wild Wild West soap opera in space fun and adventurous." />
+	<tab_movie_descriptors id="2" name="World on a Wire" year="1973" remote_path="http://www.rottentomatoes.com/m/world_on_a_wire/" remote_id="12346" source="1" synopsis="A dystopic science-fiction epic, World on a Wire is German wunderkind Rainer Werner Fassbinder's gloriously cracked, boundlessly inventive take on future paranoia. With dashes of Kubrick, Vonnegut, and Dick, but a flavor entirely his own, Fassbinder tells the noir-spiked tale of reluctant action hero Fred Stiller (Klaus Lowitsch), a cybernetics engineer who uncovers a massive corporate and governmental conspiracy. At risk? Our entire (virtual) reality as we know it. This long unseen three-and-a-half-hour labyrinth is a satiric and surreal look at the weird world of tomorrow from one of cinema's kinkiest geniuses" alternate_synopsis="Director Jon Favreau and star Robert Downey make this smart, high impact superhero movie one that even non-comics fans can enjoy."/>
+	<tab_movie_descriptors id="3" name="Iron Man" year="2008" remote_path="http://www.rottentomatoes.com/m/iron_man/" remote_id="12347" source="1" synopsis='From Marvel Studios and Paramount Pictures comes Iron Man, an action-packed take on the tale of wealthy philanthropist Tony Stark (Robert Downey Jr.), who develops an invulnerable robotic suit to fight the throes of evil. In addition to being filthy rich, billionaire industrialist Tony Stark is also a genius inventor. When Stark is kidnapped and forced to build a diabolical weapon, he instead uses his intelligence and ingenuity to construct an indestructible suit of armor and escape his captors. Once free, Stark discovers a deadly conspiracy that could destabilize the entire globe, and dons his powerful new suit on a mission to stop the villains and save the world. Gwyneth Paltrow co-stars as his secretary, Virginia "Pepper" Potts, while Terrence Howard fills the role of Jim "Rhodey" Rhodes, one of Stark s colleagues, whose military background leads him to help in the formation of the suit. Jon Favreau directs, with Marvel movie veterans Avi Arad and Kevin Feige producing.' />
+	<tab_movie_descriptors id="4" name="The Hitchhiker's Guide to the Galaxy" year="2005" remote_path="http://www.rottentomatoes.com/m/hitchhikers_guide_to_the_galaxy/" source="1" remote_id="12348" synopsis="Douglas Adams' oft-adapted tale of an normal guy making his way through the universe (it's already been presented as a novel, a radio serial, a television series, and a comic book) finally makes its way to the big screen in this endearingly goofy sci-fi comedy. Arthur Dent (Martin Freeman) is a very ordinary man who is having a truly unusual day -- after discovering that one of his best friends, Ford Prefect (Mos Def), is actually an alien, Ford tells him that the planet Earth is going to be destroyed so that otherworldly forces can make room for construction of a hyperspace bypass." />
+	<tab_movie_descriptors id="5" name="Alien" year="1979" remote_path="http://www.rottentomatoes.com/m/alien/" source="1" remote_id="12349" synopsis="'In space, no one can hear you scream.' A close encounter of the third kind becomes a Jaws-style nightmare when an alien invades a spacecraft in Ridley Scott's sci-fi horror classic. On the way home from a mission for the Company, the Nostromo's crew is woken up from hibernation by the ship's Mother computer to answer a distress signal from a nearby planet. Capt. Dallas's (Tom Skerritt) rescue team discovers a bizarre pod field, but things get even stranger when a face-hugging creature bursts out of a pod and attaches itself to Kane (John Hurt). Over the objections of Ripley (Sigourney Weaver), science officer Ash (Ian Holm) lets Kane back on the ship. The acid-blooded incubus detaches itself from an apparently recovered Kane, but an alien erupts from Kane's stomach and escapes. The alien starts stalking the humans, pitting Dallas and his crew (and cat) against a malevolent killing machine that also has a protector in the nefarious Company." />
+	<tab_movie_descriptors id="6" name="The Day After" year="1983" remote_path="http://www.rottentomatoes.com/m/day_after/" source="1" remote_id="12350" synopsis="A peaceful Midwestern city attempts to recover after it is destroyed by a nuclear missile strike in this powerful and deeply disturbing testament to the folly of pro-military hawks who believed that annihilation was a justifiable means of attaining power and control. The Day After originally aired on network television. At the end of the broadcast, many stations offered teams of counselors staffing 800 telephone numbers to help distraught viewers calm down" />
+	<tab_movie_descriptors id="7" name="Prometheus " year="2012" remote_path="http://www.rottentomatoes.com/m/prometheus_2012/" source="1" remote_id="12351" synopsis="Ridley Scott, director of Alien and Blade Runner, returns to the genre he helped define. With Prometheus, he creates a groundbreaking mythology, in which a team of explorers discover a clue to the origins of mankind on Earth, leading them on a thrilling journey to the darkest corners of the universe. There, they must fight a terrifying battle to save the future of the human race." />
+	<tab_movie_descriptors id="8" name="Ghost Ship" year="2002" remote_path="http://www.rottentomatoes.com/m/ghost_ship/" source="1" remote_id="12352" synopsis="A salvage team think they've made the find of a lifetime, until they discover there's more on board than meets the eye in this supernatural thriller. Led by Captain Sean Murphy (Gabriel Byrne), the crew of the tugboat Arctic Warrior have discovered a sideline far more lucrative than hauling ships in and out of the harbor -- they locate missing or wrecked ships in international waters, repair them until they can be brought back to port, and then sell off the ship and its contents as salvage." />
+	
+	<!-- Mock descriptors -->
+	<tab_movie_descriptors id="9" name="The book of awesomeness" year="2012" remote_path="C:\\documents" remote_id="12353" source="1" synopsis="Loooong resource desc" />
+	<tab_movie_descriptors id="10" name="Punguta cu 2 bani" year="2012" remote_path="C:\\documents" remote_id="12354" source="1" synopsis="Loooong resource desc" />
+	<tab_movie_descriptors id="11" name="Punguta cu 2 euro" year="2012" remote_path="C:\\documents" remote_id="12355" source="1" synopsis="Loooong resource desc" />
+	
+	<tab_queries id="1" query_string="Interstellar mission" owner="1" interv="1000"/>
+	<tab_queries id="2" query_string="Earth seen from moon" owner="1" interv="500"/>
+	<tab_queries id="3" query_string="Solar system" owner="2" interv="1500"/>
+	<tab_queries id="4" query_string="Future Mars exploration" owner="3" interv="2500"/>
+	<tab_queries id="5" query_string="Hypersonic planes" owner="3" interv="2000"/>
+	<tab_queries id="6" query_string="Suborbital intercontinental journey" owner="2" interv="500"/>
+	<tab_queries id="7" query_string="Europa mission 2020" owner="4" interv="500"/>
+</dataset>

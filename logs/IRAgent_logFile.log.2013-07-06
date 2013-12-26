@@ -1,0 +1,33 @@
+2013-07-06 16:02:18,346 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:02:18,368 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:02:19,136 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>
+2013-07-06 16:02:44,618 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:02:44,642 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:02:45,480 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>
+2013-07-06 16:04:03,837 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:04:03,858 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:04:04,566 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>
+2013-07-06 16:13:13,070 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:13:13,091 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:13:13,788 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>
+2013-07-06 16:18:40,662 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:18:40,683 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:18:41,395 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>
+2013-07-06 16:19:15,668 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:19:15,689 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:19:16,383 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>
+2013-07-06 16:19:22,858 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:19:22,879 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:19:23,572 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>
+2013-07-06 16:19:37,465 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:19:37,487 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:19:38,277 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>
+2013-07-06 16:21:01,872 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:21:01,893 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:21:02,587 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>
+2013-07-06 16:21:52,816 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:21:52,837 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:21:53,625 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>
+2013-07-06 16:33:53,216 INFO  - No local configuration file unitils-local.properties found.
+2013-07-06 16:33:53,236 WARN  - Unable to create module easymock (org.unitils.easymock.EasyMockModule). This causes the module to be implicitly disabled. This is probably caused by a missing library. If you don't need this module, this warning can be avoided by explicitly disabling the module by setting the property unitils.module.easymock.enabled=false
+2013-07-06 16:33:53,936 INFO  - Creating data source. Driver: com.mysql.jdbc.Driver, url: jdbc:mysql://localhost/moviefinder_test, user: root, password: <not shown>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user id="1" username="Ion" password="abcd" real_name="abcd" location="No" is_online="0" />
+	<user id="2" username="Vasile" password="abcd" real_name="abcd" location="No" is_online="1" />
+	<user id="3" username="Florin" password="abcd" real_name="abcd" location="No"  is_online="0"  />
+	<user id="4" username="Lionel" password="abcd" real_name="abcd" location="No"  is_online="1"  />
+	
+	<moviesource id="1" name="Rotten Tomatoes" location="http://rottentomatoes.com" />
+	
+	<moviedescriptor id="4" name="Cool Movie 4" year="2012" remote_path="http://www.rottentomatoes.com/m/cool_movie_4" remote_id="12345" source="1" synopsis="This movie presents a journey to the moon, landing on the lunar surface and then return back to Earth." />
+	<moviedescriptor id="5" name="Cool Movie 5" year="2012" remote_path="http://www.rottentomatoes.com/m/cool_movie_5" remote_id="12346" source="1" synopsis="This movie presents a journey to Europa, Jupiter's satellite, to find life and discover other misteries" />
+	
+	<relevant_movies user_id="1" movie_id="4" />
+	<relevant_movies user_id="1" movie_id="5" />
+</dataset>

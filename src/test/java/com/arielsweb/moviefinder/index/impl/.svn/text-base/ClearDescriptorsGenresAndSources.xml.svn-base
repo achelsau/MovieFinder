@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<!-- Clean the movie source table -->
+	<moviesource />
+	
+	<!-- Clean the movie descriptors table -->
+	<moviedescriptor />
+	
+	<!-- Clean the movie genres table -->
+	<genre  />
+	
+	<!-- Clear the tab of actors, directors and screenwriters -->
+	<moviecrewperson />
+	
+	<!-- Clear the link between movies and their production and acting crew -->
+	<CAST_CREW_IN_MOVIE />
+</dataset>
