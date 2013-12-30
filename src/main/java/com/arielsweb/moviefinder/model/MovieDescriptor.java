@@ -148,6 +148,7 @@ public class MovieDescriptor implements Serializable {
     private Set<MovieCrewPerson> movieScreenwriters = new HashSet<MovieCrewPerson>();
 
     public MovieDescriptor() {
+
     }
 
     /**
@@ -257,6 +258,16 @@ public class MovieDescriptor implements Serializable {
     }
 
     public Set<MovieCrewPerson> getActors() {
+	if (movieActors.size() == 0) {
+	    for (MovieCrewPerson movieCastAndCrew : castAndCrew) {
+		switch (movieCastAndCrew.getCrewPersonType()) {
+		case ACTOR:
+		    movieActors.add(movieCastAndCrew);
+		    break;
+		}
+	    }
+	}
+
 	return movieActors;
     }
 
@@ -311,6 +322,16 @@ public class MovieDescriptor implements Serializable {
     }
 
     public Set<MovieCrewPerson> getDirectors() {
+	if (movieDirectors.size() == 0) {
+	    for (MovieCrewPerson movieCastAndCrew : castAndCrew) {
+		switch (movieCastAndCrew.getCrewPersonType()) {
+		case DIRECTOR:
+		    movieDirectors.add(movieCastAndCrew);
+		    break;
+		}
+	    }
+	}
+
 	return movieDirectors;
     }
 
@@ -321,6 +342,16 @@ public class MovieDescriptor implements Serializable {
     }
 
     public Set<MovieCrewPerson> getScreenWriters() {
+	if (movieScreenwriters.size() == 0) {
+	    for (MovieCrewPerson movieCastAndCrew : castAndCrew) {
+		switch (movieCastAndCrew.getCrewPersonType()) {
+		case SCREENWRITER:
+		    movieScreenwriters.add(movieCastAndCrew);
+		    break;
+		}
+	    }
+	}
+
 	return this.movieScreenwriters;
     }
 

@@ -1,5 +1,7 @@
 package com.arielsweb.moviefinder.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -19,7 +21,10 @@ import com.arielsweb.moviefinder.utilities.MovieFinderConstants;
  * 
  */
 @Entity
-public class MovieCrewPerson {
+public class MovieCrewPerson implements Serializable {
+
+    private static final long serialVersionUID = 6066058019869498075L;
+
     @Id
     @GeneratedValue
     private Long id;

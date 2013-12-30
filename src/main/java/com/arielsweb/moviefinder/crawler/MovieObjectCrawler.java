@@ -2,11 +2,13 @@ package com.arielsweb.moviefinder.crawler;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import org.joda.time.DateMidnight;
 import org.joda.time.DateTime;
@@ -230,9 +232,11 @@ public class MovieObjectCrawler {
      * @return an existing {@link MovieCrewPerson} or a new one
      */
     private MovieCrewPerson getOrCreateMovieCrewPerson(String moviePersonFullName, MovieCrewPersonType type) {
-	MovieCrewPerson moviePerson = movieCrewPersonService.getMovieCrewPersonByName(moviePersonFullName);
+	String moviePersonFullNameAccentsRemoved = this.deAccent(moviePersonFullName);
+	MovieCrewPerson moviePerson = movieCrewPersonService
+		.getMovieCrewPersonByName(moviePersonFullNameAccentsRemoved);
 	if (moviePerson == null) {
-	    moviePerson = new MovieCrewPerson(moviePersonFullName, type);
+	    moviePerson = new MovieCrewPerson(moviePersonFullNameAccentsRemoved, type);
 	}
 
 	return moviePerson;
@@ -364,6 +368,12 @@ public class MovieObjectCrawler {
 	    }
 	}
 	return crewPersons;
+    }
+
+    public String deAccent(String str) {
+	String nfdNormalizedString = Normalizer.normalize(str, Normalizer.Form.NFD);
+	Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+	return pattern.matcher(nfdNormalizedString).replaceAll("");
     }
 
     /**

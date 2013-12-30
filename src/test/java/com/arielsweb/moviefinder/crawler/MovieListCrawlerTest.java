@@ -6,13 +6,14 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.joda.time.DateTime;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.unitils.UnitilsJUnit4TestClassRunner;
 import org.unitils.database.annotations.Transactional;
 import org.unitils.database.util.TransactionMode;
-import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.spring.annotation.SpringApplicationContext;
 import org.unitils.spring.annotation.SpringBeanByType;
 
@@ -28,10 +29,9 @@ import com.arielsweb.moviefinder.service.MovieSourceService;
  * @author Ariel
  * 
  */
-@DataSet("MovieListCrawlerTest.xml")
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 @SpringApplicationContext({ "applicationContext-data-test.xml" })
-@Transactional(TransactionMode.ROLLBACK)
+@Transactional(TransactionMode.DISABLED)
 public class MovieListCrawlerTest {
 
     @SpringBeanByType
@@ -51,14 +51,13 @@ public class MovieListCrawlerTest {
      * @throws InterruptedException
      */
     @Test
-    @Ignore
     public void testParseListOfMovies() throws IOException, ParseException, InterruptedException {
 	// setup
 	MovieSource movieSource = movieDatabasePopulatorService.getMovieSource("IMDB", "http://www.imdb.com");
 
 	// execute
-	movieListCrawler.parseMovieList("http://www.arielsweb.com/utils/list_of_movies.html",
-		    movieSource);
+	movieListCrawler.parseMovieList("http://www.arielsweb.com/utils/list_of_movies.html", movieSource);
+
 	// verify
 	List<MovieDescriptor> movieDescriptors = movieDescriptorService.list();
 	
@@ -83,5 +82,31 @@ public class MovieListCrawlerTest {
 	MovieDescriptor movieDescriptor5 = movieDescriptors.get(4);
 	assertEquals("Evil Dead", movieDescriptor5.getName());
 	assertEquals("tt1288558", movieDescriptor5.getRemoteId());
+    }
+
+    /**
+     * Tests parsing http://www.arielsweb.com/utils/list_of_movies.html
+     * 
+     * @throws IOException
+     * @throws ParseException
+     * @throws InterruptedException
+     */
+    @Test
+    @Ignore
+    public void populateScalabilityDatabase() throws IOException, ParseException, InterruptedException {
+	// setup
+	MovieSource movieSource = movieDatabasePopulatorService.getMovieSource("IMDB", "http://www.imdb.com");
+
+	// execute
+	int i = 1;
+
+	while (i < 20000 && DateTime.now().isAfter(new DateTime(2013, 12, 28, 11, 11, 11, 0))) {
+	    movieListCrawler.parseMovieList("http://www.imdb.com/search/title?at=0&sort=moviemeter,asc&start=" + i
+		    + "&title_type=feature", movieSource);
+
+	    Logger.getLogger(MovieListCrawlerTest.class).info("Finished inserting page starting from " + i);
+
+	    i += 50;
+	}
     }
 }

@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.unitils.UnitilsJUnit4TestClassRunner;
@@ -28,7 +27,7 @@ import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.service.MovieDescriptorService;
 
 /**
- * Test indexing almost 7000 movie synopsis and critics consensus
+ * Test indexing almost 14000 movie data
  * 
  * @author Ariel
  * 
@@ -51,14 +50,13 @@ public class QueryLargeDatabaseTest {
     protected org.apache.log4j.Logger log = Logger.getLogger(QueryLargeDatabaseTest.class);
 
     @Test
-    @Ignore
     public void testIndexMovies() throws IOException, ClassNotFoundException {
 	long startAll = 0;
 	long end = 0;
 
 	startAll = System.currentTimeMillis();
 	FileInputStream inStream = new FileInputStream(new File(
-		"D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\index_serialized"));
+		"D:\\.facultate\\dizertatie\\MovieFinderServer_git\\dbscript\\index_serialized_full_name_cast"));
 	ObjectInputStream ois = new ObjectInputStream(inStream);
 
 	HashMap<String, IndexEntry> invertedIndex = readInvertedIndex(ois);
@@ -80,12 +78,9 @@ public class QueryLargeDatabaseTest {
 	log.warn("querying took: " + (end - startQuery));
 
 	log.warn("everything took: " + (end - startAll));
-
-	// indexEngine.writeIndexToFile();
     }
     
     @Test
-    @Ignore
     public void testIndexingLargeDatabase() throws InvalidMovieDescriptorException, FileNotFoundException, IOException, ClassNotFoundException {
 	long end = 0;
 
@@ -93,7 +88,7 @@ public class QueryLargeDatabaseTest {
 	 * 1. Setup (put the index into memory)
 	 */
 	FileInputStream inStream = new FileInputStream(new File(
-		"D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\index_serialized"));
+		"D:\\.facultate\\dizertatie\\MovieFinderServer_git\\dbscript\\index_serialized_full_name_cast"));
 	ObjectInputStream ois = new ObjectInputStream(inStream);
 
 	HashMap<String, IndexEntry> invertedIndex = readInvertedIndex(ois);
@@ -108,15 +103,26 @@ public class QueryLargeDatabaseTest {
 	long startQuery = System.currentTimeMillis();
 
 	log.warn("Results: ");
-	queryEngine.queryIndex("dog found by his master at a train station");
+	queryEngine.queryIndex("orphaned dinosaur raised by lemurs");
 	end = System.currentTimeMillis();
 	log.warn("Querying took: " + (end - startQuery));
 
 	/**
-	 * 3. Mark two results as relevant
+	 * 3. Mark one result as relevant
 	 */
-	Long[] relevantDocuments = { 846L, 3228L };
-	Map<String, Float> queryTokens = queryEngine.getQueryWeights();
+	Long[] relevantDocuments = { 1473L };
+	Map<String, Float> queryTokens = new HashMap<String, Float>();
+
+	queryTokens.put("orphan", 1f);
+	queryTokens.put("dinosaur", 1f);
+	queryTokens.put("raise", 1f);
+	queryTokens.put("lemur", 1f);
+
+	/**
+	 * queryTokens.put("dog", 1f); queryTokens.put("found", 1f);
+	 * queryTokens.put("master", 1f); queryTokens.put("train", 1f);
+	 * queryTokens.put("station", 1f);
+	 **/
 
 	Map<String, Float> newQueryVector = relevanceFeedbackEngine.getRefinedQuery(queryTokens, relevantDocuments);
 
@@ -126,16 +132,18 @@ public class QueryLargeDatabaseTest {
 	queryEngine.queryIndex(newQueryVector);
     }
 
-    @SuppressWarnings("unused")
-    private long indexDataFromDB(long count) throws InvalidMovieDescriptorException {
+    private long indexDataFromDB(long count) {
 	// populate the index
-	for (int i = 1; i <= 28026; i++) {
+	for (int i = 1; i <= count; i++) {
 	    MovieDescriptor movieDescriptor = movieDescriptorService.find((long) i);
 	    if (movieDescriptor != null) {
-		indexEngine.addEntry(movieDescriptor);
+		try {
+		    indexEngine.addEntry(movieDescriptor);
 
-		log.warn("indexed: " + count);
-		count++;
+		    log.warn("indexed: " + i);
+		} catch (InvalidMovieDescriptorException imde) {
+		    log.warn("didn't index " + i + " because of not enough data");
+		}
 	    }
 	}
 	return count;
@@ -165,31 +173,25 @@ public class QueryLargeDatabaseTest {
      * @throws InvalidMovieDescriptorException
      * 
      */
-    @SuppressWarnings("unused")
-    private void indexFromDatabase() throws IOException, InvalidMovieDescriptorException {
+    @Test
+    public void indexFromDatabase() throws IOException, InvalidMovieDescriptorException {
 	long start = System.currentTimeMillis();
 	long end = System.currentTimeMillis();
 
 	// 1. get movies from the database
-	List<MovieDescriptor> movieDescriptors = movieDescriptorService.list();
-	end = System.currentTimeMillis();
-	log.warn("querying the whole movies took: " + (end - start));
+	indexDataFromDB(16100);
 
-	// 2. add them to the memory based index
-	start = System.currentTimeMillis();
-	for (MovieDescriptor movieDescriptor : movieDescriptors) {
-	    indexEngine.addEntry(movieDescriptor);
-	}
 	end = System.currentTimeMillis();
-
-	serializeIndex();
 
 	log.warn("indexing took: " + (end - start));
+
+	// 2. serialize the MBI
+	serializeIndex();
     }
 
     private void serializeIndex() throws FileNotFoundException, IOException {
 	FileOutputStream outStream = new FileOutputStream(new File(
-		"D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\index_serialized"));
+		"D:\\.facultate\\dizertatie\\MovieFinderServer_git\\dbscript\\index_serialized"));
 	ObjectOutputStream oos = new ObjectOutputStream(outStream);
 	oos.writeObject(indexEngine.getInvertedIndex());
 	oos.writeObject(indexEngine.getMovieDetails());

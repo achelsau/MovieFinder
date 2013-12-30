@@ -3,6 +3,7 @@ package com.arielsweb.moviefinder.crawler;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 
+import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -30,6 +31,8 @@ public class MovieListCrawler {
     private MovieDescriptorService movieDescriptorService;
     @Autowired
     private MovieObjectCrawler movieObjectCrawler;
+    /** The logger. */
+    protected org.apache.log4j.Logger log = Logger.getLogger(MovieListCrawler.class);
 
     /**
      * Creates a new movie list crawler
@@ -73,7 +76,7 @@ public class MovieListCrawler {
 
 	    String movieId = linkToMovie.substring(linkToMovie.indexOf("title") + 6, linkToMovie.length() - 1);
 	    if (movieDescriptorService.isUnique(movieId, source.getId(), null, null)) {
-		Thread.sleep(1600);
+		Thread.sleep(1000);
 
 		try {
 		    MovieDescriptor movieDescriptor = movieObjectCrawler.getMovieObject("http://www.imdb.com/title/",
@@ -82,6 +85,7 @@ public class MovieListCrawler {
 		    if (movieDescriptor != null) {
 			movieDescriptor.setSource(source);
 			movieDescriptorService.save(movieDescriptor);
+			log.info("Added " + movieDescriptor.getName());
 
 			counter++;
 		    }
