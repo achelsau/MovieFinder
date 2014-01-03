@@ -65,6 +65,16 @@
                 <liquibase.changeLogFile>src/main/resources/db/db.changelog-master.xml</liquibase.changeLogFile>
             </properties>
         </profile>
+        <profile>
+            <id>scalability_test</id>
+            <properties>
+                <liquibase.url>jdbc:mysql://localhost/moviefinder_scalability_test</liquibase.url>
+                <liquibase.driver>com.mysql.jdbc.Driver</liquibase.driver>
+                <liquibase.username>root</liquibase.username>
+                <liquibase.password>testing</liquibase.password>
+                <liquibase.changeLogFile>src/main/resources/db/db.changelog-master.xml</liquibase.changeLogFile>
+            </properties>
+        </profile>
     </profiles>
 
 	<dependencies>

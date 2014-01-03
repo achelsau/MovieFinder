@@ -10,9 +10,11 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Comparator;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
+import com.arielsweb.moviefinder.index.dto.ResultInfo;
 import com.arielsweb.moviefinder.model.PersistentQuery;
 import com.arielsweb.moviefinder.webservice.controllers.ResultInfoResponse;
 
@@ -202,5 +204,14 @@ public class QueryEngineUtils {
 	}
 
 	return responseCode;
+    }
+
+    public class ResultInfoIdComparator implements Comparator<ResultInfo> {
+
+	@Override
+	public int compare(ResultInfo o1, ResultInfo o2) {
+	    return o1.getId().compareTo(o2.getId());
+	}
+
     }
 }

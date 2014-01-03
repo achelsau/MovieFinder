@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.unitils.UnitilsJUnit4TestClassRunner;
@@ -50,6 +51,7 @@ public class QueryLargeDatabaseTest {
     protected org.apache.log4j.Logger log = Logger.getLogger(QueryLargeDatabaseTest.class);
 
     @Test
+    @Ignore
     public void testIndexMovies() throws IOException, ClassNotFoundException {
 	long startAll = 0;
 	long end = 0;
@@ -81,6 +83,7 @@ public class QueryLargeDatabaseTest {
     }
     
     @Test
+    @Ignore
     public void testIndexingLargeDatabase() throws InvalidMovieDescriptorException, FileNotFoundException, IOException, ClassNotFoundException {
 	long end = 0;
 
@@ -174,6 +177,7 @@ public class QueryLargeDatabaseTest {
      * 
      */
     @Test
+    @Ignore
     public void indexFromDatabase() throws IOException, InvalidMovieDescriptorException {
 	long start = System.currentTimeMillis();
 	long end = System.currentTimeMillis();

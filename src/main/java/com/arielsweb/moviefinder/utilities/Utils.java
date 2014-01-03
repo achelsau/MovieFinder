@@ -10,7 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 
 /**
- * Utility methods for IR Agent Server
+ * Utility methods for Movie Finder Server
  * 
  * @author Ariel
  * @date 1/12/2011

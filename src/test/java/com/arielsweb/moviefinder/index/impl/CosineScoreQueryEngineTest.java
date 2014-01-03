@@ -3,10 +3,12 @@ package com.arielsweb.moviefinder.index.impl;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.joda.time.DateMidnight;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,10 +25,13 @@ import com.arielsweb.moviefinder.index.dto.ResultInfo;
 import com.arielsweb.moviefinder.index.exception.InvalidMovieDescriptorException;
 import com.arielsweb.moviefinder.index.exception.InvalidQueryException;
 import com.arielsweb.moviefinder.model.Genre;
+import com.arielsweb.moviefinder.model.MovieCrewPerson;
+import com.arielsweb.moviefinder.model.MovieCrewPersonType;
 import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.MovieSource;
 import com.arielsweb.moviefinder.service.MovieDescriptorService;
 import com.arielsweb.moviefinder.service.MovieSourceService;
+import com.arielsweb.moviefinder.webservice.util.QueryEngineUtils;
 
 /**
  * Tests the {@link CosineScoreQueryEngine}
@@ -72,6 +77,7 @@ public class CosineScoreQueryEngineTest {
 	genres.add(Genre.ACTION_ADVENTURE);
 	genres.add(Genre.SCIENCE_FICTION_FANTASY);
 	descriptor1Serenity.setGenres(genres);
+	descriptor1Serenity.setReleaseDate(new DateMidnight(1980, 9, 30).toDate());
 	movieDescriptorService.save(descriptor1Serenity);
 
 	descriptor2WorldOnWire = new MovieDescriptor();
@@ -88,6 +94,7 @@ public class CosineScoreQueryEngineTest {
 	genres.add(Genre.ART_HOUSE_INTERNATIONAL);
 	genres.add(Genre.SCIENCE_FICTION_FANTASY);
 	descriptor2WorldOnWire.setGenres(genres);
+	descriptor2WorldOnWire.setReleaseDate(new DateMidnight(1990, 9, 30).toDate());
 	movieDescriptorService.save(descriptor2WorldOnWire);
 
 	descriptor3IronMan = new MovieDescriptor();
@@ -103,6 +110,7 @@ public class CosineScoreQueryEngineTest {
 	genres.add(Genre.ACTION_ADVENTURE);
 	genres.add(Genre.SCIENCE_FICTION_FANTASY);
 	descriptor3IronMan.setGenres(genres);
+	descriptor3IronMan.setReleaseDate(new DateMidnight(2000, 9, 30).toDate());
 	movieDescriptorService.save(descriptor3IronMan);
 
 	descriptor4HitchHiker = new MovieDescriptor();
@@ -117,6 +125,7 @@ public class CosineScoreQueryEngineTest {
 	genres.add(Genre.COMEDY);
 	genres.add(Genre.SCIENCE_FICTION_FANTASY);
 	descriptor4HitchHiker.setGenres(genres);
+	descriptor4HitchHiker.setReleaseDate(new DateMidnight(2001, 9, 30).toDate());
 	movieDescriptorService.save(descriptor4HitchHiker);
 
 	descriptor5Alien = new MovieDescriptor();
@@ -131,6 +140,7 @@ public class CosineScoreQueryEngineTest {
 	genres.add(Genre.MYSTERY_SUSPENSE);
 	genres.add(Genre.SCIENCE_FICTION_FANTASY);
 	descriptor5Alien.setGenres(genres);
+	descriptor5Alien.setReleaseDate(new DateMidnight(2002, 9, 30).toDate());
 	movieDescriptorService.save(descriptor5Alien);
 
 	descriptor6DayAfter = new MovieDescriptor();
@@ -145,6 +155,7 @@ public class CosineScoreQueryEngineTest {
 	genres.add(Genre.MYSTERY_SUSPENSE);
 	genres.add(Genre.SCIENCE_FICTION_FANTASY);
 	descriptor6DayAfter.setGenres(genres);
+	descriptor6DayAfter.setReleaseDate(new DateMidnight(2003, 9, 30).toDate());
 	movieDescriptorService.save(descriptor6DayAfter);
 
 	descriptor7Prometheus = new MovieDescriptor();
@@ -161,6 +172,7 @@ public class CosineScoreQueryEngineTest {
 	genres.add(Genre.HORROR);
 	genres.add(Genre.SCIENCE_FICTION_FANTASY);
 	descriptor7Prometheus.setGenres(genres);
+	descriptor7Prometheus.setReleaseDate(new DateMidnight(2004, 9, 30).toDate());
 	movieDescriptorService.save(descriptor7Prometheus);
 
 	descriptor8GhostShip = new MovieDescriptor();
@@ -174,7 +186,312 @@ public class CosineScoreQueryEngineTest {
 	genres = new HashSet<Genre>();
 	genres.add(Genre.HORROR);
 	descriptor8GhostShip.setGenres(genres);
+	descriptor8GhostShip.setReleaseDate(new DateMidnight(2005, 9, 30).toDate());
 	movieDescriptorService.save(descriptor8GhostShip);
+
+    }
+
+    /**
+     * Saves {@link MovieDescriptor}s into database
+     * 
+     * @throws InvalidMovieDescriptorException
+     */
+    @Test
+    public void saveDescriptorsWithCastIntoDatabase() throws InvalidMovieDescriptorException {
+	// setup
+	invertedIndexEngine.clearIndex();
+
+	// save the source
+	MovieSource movieSource = new MovieSource();
+	movieSource.setLocation("http://rottentomatoes.com");
+	movieSource.setName("Rotten Tomatoes");
+	movieSourceService.save(movieSource);
+
+	MovieDescriptor descriptor1Serenity = new MovieDescriptor();
+	descriptor1Serenity.setId(1L);
+	descriptor1Serenity.setName("Serenity");
+	descriptor1Serenity.setYear(2005);
+	descriptor1Serenity.setRemotePath("http://www.rottentomatoes.com/m/serenity/");
+	descriptor1Serenity.setRemoteId("12345");
+	descriptor1Serenity.setSource(movieSource);
+	descriptor1Serenity
+		.setSynopsis("A band of renegades on the run in outer space get in more hot water than they anticipated in this sci-fi action-adventure adapted from the television series Firefly. In the 26th century, the galaxy has been colonized by a military force known as the Alliance, but its leadership has not gone unquestioned. The Alliance was once challenged by a league of rebels known as the Independents, but the Alliance emerged victorious after a brutal civil war, with the surviving Independents scattering around the galaxy.");
+	Set<Genre> genres = new HashSet<Genre>();
+	genres.add(Genre.ACTION_ADVENTURE);
+	genres.add(Genre.SCIENCE_FICTION_FANTASY);
+	descriptor1Serenity.setGenres(genres);
+	descriptor1Serenity.setReleaseDate(new DateMidnight(2005, 9, 30).toDate());
+
+	Set<MovieCrewPerson> movieActorsSerenity = new HashSet<MovieCrewPerson>();
+	// in reality, a name of an actor which appears in multiple movies would
+	// be a common instance across movie descriptors
+	MovieCrewPerson nathanFillion = new MovieCrewPerson("Nathan Fillion", MovieCrewPersonType.ACTOR);
+	movieActorsSerenity.add(nathanFillion);
+	movieActorsSerenity.add(new MovieCrewPerson("Gina Torres", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Alan Tudyk", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Adam Baldwin", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Morena Baccarin", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Jewel Staite", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Summer Glau", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Sean Maher", MovieCrewPersonType.ACTOR));
+
+	MovieCrewPerson ronGlass = new MovieCrewPerson("Ron Glass", MovieCrewPersonType.ACTOR);
+	movieActorsSerenity.add(ronGlass);
+
+	movieActorsSerenity.add(new MovieCrewPerson("Chiwetel Ejiofor", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("David Krumholtz", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Michael Hitchcock", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Sarah Paulson", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Yan Feldman", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Rafael Feldman", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Nectar Rose", MovieCrewPersonType.ACTOR));
+	movieActorsSerenity.add(new MovieCrewPerson("Tamara Taylor", MovieCrewPersonType.ACTOR));
+
+	descriptor1Serenity.setActors(movieActorsSerenity);
+
+	Set<MovieCrewPerson> movieDirectorsSerenity = new HashSet<MovieCrewPerson>();
+	movieDirectorsSerenity.add(new MovieCrewPerson("Joss Whedon", MovieCrewPersonType.DIRECTOR));
+
+	descriptor1Serenity.setDirectors(movieDirectorsSerenity);
+
+	Set<MovieCrewPerson> movieScreenwritersSerenity = new HashSet<MovieCrewPerson>();
+	movieScreenwritersSerenity.add(new MovieCrewPerson("Joss Whedon", MovieCrewPersonType.SCREENWRITER));
+
+	descriptor1Serenity.setScreenwriters(movieScreenwritersSerenity);
+
+	movieDescriptorService.save(descriptor1Serenity);
+
+	MovieDescriptor descriptor2SavingPrivateRyan = new MovieDescriptor();
+	descriptor2SavingPrivateRyan.setId(2L);
+	descriptor2SavingPrivateRyan.setName("Saving Private Ryan");
+	descriptor2SavingPrivateRyan.setYear(1998);
+	descriptor2SavingPrivateRyan.setRemotePath("http://www.rottentomatoes.com/m/saving_private_ryan/");
+	descriptor2SavingPrivateRyan.setRemoteId("12346");
+	descriptor2SavingPrivateRyan.setSource(movieSource);
+	descriptor2SavingPrivateRyan
+		.setSynopsis("Steven Spielberg directed this powerful, realistic re-creation of WWII's D-day invasion and the immediate aftermath. The story opens with a prologue in which a veteran brings his family to the American cemetery at Normandy, and a flashback then joins Capt. John Miller (Tom Hanks) and GIs in a landing craft making the June 6, 1944, approach to Omaha Beach to face devastating German artillery fire. This mass slaughter of American soldiers is depicted in a compelling, unforgettable 24-minute sequence. Miller's men slowly move forward to finally take a concrete pillbox. On the beach littered with bodies is one with the name 'Ryan' stenciled on his backpack. Army Chief of Staff Gen. George C. Marshall (Harve Presnell), learning that three Ryan brothers from the same family have all been killed in a single week, requests that the surviving brother, Pvt. James Ryan (Matt Damon), be located and brought back to the United States. Capt. Miller gets the assignment, and he chooses a translator, Cpl. Upham (Jeremy Davis), skilled in language but not in combat, to join his squad of right-hand man Sgt. Horvath (Tom Sizemore), plus privates Mellish (Adam Goldberg), Medic Wade (Giovanni Ribisi), cynical Reiben (Edward Burns) from Brooklyn, Italian-American Caparzo (Vin Diesel), and religious Southerner Jackson (Barry Pepper), an ace sharpshooter who calls on the Lord while taking aim. Having previously experienced action in Italy and North Africa, the close-knit squad sets out through areas still thick with Nazis. After they lose one man in a skirmish at a bombed village, some in the group begin to question the logic of losing more lives to save a single soldier. The film's historical consultant is Stephen E. Ambrose, and the incident is based on a true occurance in Ambrose's 1994 bestseller D-Day: June 6, 1944.");
+	genres = new HashSet<Genre>();
+	genres.add(Genre.DRAMA);
+	genres.add(Genre.ACTION_ADVENTURE);
+	descriptor2SavingPrivateRyan.setGenres(genres);
+	descriptor2SavingPrivateRyan.setReleaseDate(new DateMidnight(1988, 11, 6).toDate());
+
+	Set<MovieCrewPerson> movieActorsSavingPrivateRyan = new HashSet<MovieCrewPerson>();
+
+	MovieCrewPerson tomHanks = new MovieCrewPerson("Tom Hanks", MovieCrewPersonType.ACTOR);
+	movieActorsSavingPrivateRyan.add(tomHanks);
+
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Edward Burns", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Tom Sizemore", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Jeremy Davies", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Vin Diesel", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Adam Goldberg", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Barry Pepper ", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Giovanni Ribisi", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(ronGlass);
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Matt Damon", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Dennis Farina", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Ted Danson", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Harve Presnell", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Dale Dye", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Bryan Cranston", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("David Wohl", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Paul Giamatti", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Ryan Hurst", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Harrison Young", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Max Martini", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(new MovieCrewPerson("Dylan Bruno", MovieCrewPersonType.ACTOR));
+	movieActorsSavingPrivateRyan.add(nathanFillion);
+	descriptor2SavingPrivateRyan.setActors(movieActorsSavingPrivateRyan);
+
+	Set<MovieCrewPerson> movieDirectorsSavingPrivateRyan = new HashSet<MovieCrewPerson>();
+
+	MovieCrewPerson stevenSpielberg = new MovieCrewPerson("Steven Spielberg", MovieCrewPersonType.DIRECTOR);
+	movieDirectorsSavingPrivateRyan.add(stevenSpielberg);
+
+	descriptor2SavingPrivateRyan.setDirectors(movieDirectorsSavingPrivateRyan);
+
+	Set<MovieCrewPerson> movieScreenWritersSavingPrivateRyan = new HashSet<MovieCrewPerson>();
+	movieScreenWritersSavingPrivateRyan.add(new MovieCrewPerson("Robert Rodat", MovieCrewPersonType.SCREENWRITER));
+	descriptor2SavingPrivateRyan.setScreenwriters(movieScreenWritersSavingPrivateRyan);
+
+	movieDescriptorService.save(descriptor2SavingPrivateRyan);
+
+	MovieDescriptor descriptor3CastAway = new MovieDescriptor();
+	descriptor3CastAway.setName("Cast Away");
+	descriptor3CastAway.setId(3L);
+	descriptor3CastAway.setYear(2000);
+	descriptor3CastAway.setRemotePath("http://www.rottentomatoes.com/m/cast_away/");
+	descriptor3CastAway.setRemoteId("12347");
+	descriptor3CastAway.setSource(movieSource);
+	descriptor3CastAway
+		.setSynopsis("An exploration of human survival and the ability of fate to alter even the tidiest of lives with one major event, Cast Away tells the story of Chuck Noland (Tom Hanks), a Federal Express engineer who devotes most of his life to his troubleshooting job. His girlfriend Kelly (Helen Hunt) is often neglected by his dedication to work, and his compulsive personality suggests a conflicted man. But on Christmas Eve, Chuck proposes marriage to Kelly right before embarking on a large assignment. On the assignment, a plane crash strands Chuck on a remote island, and his fast-paced life is slowed to a crawl, as he is miles removed from any human contact. Finding solace only in a volleyball that he befriends, Chuck must now learn to endure the emotional and physical stress of his new life, unsure of when he may return to the civilization he knew before. Cast Away reunites star Hanks with director Robert Zemeckis, their first film together since 1994's Oscar-winning Forrest Gump.");
+	genres = new HashSet<Genre>();
+	genres.add(Genre.DRAMA);
+	genres.add(Genre.ACTION_ADVENTURE);
+	descriptor3CastAway.setGenres(genres);
+	descriptor3CastAway.setReleaseDate(new DateMidnight(2000, 12, 22).toDate());
+
+	Set<MovieCrewPerson> movieActorsCastAway = new HashSet<MovieCrewPerson>();
+	movieActorsCastAway.add(tomHanks);
+	movieActorsCastAway.add(new MovieCrewPerson("Helen Hunt", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Chris Noth", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Nick Searcy", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Lari White", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Michael Forest", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Viveka Davis", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Ashley Edner", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Christopher Kriesa", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Elden Henson", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Geoffrey Blake", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Jay Acovone", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Jenifer Lewis", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Valerie Wildman", MovieCrewPersonType.ACTOR));
+	movieActorsCastAway.add(new MovieCrewPerson("Nan Martin", MovieCrewPersonType.ACTOR));
+	descriptor3CastAway.setActors(movieActorsCastAway);
+
+	Set<MovieCrewPerson> movieDirectorCastAway = new HashSet<MovieCrewPerson>();
+	movieDirectorCastAway.add(new MovieCrewPerson("Robert Zemeckis", MovieCrewPersonType.DIRECTOR));
+
+	descriptor3CastAway.setDirectors(movieDirectorCastAway);
+
+	Set<MovieCrewPerson> movieScreenwritersCastAway = new HashSet<MovieCrewPerson>();
+	movieScreenwritersCastAway.add(new MovieCrewPerson("William Broyles", MovieCrewPersonType.SCREENWRITER));
+
+	descriptor3CastAway.setScreenwriters(movieScreenwritersCastAway);
+
+	movieDescriptorService.save(descriptor3CastAway);
+
+	MovieDescriptor descriptor4WarHorse = new MovieDescriptor();
+	descriptor4WarHorse.setName("War Horse");
+	descriptor4WarHorse.setId(4L);
+	descriptor4WarHorse.setYear(2011);
+	descriptor4WarHorse.setRemotePath("http://www.rottentomatoes.com/m/war_horse/");
+	descriptor4WarHorse.setRemoteId("12348");
+	descriptor4WarHorse.setSource(movieSource);
+	descriptor4WarHorse
+		.setSynopsis("Set against a sweeping canvas of rural England and Europe during the First World War, War Horse begins with the remarkable friendship between a horse named Joey and a young man called Albert, who tames and trains him. When they are forcefully parted, the film follows the extraordinary journey of the horse as he moves through the war, changing and inspiring the lives of all those he meets-British cavalry, German soldiers, and a French farmer and his granddaughter-before the story reaches its emotional climax in the heart of No Man's Land. The First World War is experienced through the journey of this horse-an odyssey of joy and sorrow, passionate friendship and high adventure.");
+	genres = new HashSet<Genre>();
+	genres.add(Genre.DRAMA);
+	genres.add(Genre.ACTION_ADVENTURE);
+	descriptor4WarHorse.setGenres(genres);
+
+	Set<MovieCrewPerson> movieActorsWarHorse = new HashSet<MovieCrewPerson>();
+	movieActorsWarHorse.add(new MovieCrewPerson("Jeremy Irvine", MovieCrewPersonType.ACTOR));
+	movieActorsWarHorse.add(new MovieCrewPerson("Emily Watson", MovieCrewPersonType.ACTOR));
+	movieActorsWarHorse.add(new MovieCrewPerson("Peter Mullan", MovieCrewPersonType.ACTOR));
+	movieActorsWarHorse.add(new MovieCrewPerson("David Thewlis", MovieCrewPersonType.ACTOR));
+	movieActorsWarHorse.add(new MovieCrewPerson("David Kross", MovieCrewPersonType.ACTOR));
+	descriptor4WarHorse.setActors(movieActorsWarHorse);
+
+	Set<MovieCrewPerson> movieDirectorsWarHorse = new HashSet<MovieCrewPerson>();
+	movieDirectorsWarHorse.add(stevenSpielberg);
+	descriptor4WarHorse.setDirectors(movieDirectorsWarHorse);
+
+	Set<MovieCrewPerson> movieScreenwritersWarHorse = new HashSet<MovieCrewPerson>();
+	movieScreenwritersWarHorse.add(new MovieCrewPerson("Lee Hall", MovieCrewPersonType.SCREENWRITER));
+	descriptor4WarHorse.setScreenwriters(movieScreenwritersWarHorse);
+	descriptor4WarHorse.setReleaseDate(new DateMidnight(2011, 2, 10).toDate());
+	movieDescriptorService.save(descriptor4WarHorse);
+
+	invertedIndexEngine.setIndexFullNamesForCastAndCrew(false);
+
+	// execute
+	invertedIndexEngine.addEntry(descriptor1Serenity);
+	invertedIndexEngine.addEntry(descriptor2SavingPrivateRyan);
+	invertedIndexEngine.addEntry(descriptor3CastAway);
+	invertedIndexEngine.addEntry(descriptor4WarHorse);
+
+	// execute
+	List<ResultInfo> results = cosineQueryEngine.queryIndex("Steven Spielberg");
+
+	// verify
+	assertNotNull(results);
+
+	Assert.assertEquals(2, results.size());
+
+	// the results will have the same score so do the sorting based on id
+	Collections.sort(results, new QueryEngineUtils().new ResultInfoIdComparator());
+
+	// verify the order and scores
+	assertEquals(descriptor2SavingPrivateRyan.getId(), results.get(0).getId());
+	assertEquals(descriptor2SavingPrivateRyan.getName(), results.get(0).getTitle());
+	assertEquals(descriptor2SavingPrivateRyan.getSynopsis(), results.get(0).getDescription());
+	assertEquals(descriptor2SavingPrivateRyan.getRemotePath(), results.get(0).getRemotePath());
+	assertEquals(descriptor2SavingPrivateRyan.getSource().getName(), results.get(0).getSource());
+
+	// idf("Steven") * tf("Steven", doc2) + idf("Spielberg") *
+	// tf("Spielberg", doc2) = 0.69314718056 + 0.69314718056
+	assertEquals(Float.valueOf("1.3862944"), results.get(0).getScore());
+
+	assertEquals(descriptor4WarHorse.getId(), results.get(1).getId());
+	assertEquals(descriptor4WarHorse.getName(), results.get(1).getTitle());
+	assertEquals(descriptor4WarHorse.getSynopsis(), results.get(1).getDescription());
+	assertEquals(descriptor4WarHorse.getRemotePath(), results.get(1).getRemotePath());
+	assertEquals(descriptor4WarHorse.getSource().getName(), results.get(1).getSource());
+
+	// idf("Steven") * tf("Steven", doc4) + idf("Spielberg") *
+	// tf("Spielberg", doc4) = 0.69314718056 + 0.69314718056
+	assertEquals(Float.valueOf("1.3862944"), results.get(1).getScore());
+    }
+
+    /**
+     * Tests the results returned by the query method from the
+     * {@link IQueryEngine#queryIndex(String)}. The algorithm won't normalize
+     * the scores according to document length.
+     * 
+     * @throws InvalidMovieDescriptorException
+     */
+    @Test
+    public void testEngineForSuccessfulQuery_WithNoCastAndCrew() throws InvalidMovieDescriptorException {
+	// setup
+	saveDescriptorsIntoDatabase();
+
+	invertedIndexEngine.clearIndex();
+
+	invertedIndexEngine.addEntry(descriptor1Serenity);
+
+	invertedIndexEngine.addEntry(descriptor2WorldOnWire);
+
+	invertedIndexEngine.addEntry(descriptor3IronMan);
+
+	invertedIndexEngine.addEntry(descriptor4HitchHiker);
+
+	invertedIndexEngine.addEntry(descriptor5Alien);
+
+	invertedIndexEngine.addEntry(descriptor6DayAfter);
+
+	invertedIndexEngine.addEntry(descriptor7Prometheus);
+
+	invertedIndexEngine.addEntry(descriptor8GhostShip);
+
+	// execute
+	List<ResultInfo> results = cosineQueryEngine.queryIndex("ship computer");
+
+	// verify
+	assertNotNull(results);
+
+	Assert.assertEquals(2, results.size());
+
+	// verify the order and scores
+	assertEquals(descriptor5Alien.getId(), results.get(0).getId());
+	assertEquals(descriptor5Alien.getName(), results.get(0).getTitle());
+	assertEquals(descriptor5Alien.getSynopsis(), results.get(0).getDescription());
+	assertEquals(descriptor5Alien.getRemotePath(), results.get(0).getRemotePath());
+	assertEquals(descriptor5Alien.getSource().getName(), results.get(0).getSource());
+
+	// idf(ship) * tf(ship, doc5) + idf(computer) * tf(computer, doc5) =
+	// 1.3862944 * 2 + 2.0794415 * 1 = 4.8520303
+	assertEquals(Float.valueOf("4.8520303"), results.get(0).getScore());
+
+	assertEquals(descriptor8GhostShip.getId(), results.get(1).getId());
+	assertEquals(descriptor8GhostShip.getName(), results.get(1).getTitle());
+	assertEquals(descriptor8GhostShip.getSynopsis(), results.get(1).getDescription());
+	assertEquals(descriptor8GhostShip.getRemotePath(), results.get(1).getRemotePath());
+	assertEquals(descriptor8GhostShip.getSource().getName(), results.get(1).getSource());
+
+	// idf (ship) * tf(ship, doc8) = 1.3862944 * 3 = 4.1588832
+	assertEquals(Float.valueOf("4.158883"), results.get(1).getScore());
 
     }
 
@@ -186,7 +503,7 @@ public class CosineScoreQueryEngineTest {
      * @throws InvalidMovieDescriptorException
      */
     @Test
-    public void testEngineForSuccessfulQuery() throws InvalidMovieDescriptorException {
+    public void testEngineForSuccessfulQuery_WithCastAndCrew() throws InvalidMovieDescriptorException {
 	// setup
 	saveDescriptorsIntoDatabase();
 

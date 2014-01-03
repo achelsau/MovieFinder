@@ -1,6 +1,7 @@
 package com.arielsweb.moviefinder.index.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <pre>
@@ -24,6 +25,7 @@ public class MovieDetailsDTO implements Serializable {
     private short termCount;
     private float score;
     private String title, desc, source, path;
+    private Date releaseDate;
 
     /**
      * Creates the details about a movie from the online index
@@ -37,12 +39,13 @@ public class MovieDetailsDTO implements Serializable {
      *            the path from the owner's computers
      */
     public MovieDetailsDTO(String title, String desc, String source,
-	    String path) {
+	    String path, Date releaseDate) {
 	super();
 	this.title = title;
 	this.desc = desc;
 	this.source = source;
 	this.path = path;
+	this.releaseDate = releaseDate;
     }
 
     public short getTermCount() {
@@ -91,5 +94,13 @@ public class MovieDetailsDTO implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Date getReleaseDate() {
+	return releaseDate;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+	this.releaseDate = releaseDate;
     }
 }

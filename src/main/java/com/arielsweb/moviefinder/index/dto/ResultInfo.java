@@ -1,5 +1,7 @@
 package com.arielsweb.moviefinder.index.dto;
 
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -17,6 +19,9 @@ public class ResultInfo implements Comparable<ResultInfo> {
      * and the URL where it can be accessed
      **/
     private String movieTitle, description, source, remotePath;
+
+    private Date releaseDate;
+
     /**
      * the database id of the movie
      */
@@ -77,6 +82,21 @@ public class ResultInfo implements Comparable<ResultInfo> {
 
     public void setRemotePath(String remotePath) {
         this.remotePath = remotePath;
+    }
+
+    /**
+     * @return the releaseDate
+     */
+    public Date getReleaseDate() {
+	return releaseDate;
+    }
+
+    /**
+     * @param releaseDate
+     *            the releaseDate to set
+     */
+    public void setReleaseDate(Date releaseDate) {
+	this.releaseDate = releaseDate;
     }
 
     @Override

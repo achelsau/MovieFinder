@@ -110,6 +110,14 @@ public class CosineScoreQueryEngine implements IQueryEngine {
 	ResultsExtractor extractor = new ResultsExtractor();
 	ResultInfo[] resultValues = new ResultInfo[0];
 	resultValues = results.values().toArray(resultValues);
+	for (Map.Entry<Long, ResultInfo> pair : results.entrySet()) {
+	    MovieDetailsDTO movieDetail = movieDetails.get(pair.getKey());
+
+	    ResultInfo result = pair.getValue();
+	    result.setReleaseDate(movieDetail.getReleaseDate());
+	}
+
+	// build max heap only after release dates have been set
 	extractor.buildMaxHeap(resultValues);
 
 	List<ResultInfo> orderedResults = new ArrayList<ResultInfo>();
@@ -121,6 +129,7 @@ public class CosineScoreQueryEngine implements IQueryEngine {
 	    result.setTitle(movieDetail.getTitle());
 	    result.setSource(movieDetail.getSource());
 	    result.setRemotePath(movieDetail.getPath());
+	    result.setReleaseDate(movieDetail.getReleaseDate());
 	    log.info(result.getScore() + ", " + result.getTitle() + ", " + result.getDescription());
 
 	    orderedResults.add(result);

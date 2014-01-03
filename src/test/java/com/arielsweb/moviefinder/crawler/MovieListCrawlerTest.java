@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.unitils.UnitilsJUnit4TestClassRunner;
 import org.unitils.database.annotations.Transactional;
 import org.unitils.database.util.TransactionMode;
+import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.spring.annotation.SpringApplicationContext;
 import org.unitils.spring.annotation.SpringBeanByType;
 
@@ -29,6 +30,7 @@ import com.arielsweb.moviefinder.service.MovieSourceService;
  * @author Ariel
  * 
  */
+@DataSet("MovieListCrawlerTest.xml")
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 @SpringApplicationContext({ "applicationContext-data-test.xml" })
 @Transactional(TransactionMode.DISABLED)

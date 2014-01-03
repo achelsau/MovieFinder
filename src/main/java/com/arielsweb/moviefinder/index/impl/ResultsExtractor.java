@@ -1,7 +1,5 @@
 package com.arielsweb.moviefinder.index.impl;
 
-import org.springframework.stereotype.Component;
-
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
 
 /**
@@ -10,13 +8,14 @@ import com.arielsweb.moviefinder.index.dto.ResultInfo;
  * 
  * @author Ariel
  */
-@Component
 public class ResultsExtractor {
 
     private int listLength = -1;
 
     public ResultsExtractor() {
 	super();
+
+	listLength = -1;
     }
 
     /**
@@ -27,7 +26,7 @@ public class ResultsExtractor {
      * @param i
      *            the current index from which to restore the heap property
      * @param length
-     *            the length of the array (it's passed in because the
+     *            the length of the array. It's passed in because the
      *            results.length never modifies, just has some elements set to
      *            null. It's always faster to send the length before hand than
      *            to traverse the list and calculate it each time.
@@ -36,13 +35,23 @@ public class ResultsExtractor {
 	int l = 2 * i + 1;
 	int r = 2 * i + 2;
 	int largest = 0;
-	if (l < length && results[l].getScore() > results[i].getScore()) {
+	
+	boolean scoresAreEqual = false;
+	if (l < length) {
+	    scoresAreEqual = results[l].getScore().equals(results[i].getScore());
+	}
+
+	if (l < length
+		&& (results[l].getScore() > results[i].getScore() || (scoresAreEqual && results[l].getReleaseDate()
+			.after(results[i].getReleaseDate())))) {
 	    largest = l;
 	} else {
 	    largest = i;
 	}
 
-	if (r < length && results[r].getScore() > results[largest].getScore()) {
+	if (r < length
+		&& (results[r].getScore() > results[largest].getScore() || (scoresAreEqual && results[r].getReleaseDate()
+			.after(results[largest].getReleaseDate())))) {
 	    largest = r;
 	}
 

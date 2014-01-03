@@ -86,16 +86,13 @@ public class InvertedIndexEngine implements IndexEngine {
 		|| movieDescriptor.getSynopsis().length() == 0;
 
 	String entryDesc = synopsisNotPresent ? movieDescriptor.getAlternateSynopsis() : movieDescriptor.getSynopsis();
-	String entrySource = movieDescriptor.getSource().getName();
-	String entryPath = movieDescriptor.getRemotePath();
-	String entryName = movieDescriptor.getName();
 
 	// it's pointless to add an empty synopsis movie at this point
 	if (isMovieMetadataEmpty(movieDescriptor, entryDesc)) {
 	    throw new InvalidMovieDescriptorException(Reason.MOVIE_DESCRIPTOR_WITH_EMPTY_SYNOPSIS);
 	}
 
-	createNewMovieDescriptorEntry(movieDescriptor.getId(), entryName, entryDesc, entrySource, entryPath);
+	createNewMovieDescriptorEntry(movieDescriptor);
     }
 
     /**
@@ -114,19 +111,15 @@ public class InvertedIndexEngine implements IndexEngine {
     /**
      * Creates new Movie Descriptor and reinitializes the count
      * 
-     * @param entryName
-     *            the name of the movie
-     * @param entryDesc
-     *            the description associated
-     * @param entrySource
-     *            the source of the movie to be created
-     * @param entryPath
-     *            the remote path (URL) of the movie
+     * @param movieDescriptor
+     *            the {@link MovieDescriptor} to add
      */
-    private void createNewMovieDescriptorEntry(Long fisId, String entryName, String entryDesc, String entrySource,
-	    String entryPath) {
-	MovieDetailsDTO movieDTO = new MovieDetailsDTO(entryName, entryDesc, entrySource, entryPath);
-	movieDetails.put(fisId, movieDTO); // reinitialize the term count
+    private void createNewMovieDescriptorEntry(MovieDescriptor movieDescriptor) {
+	MovieDetailsDTO movieDTO = new MovieDetailsDTO(movieDescriptor.getName(), movieDescriptor.getSynopsis(),
+		movieDescriptor.getSource().getName(), movieDescriptor.getRemotePath(),
+		movieDescriptor.getReleaseDate());
+	movieDetails.put(movieDescriptor.getId(), movieDTO); // reinitialize the
+							     // term count
 	count = movieDetails.size();
     }
 
