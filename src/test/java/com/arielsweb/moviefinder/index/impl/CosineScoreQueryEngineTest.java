@@ -4,6 +4,7 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,7 +32,6 @@ import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.MovieSource;
 import com.arielsweb.moviefinder.service.MovieDescriptorService;
 import com.arielsweb.moviefinder.service.MovieSourceService;
-import com.arielsweb.moviefinder.webservice.util.QueryEngineUtils;
 
 /**
  * Tests the {@link CosineScoreQueryEngine}
@@ -410,28 +410,33 @@ public class CosineScoreQueryEngineTest {
 
 	Assert.assertEquals(2, results.size());
 
-	// the results will have the same score so do the sorting based on id
-	Collections.sort(results, new QueryEngineUtils().new ResultInfoIdComparator());
+	// temporarily sort results with equal score based on their id
+	Collections.sort(results, new Comparator<ResultInfo>() {
+	    @Override
+	    public int compare(ResultInfo o1, ResultInfo o2) {
+		return o2.getId().compareTo(o1.getId());
+	    }
+	});
 
-	// verify the order and scores
-	assertEquals(descriptor2SavingPrivateRyan.getId(), results.get(0).getId());
-	assertEquals(descriptor2SavingPrivateRyan.getName(), results.get(0).getTitle());
-	assertEquals(descriptor2SavingPrivateRyan.getSynopsis(), results.get(0).getDescription());
-	assertEquals(descriptor2SavingPrivateRyan.getRemotePath(), results.get(0).getRemotePath());
-	assertEquals(descriptor2SavingPrivateRyan.getSource().getName(), results.get(0).getSource());
-
-	// idf("Steven") * tf("Steven", doc2) + idf("Spielberg") *
-	// tf("Spielberg", doc2) = 0.69314718056 + 0.69314718056
-	assertEquals(Float.valueOf("1.3862944"), results.get(0).getScore());
-
-	assertEquals(descriptor4WarHorse.getId(), results.get(1).getId());
-	assertEquals(descriptor4WarHorse.getName(), results.get(1).getTitle());
-	assertEquals(descriptor4WarHorse.getSynopsis(), results.get(1).getDescription());
-	assertEquals(descriptor4WarHorse.getRemotePath(), results.get(1).getRemotePath());
-	assertEquals(descriptor4WarHorse.getSource().getName(), results.get(1).getSource());
+	assertEquals(descriptor4WarHorse.getId(), results.get(0).getId());
+	assertEquals(descriptor4WarHorse.getName(), results.get(0).getTitle());
+	assertEquals(descriptor4WarHorse.getSynopsis(), results.get(0).getDescription());
+	assertEquals(descriptor4WarHorse.getRemotePath(), results.get(0).getRemotePath());
+	assertEquals(descriptor4WarHorse.getSource().getName(), results.get(0).getSource());
 
 	// idf("Steven") * tf("Steven", doc4) + idf("Spielberg") *
 	// tf("Spielberg", doc4) = 0.69314718056 + 0.69314718056
+	assertEquals(Float.valueOf("1.3862944"), results.get(0).getScore());
+
+	// verify the order and scores
+	assertEquals(descriptor2SavingPrivateRyan.getId(), results.get(1).getId());
+	assertEquals(descriptor2SavingPrivateRyan.getName(), results.get(1).getTitle());
+	assertEquals(descriptor2SavingPrivateRyan.getSynopsis(), results.get(1).getDescription());
+	assertEquals(descriptor2SavingPrivateRyan.getRemotePath(), results.get(1).getRemotePath());
+	assertEquals(descriptor2SavingPrivateRyan.getSource().getName(), results.get(1).getSource());
+
+	// idf("Steven") * tf("Steven", doc2) + idf("Spielberg") *
+	// tf("Spielberg", doc2) = 0.69314718056 + 0.69314718056
 	assertEquals(Float.valueOf("1.3862944"), results.get(1).getScore());
     }
 

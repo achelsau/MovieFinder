@@ -35,23 +35,14 @@ public class ResultsExtractor {
 	int l = 2 * i + 1;
 	int r = 2 * i + 2;
 	int largest = 0;
-	
-	boolean scoresAreEqual = false;
-	if (l < length) {
-	    scoresAreEqual = results[l].getScore().equals(results[i].getScore());
-	}
 
-	if (l < length
-		&& (results[l].getScore() > results[i].getScore() || (scoresAreEqual && results[l].getReleaseDate()
-			.after(results[i].getReleaseDate())))) {
+	if (l < length && results[l].getScore() > results[i].getScore()) {
 	    largest = l;
 	} else {
 	    largest = i;
 	}
 
-	if (r < length
-		&& (results[r].getScore() > results[largest].getScore() || (scoresAreEqual && results[r].getReleaseDate()
-			.after(results[largest].getReleaseDate())))) {
+	if (r < length && results[r].getScore() > results[largest].getScore()) {
 	    largest = r;
 	}
 
