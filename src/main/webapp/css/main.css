@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	margin: 0px;
+	background-image: url("../resources/repeated_bkgr.jpg");
+	background-repeat: repeat-x;
+}
+
+#allContent {
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+}
