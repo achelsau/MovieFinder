@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.arielsweb.moviefinder.index.IQueryEngine;
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
+import com.arielsweb.moviefinder.index.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.model.PersistentQuery;
 import com.arielsweb.moviefinder.model.User;
 import com.arielsweb.moviefinder.service.PersistentQueryService;

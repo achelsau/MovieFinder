@@ -20,6 +20,7 @@ import org.unitils.spring.annotation.SpringBeanByType;
 
 import com.arielsweb.moviefinder.index.IndexEngine;
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
+import com.arielsweb.moviefinder.index.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.index.exception.InvalidMovieDescriptorException;
 import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.MovieSource;

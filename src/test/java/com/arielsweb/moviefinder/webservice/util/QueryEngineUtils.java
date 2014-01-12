@@ -15,8 +15,8 @@ import java.util.Comparator;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
+import com.arielsweb.moviefinder.index.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.model.PersistentQuery;
-import com.arielsweb.moviefinder.webservice.controllers.ResultInfoResponse;
 
 /**
  * @author Ariel
@@ -30,9 +30,9 @@ public class QueryEngineUtils {
      *            the quick query to send to the server
      * @return the result for the quick query
      */
-    public static ResultInfoResponse quickQueryForMovie(String query) {
+    public static com.arielsweb.moviefinder.index.dto.ResultInfoResponse quickQueryForMovie(String query) {
 	try {
-	    URL queryUrl = new URL("https://localhost:8443/IRAgentServer/query/quickQuery/");
+	    URL queryUrl = new URL("https://localhost:8443/MovieFinderServer/mf/query/quickQuery/");
 
 	    HttpURLConnection queryConn = (HttpURLConnection) queryUrl.openConnection();
 	    queryConn.setDoOutput(true);
@@ -99,9 +99,9 @@ public class QueryEngineUtils {
 	try {
 	    URL queryUrl = null;
 	    if (id == null) { // then save it
-		queryUrl = new URL("https://localhost:8443/IRAgentServer/query/storePersistentQuery/");
+		queryUrl = new URL("https://localhost:8443/MovieFinderServer/mf/query/storePersistentQuery/");
 	    } else { // update it
-		queryUrl = new URL("https://localhost:8443/IRAgentServer/query/updatePersistentQuery/");
+		queryUrl = new URL("https://localhost:8443/MovieFinderServer/mf/query/updatePersistentQuery/");
 	    }
 
 	    HttpURLConnection queryConn = (HttpURLConnection) queryUrl.openConnection();
@@ -164,7 +164,7 @@ public class QueryEngineUtils {
     public static int removePersistentQuery(Long queryId) {
 	int responseCode = -1;
 	try {
-	    URL queryUrl = new URL("https://localhost:8443/IRAgentServer/query/deletePersistentQuery/" + queryId);
+	    URL queryUrl = new URL("https://localhost:8443/MovieFinderServer/mf/query/deletePersistentQuery/" + queryId);
 
 	    HttpURLConnection queryConn = (HttpURLConnection) queryUrl.openConnection();
 	    queryConn.setDoOutput(true);

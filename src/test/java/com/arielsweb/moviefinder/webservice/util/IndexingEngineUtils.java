@@ -19,7 +19,7 @@ public class IndexingEngineUtils {
     public static Long shareResource(String uniqueDescription, String uniqueResourceTitle, String uniqueRemotePath) {
 	Long resourceId = 0L;
 	try {
-	    URL url = new URL("https://localhost:8443/IRAgentServer/index/add/");
+	    URL url = new URL("https://localhost:8443/MovieFinderServer/index/add/");
 
 	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	    conn.setDoOutput(true);
@@ -67,7 +67,7 @@ public class IndexingEngineUtils {
 
     public static void removeResourceFromShare(Long resourceId) {
 	try {
-	    URL removeUrl = new URL("https://localhost:8443/IRAgentServer/index/remove/" + resourceId.toString());
+	    URL removeUrl = new URL("https://localhost:8443/MovieFinderServer/index/remove/" + resourceId.toString());
 
 	    HttpURLConnection removeConn = (HttpURLConnection) removeUrl.openConnection();
 	    removeConn.setRequestMethod("DELETE");
@@ -103,7 +103,7 @@ public class IndexingEngineUtils {
     public static void updateSharedResource(Long resourceId, String uniqueDescription, String uniqueResourceTitle,
 	    String uniqueRemotePath) {
 	try {
-	    URL updateURL = new URL("https://localhost:8443/IRAgentServer/index/update/");
+	    URL updateURL = new URL("https://localhost:8443/MovieFinderServer/index/update/");
 
 	    HttpURLConnection updateConn = (HttpURLConnection) updateURL.openConnection();
 	    updateConn.setDoOutput(true);
