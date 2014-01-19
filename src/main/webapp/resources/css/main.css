@@ -2,7 +2,7 @@
 
 body {
 	margin: 0px;
-	background-image: url("../resources/repeated_bkgr.jpg");
+	background-image: url("../../resources/images/repeated_bkgr.jpg");
 	background-repeat: repeat-x;
 }
 
