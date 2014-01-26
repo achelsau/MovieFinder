@@ -4,6 +4,7 @@
 require.config({
     baseUrl: 'resources/js/',
     paths : {
-    	jquery: 'lib/jquery'
+    	jquery: 'lib/jquery-2.3.0',
+    	text: 'lib/text'
     }
 });

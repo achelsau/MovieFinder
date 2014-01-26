@@ -1,6 +1,16 @@
-require(['jquery'], function ($) {
+define(['text!../pages/home.html', 'jquery', 'result'], function (htmlPage, $, result) {
 	
-	console.log($("body"));
+	function attachBody() {
+		$("#body").append(htmlPage);
+		for (var i = 0; i < 15; i++) {
+			result.attachResult("#results_list");
+		}
+	}
 	
-	return $;
+	attachBody();
+	
+	return {
+		attachBody : attachBody
+	};
+	
 });
