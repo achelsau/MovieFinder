@@ -6,6 +6,7 @@ import static junit.framework.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import junit.framework.Assert;
@@ -491,5 +492,43 @@ public class MovieDescriptorServiceTest implements IGenericServiceTest<MovieDesc
 
 	assertEquals(crewAndCastTerminator, terminatorWithCastAndCrew.getCastAndCrew());
 
+    }
+    
+    @Test
+    public void testGetMovieIds() {
+	// setup
+	movieDescriptorService.deleteAll();
+
+	MovieSource movieSource = new MovieSource();
+	movieSource.setLocation("imdb");
+	movieSource.setName("imdb");
+	movieSourceService.save(movieSource);
+	
+	MovieDescriptor movieDescriptor1 = new MovieDescriptor();
+	movieDescriptor1.setName("Movie A");
+	movieDescriptor1.setRemotePath("http://moviea");
+	movieDescriptor1.setRemoteId("1");
+	movieDescriptor1.setSource(movieSource);
+	movieDescriptorService.save(movieDescriptor1);
+	
+	MovieDescriptor movieDescriptor2 = new MovieDescriptor();
+	movieDescriptor2.setName("Movie B");
+	movieDescriptor2.setRemotePath("http://movieb");
+	movieDescriptor2.setRemoteId("2");
+	movieDescriptor2.setSource(movieSource);
+	movieDescriptorService.save(movieDescriptor2);
+	
+	MovieDescriptor movieDescriptor3 = new MovieDescriptor();
+	movieDescriptor3.setName("Movie C");
+	movieDescriptor3.setRemotePath("http://moviec");
+	movieDescriptor3.setRemoteId("3");
+	movieDescriptor3.setSource(movieSource);
+	movieDescriptorService.save(movieDescriptor3);
+	
+	// execute
+	List<Long> ids = movieDescriptorService.getMovieIds();
+
+	// verify
+	assertEquals(3, ids.size());
     }
 }

@@ -1,5 +1,7 @@
 package com.arielsweb.moviefinder.service;
 
+import java.util.List;
+
 import com.arielsweb.moviefinder.index.exception.InvalidMovieDescriptorException;
 import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.MovieSource;
@@ -30,6 +32,13 @@ public interface MovieDescriptorService extends GenericService<MovieDescriptor> 
      *            source)
      */
     boolean isUnique(String remoteId, Long ownerId, String movieName, String year);
+
+    /**
+     * Gets the movie ids of the descriptors from the DB.
+     * 
+     * @return the list of long ids
+     */
+    List<Long> getMovieIds();
 
     /**
      * When the application loads into memory this method is responsible for

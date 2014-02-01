@@ -43,14 +43,6 @@ public class MovieDatabasePopulatorServiceImpl implements MovieDatabasePopulator
     /**
      * For a specific population run, either take a fresh copy of the
      * {@link MovieSource} from the database or insert a new one.
-     * 
-     * @param sourceName
-     *            the name of the source from where to get the movies
-     * @param url
-     *            the url of the source (http://www.imdb.com,
-     *            http://www.rottentomatoes.com, etc)
-     * 
-     * @return the movie source to which the movie is linked to
      */
     @Override
     public MovieSource getMovieSource(String sourceName, String url) {
@@ -70,14 +62,6 @@ public class MovieDatabasePopulatorServiceImpl implements MovieDatabasePopulator
 
     /**
      * Inserts the movie into the database
-     * 
-     * @param rtMovieDTO
-     *            high-level details about the movie (name, year, synopsis, etc)
-     * @param rtMovieDetail
-     *            more in depth details about the movie (genre, posters, cast,
-     *            etc)
-     * @param source
-     *            the movie source (website) to be inserted
      */
     @Override
     public void insertMovieIntoDb(RTMovieDTO rtMovieDTO, RTMovieDetailsDTO rtMovieDetails, MovieSource source) {

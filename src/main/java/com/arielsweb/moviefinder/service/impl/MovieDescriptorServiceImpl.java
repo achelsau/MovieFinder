@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 import org.hibernate.SQLQuery;
+import org.hibernate.type.LongType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,12 +34,16 @@ public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescript
 	}
 
 	// query for the Movie Descriptors
-	List<MovieDescriptor> movieDescriptors = super.list();
+	List<Long> ids = getMovieIds();
 
 	invertedIndexEngine.clearIndex();
 
-	for (MovieDescriptor movie : movieDescriptors) {
-	    invertedIndexEngine.addEntry(movie);
+	for (Long id : ids) {
+	    MovieDescriptor movieDescriptor = super.find(id);
+
+	    invertedIndexEngine.addEntry(movieDescriptor);
+
+	    log.info("Added movie " + movieDescriptor.getId() + " to MBI");
 	}
 
 	log.info("Inverted index has " + invertedIndexEngine.getNumberOfDocuments() + " documents with "
@@ -80,8 +85,18 @@ public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescript
 	return ((BigInteger) query.uniqueResult()).compareTo(BigInteger.ZERO) == 0;
     }
 
+
     @Autowired
     public void setInvertedIndexEngine(IndexEngine invertedIndexEngine) {
 	this.invertedIndexEngine = invertedIndexEngine;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Long> getMovieIds() {
+	SQLQuery query = createSQLQuery("SELECT movie.id FROM " + getTableName() + " movie ").addScalar("id",
+		LongType.INSTANCE);
+	
+	return query.list();
     }
 }
