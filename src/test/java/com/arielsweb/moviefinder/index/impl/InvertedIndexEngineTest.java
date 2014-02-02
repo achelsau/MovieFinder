@@ -391,7 +391,7 @@ public class InvertedIndexEngineTest {
      * 
      * @throws InvalidMovieDescriptorException
      */
-    @Test(expected = InvalidMovieDescriptorException.class)
+    @Test
     public void testAddEmptySynopsisIntoEmptyIndex() throws InvalidMovieDescriptorException {
 	// setup
 	// save all 8 descriptors to database
@@ -420,19 +420,14 @@ public class InvertedIndexEngineTest {
 	movieDescriptorService.save(descriptorGalaxyQuest);
 
 	// add the new entry to the index
-	try {
-	    invertedIndexEngine.addEntry(descriptorGalaxyQuest);
-	} catch (InvalidMovieDescriptorException ex) {
-	    assertEquals(InvalidMovieDescriptorException.Reason.MOVIE_DESCRIPTOR_WITH_EMPTY_SYNOPSIS,
-		    ex.getReason());
+	invertedIndexEngine.addEntry(descriptorGalaxyQuest);
 
-	    // verify (the index should contain no words)
-	    Map<String, IndexEntry> invertedIndex = invertedIndexEngine.getInvertedIndex();
 
-	    assertEquals(0, invertedIndex.size());
+	// verify (the index should contain no words)
+	Map<String, IndexEntry> invertedIndex = invertedIndexEngine.getInvertedIndex();
 
-	    throw ex;
-	}
+	assertEquals(0, invertedIndex.size());
+
 
     }
 
@@ -474,12 +469,7 @@ public class InvertedIndexEngineTest {
 	movieDescriptorService.save(descriptorGalaxyQuest);
 
 	// add the new entry to the index
-	try {
-	    invertedIndexEngine.addEntry(descriptorGalaxyQuest);
-	} catch (InvalidMovieDescriptorException ex) {
-	    assertEquals(InvalidMovieDescriptorException.Reason.MOVIE_DESCRIPTOR_WITH_EMPTY_SYNOPSIS,
-		    ex.getReason());
-	}
+	invertedIndexEngine.addEntry(descriptorGalaxyQuest);
 
 	// verify (check the words from the index, as well as, their idf/tf
 	// values)
@@ -1693,57 +1683,53 @@ public class InvertedIndexEngineTest {
 	String[] descriptor2InitialSynopsis = TextParsingHelper.parseText(descriptor1Serenity.getSynopsis());
 	descriptor2WorldOnWire.setSynopsis(MovieFinderConstants.STR_EMPTY);
 
-	try {
-	    invertedIndexEngine.updateEntry(descriptor2WorldOnWire);
-	} catch (InvalidMovieDescriptorException ex) {
-	    assertEquals(InvalidMovieDescriptorException.Reason.MOVIE_DESCRIPTOR_WITH_EMPTY_SYNOPSIS, ex.getReason());
+	invertedIndexEngine.updateEntry(descriptor2WorldOnWire);
 
-	    // verify (movie details)
-	    HashMap<Long, MovieDetailsDTO> movieDetails = invertedIndexEngine.getMovieDetails();
-	    MovieDetailsDTO fDet = movieDetails.get(descriptor2WorldOnWire.getId());
-	    assertNull(fDet);
+	// verify (movie details)
+	HashMap<Long, MovieDetailsDTO> movieDetails = invertedIndexEngine.getMovieDetails();
+	MovieDetailsDTO fDet = movieDetails.get(descriptor2WorldOnWire.getId());
+	assertNull(fDet);
 
-	    // verify words from index
-	    ArrayList<String> indexWords = new ArrayList<String>(invertedIndexEngine.getInvertedIndex().keySet());
-	    Collections.sort(indexWords);
+	// verify words from index
+	ArrayList<String> indexWords = new ArrayList<String>(invertedIndexEngine.getInvertedIndex().keySet());
+	Collections.sort(indexWords);
 
-	    Set<String> parsedWords = new HashSet<String>(Arrays.asList(TextParsingHelper.parseText(descriptor1Serenity
-		    .getSynopsis() + descriptor2WorldOnWire.getSynopsis() + " " + descriptor3IronMan.getSynopsis())));
-	    ArrayList<String> parsedWordsList = new ArrayList<String>(parsedWords);
-	    Collections.sort(parsedWordsList);
+	Set<String> parsedWords = new HashSet<String>(Arrays.asList(TextParsingHelper.parseText(descriptor1Serenity
+		.getSynopsis() + descriptor2WorldOnWire.getSynopsis() + " " + descriptor3IronMan.getSynopsis())));
+	ArrayList<String> parsedWordsList = new ArrayList<String>(parsedWords);
+	Collections.sort(parsedWordsList);
 
-	    // analyze index tf/idfs
-	    for (String word : invertedIndexEngine.getInvertedIndex().keySet()) {
-		IndexEntry indexEntry = invertedIndexEngine.getInvertedIndex().get(word);
+	// analyze index tf/idfs
+	for (String word : invertedIndexEngine.getInvertedIndex().keySet()) {
+	    IndexEntry indexEntry = invertedIndexEngine.getInvertedIndex().get(word);
 
-		// check that no previous word from the updated document exists
-		// and is linked to only the updated document
-		for (String initialWord : descriptor2InitialSynopsis) {
-		    if (initialWord.equals(word)) {
-			if (indexEntry.getPostings().keySet().contains(descriptor2WorldOnWire.getId())) {
-			    fail("The update was not performed");
-			}
+	    // check that no previous word from the updated document exists
+	    // and is linked to only the updated document
+	    for (String initialWord : descriptor2InitialSynopsis) {
+		if (initialWord.equals(word)) {
+		    if (indexEntry.getPostings().keySet().contains(descriptor2WorldOnWire.getId())) {
+			fail("The update was not performed");
 		    }
 		}
+	    }
 
-		// check idf
-		if (word.startsWith("forc") || word.startsWith("militari") || word.startsWith("action")) {
-		    assertEquals(0.0f, indexEntry.getIdf());
-		} else {
-		    assertEquals(0.6931472f, indexEntry.getIdf());
-		}
+	    // check idf
+	    if (word.startsWith("forc") || word.startsWith("militari") || word.startsWith("action")) {
+		assertEquals(0.0f, indexEntry.getIdf());
+	    } else {
+		assertEquals(0.6931472f, indexEntry.getIdf());
+	    }
 
-		// check tf
-		for (Map.Entry<Long, Posting> postingEntry : indexEntry.getPostings().entrySet()) {
-		    if (postingEntry.getKey().equals(descriptor1Serenity.getId())) {
-			if (word.startsWith("marvel") || word.startsWith("toni") || word.startsWith("independ")
-				|| word.startsWith("galax")) {
-			    assertEquals(new Short((short) 2), postingEntry.getValue().getTf());
-			} else if (word.startsWith("allianc")) {
-			    assertEquals(new Short((short) 3), postingEntry.getValue().getTf());
-			} else {
-			    assertEquals(new Short((short) 1), postingEntry.getValue().getTf());
-			}
+	    // check tf
+	    for (Map.Entry<Long, Posting> postingEntry : indexEntry.getPostings().entrySet()) {
+		if (postingEntry.getKey().equals(descriptor1Serenity.getId())) {
+		    if (word.startsWith("marvel") || word.startsWith("toni") || word.startsWith("independ")
+			    || word.startsWith("galax")) {
+			assertEquals(new Short((short) 2), postingEntry.getValue().getTf());
+		    } else if (word.startsWith("allianc")) {
+			assertEquals(new Short((short) 3), postingEntry.getValue().getTf());
+		    } else {
+			assertEquals(new Short((short) 1), postingEntry.getValue().getTf());
 		    }
 		}
 	    }

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -37,6 +38,7 @@ public class InvertedIndexEngine implements IndexEngine {
     private HashMap<String, IndexEntry> invertedIndex;
     private HashMap<Long, MovieDetailsDTO> movieDetails;
     private Integer count; // number of documents from the online index
+    private Logger log = Logger.getLogger(InvertedIndexEngine.class);
 
     /**
      * Whether to index the names of the cast and crew as full names or split
@@ -141,7 +143,13 @@ public class InvertedIndexEngine implements IndexEngine {
 	    throw new InvalidMovieDescriptorException(Reason.MOVIE_DESCRIPTOR_IS_NULL);
 	}
 
-	addMovieDescriptorEntry(movieDescriptor);
+	try {
+	    addMovieDescriptorEntry(movieDescriptor);
+	} catch (InvalidMovieDescriptorException ex) {
+	    log.error("Didn't insert movie descriptor with details: " + movieDescriptor.getName() + ", "
+		    + movieDescriptor.getRemotePath());
+	    return;
+	}
 
 	Long movieId = movieDescriptor.getId();
 
