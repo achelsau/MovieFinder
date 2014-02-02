@@ -130,6 +130,7 @@ public class CosineScoreQueryEngine implements IQueryEngine {
 	    result.setSource(movieDetail.getSource());
 	    result.setRemotePath(movieDetail.getPath());
 	    result.setReleaseDate(movieDetail.getReleaseDate());
+	    result.setRemotePicture(movieDetail.getImagePath());
 	    log.info(result.getScore() + ", " + result.getTitle() + ", " + result.getDescription());
 
 	    orderedResults.add(result);

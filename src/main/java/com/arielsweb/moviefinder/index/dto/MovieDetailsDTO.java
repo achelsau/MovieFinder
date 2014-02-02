@@ -24,7 +24,7 @@ public class MovieDetailsDTO implements Serializable {
 
     private short termCount;
     private float score;
-    private String title, desc, source, path;
+    private String title, desc, source, path, imagePath;
     private Date releaseDate;
 
     /**
@@ -38,14 +38,14 @@ public class MovieDetailsDTO implements Serializable {
      * @param path
      *            the path from the owner's computers
      */
-    public MovieDetailsDTO(String title, String desc, String source,
-	    String path, Date releaseDate) {
+    public MovieDetailsDTO(String title, String desc, String source, String path, Date releaseDate, String imagePath) {
 	super();
 	this.title = title;
 	this.desc = desc;
 	this.source = source;
 	this.path = path;
 	this.releaseDate = releaseDate;
+	this.imagePath = imagePath;
     }
 
     public short getTermCount() {
@@ -102,5 +102,20 @@ public class MovieDetailsDTO implements Serializable {
 
     public void setReleaseDate(Date releaseDate) {
 	this.releaseDate = releaseDate;
+    }
+
+    /**
+     * @return the imagePath
+     */
+    public String getImagePath() {
+	return imagePath;
+    }
+
+    /**
+     * @param imagePath
+     *            the imagePath to set
+     */
+    public void setImagePath(String imagePath) {
+	this.imagePath = imagePath;
     }
 }

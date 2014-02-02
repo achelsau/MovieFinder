@@ -1,5 +1,7 @@
 package com.arielsweb.moviefinder.service.impl;
 
+import javax.annotation.PostConstruct;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -38,7 +40,7 @@ public class IndexPopulatorServiceImpl {
      *             thrown if the index alredy contains data
      * @throws InvalidMovieDescriptorException
      */
-    // @PostConstruct
+    @PostConstruct
     public void populateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException {
 	movieDescriptorService.populateIndex();
     }

@@ -119,7 +119,7 @@ public class InvertedIndexEngine implements IndexEngine {
     private void createNewMovieDescriptorEntry(MovieDescriptor movieDescriptor) {
 	MovieDetailsDTO movieDTO = new MovieDetailsDTO(movieDescriptor.getName(), movieDescriptor.getSynopsis(),
 		movieDescriptor.getSource().getName(), movieDescriptor.getRemotePath(),
-		movieDescriptor.getReleaseDate());
+		movieDescriptor.getReleaseDate(), movieDescriptor.getImagePath());
 	movieDetails.put(movieDescriptor.getId(), movieDTO); // reinitialize the
 							     // term count
 	count = movieDetails.size();

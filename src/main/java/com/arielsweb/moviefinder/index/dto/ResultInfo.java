@@ -18,7 +18,7 @@ public class ResultInfo implements Comparable<ResultInfo> {
      * the title of the movie, its description (synopsis), its source (website)
      * and the URL where it can be accessed
      **/
-    private String movieTitle, description, source, remotePath;
+    private String movieTitle, description, source, remotePath, remotePicture;
 
     private Date releaseDate;
 
@@ -97,6 +97,21 @@ public class ResultInfo implements Comparable<ResultInfo> {
      */
     public void setReleaseDate(Date releaseDate) {
 	this.releaseDate = releaseDate;
+    }
+
+    /**
+     * @return the remotePicture
+     */
+    public String getRemotePicture() {
+	return remotePicture;
+    }
+
+    /**
+     * @param remotePicture
+     *            the remotePicture to set
+     */
+    public void setRemotePicture(String remotePicture) {
+	this.remotePicture = remotePicture;
     }
 
     @Override
