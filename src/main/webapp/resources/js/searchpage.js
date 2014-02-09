@@ -1,4 +1,4 @@
-define(['text!../pages/home.html', 'jquery', 'result'], function (htmlPage, $, result) {
+define(['text!../pages/home.html', 'jquery', 'result', 'constants'], function (htmlPage, $, result, constants) {
 	
 	function attachBody() {
 		$("#body").append(htmlPage);
@@ -8,7 +8,7 @@ define(['text!../pages/home.html', 'jquery', 'result'], function (htmlPage, $, r
 		$("#searchButton").click(function(e) {
 			$.ajax({
 			  type : "POST",
-			  url: "https://localhost:8443/MovieFinderServer/mf/query/quickQuery/",
+			  url: constants.basePath + "query/quickQuery/",
 			  headers: { 'Authorization': 'Ion:abcd' },
 			  contentType : "text/plain",
 			  data : $("#query_string").val()

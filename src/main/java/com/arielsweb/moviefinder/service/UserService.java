@@ -1,5 +1,6 @@
 package com.arielsweb.moviefinder.service;
 
+import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.User;
 
 public interface UserService extends GenericService<User> {
@@ -18,5 +19,17 @@ public interface UserService extends GenericService<User> {
      *            the username
      * @return the User entity having username
      */
-    public User getUserByUsername(String username);
+    User getUserByUsername(String username);
+
+    /**
+     * Saves the relevant result
+     * 
+     * @param userId
+     *            the id of the user to be saved
+     * @param movieDescriptor
+     *            the movie descriptor to be appended to the list of preferred
+     *            movies
+     */
+    void saveRelevantResult(Long userId, MovieDescriptor movieDescriptor);
+
 }

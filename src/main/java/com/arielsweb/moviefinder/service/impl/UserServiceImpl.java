@@ -6,6 +6,7 @@ import org.hibernate.SQLQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.User;
 import com.arielsweb.moviefinder.service.UserService;
 import com.arielsweb.moviefinder.service.exceptions.DataAccessException;
@@ -59,6 +60,15 @@ public class UserServiceImpl extends GenericServiceImpl<User> implements UserSer
     @Override
     protected String getTableName() {
 	return Utils.getTableForEntity(User.class);
+    }
+
+    @Override
+    @Transactional
+    public void saveRelevantResult(Long userId, MovieDescriptor movieDescriptor) {
+	User user = this.find(userId);
+	user.getRelevantMovies().add(movieDescriptor);
+
+	super.save(user);
     }
 
 }

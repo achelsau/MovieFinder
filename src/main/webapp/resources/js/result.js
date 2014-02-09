@@ -1,4 +1,4 @@
-define(['text!../pages/result.html', 'jquery'], function (htmlPage, $) {
+define(['text!../pages/result.html', 'jquery', 'constants'], function (htmlPage, $, constants) {
 	
 	function attachResult(parent, data) {
 		var result = $(htmlPage);
@@ -18,6 +18,21 @@ define(['text!../pages/result.html', 'jquery'], function (htmlPage, $) {
 		
 		result.find(".description").text(description);
 		result.find(".movieImage").attr("src", data.remotePicture);
+		result.find(".movie_id").val(data.id);
+		
+		bindEventHandlers(result);
+	}
+	
+	function bindEventHandlers(resultPage) {
+		resultPage.find(".like_btn").click(function(e) {
+			$.ajax({
+			  type : "GET",
+			  url: constants.basePath + "relevanceFeedback/markIt/" + resultPage.find(".movie_id").val(),
+			  headers: { 'Authorization': 'Ion:abcd' },
+			  contentType : "text/plain",
+			  data : $("#query_string").val()
+			}).done( handleResponse );
+		});
 	}
 	
 	return {

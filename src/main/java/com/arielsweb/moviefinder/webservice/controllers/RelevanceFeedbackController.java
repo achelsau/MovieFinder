@@ -43,11 +43,10 @@ public class RelevanceFeedbackController {
 	} catch (NumberFormatException ex) {
 	    throw new InvalidRelationIdException(ex.getMessage());
 	}
-	
+
 	MovieDescriptor movieDescriptor = movieDescriptorService.find(movieIdLong);
 
-	user.getRelevantMovies().add(movieDescriptor);
-	userService.save(user);
+	userService.saveRelevantResult(user.getId(), movieDescriptor);
     }
 
     @Autowired
