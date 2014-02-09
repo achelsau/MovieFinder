@@ -1,10 +1,14 @@
-define(['text!../pages/home.html', 'jquery', 'result', 'constants'], function (htmlPage, $, result, constants) {
+define(['text!../pages/quick_search.html', 'text!../pages/persistent_search.html', 'jquery', 'result', 'constants'], function (quickSearch, persistentSearch, $, result, constants) {
 	
 	function attachBody() {
-		$("#body").append(htmlPage);
+		$("#body").append(quickSearch);
 		
 		$("#results_list").empty();
 		
+		bindEventHandlers();
+	}
+	
+	function bindEventHandlers() {
 		$("#searchButton").click(function(e) {
 			$.ajax({
 			  type : "POST",
@@ -13,6 +17,11 @@ define(['text!../pages/home.html', 'jquery', 'result', 'constants'], function (h
 			  contentType : "text/plain",
 			  data : $("#query_string").val()
 			}).done( handleResponse );
+		});
+		
+		$("#persistentSearchButton").click(function(e) {
+			$("#body").remove("#content");
+			$("#body").append(persistentSearch);
 		});
 	}
 	

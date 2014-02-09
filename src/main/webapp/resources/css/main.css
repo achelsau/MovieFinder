@@ -69,3 +69,8 @@ body {
 .like_btn {
 	float: right;
 }
+
+#main_menu {
+	text-align: left;
+	padding-bottom: 20px;
+}

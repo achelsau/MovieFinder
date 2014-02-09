@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.arielsweb.moviefinder.index.impl.RelevanceFeedbackEngine;
 import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.User;
 import com.arielsweb.moviefinder.service.MovieDescriptorService;
@@ -32,6 +33,8 @@ public class RelevanceFeedbackController {
     private UserService userService;
 
     private MovieDescriptorService movieDescriptorService;
+
+    private RelevanceFeedbackEngine relevanceFeedbackEngine;
 
     @RequestMapping(value = "/markIt/{movieId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
@@ -57,5 +60,10 @@ public class RelevanceFeedbackController {
     @Autowired
     public void setMovieDescriptorService(MovieDescriptorService movieDescriptorService) {
 	this.movieDescriptorService = movieDescriptorService;
+    }
+
+    @Autowired
+    public void setRelevanceFeedbackEngine(RelevanceFeedbackEngine relevanceFeedbackEngine) {
+	this.relevanceFeedbackEngine = relevanceFeedbackEngine;
     }
 }
