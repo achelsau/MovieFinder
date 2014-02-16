@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Represents a query that is persisted into the database. It contains a
@@ -15,17 +17,22 @@ import javax.persistence.ManyToOne;
  * @author Ariel
  * 
  */
-@Entity
+@Entity()
+@XmlRootElement(name = "PersistentQuery")
 public class PersistentQuery {
 
     @Id
     @GeneratedValue
     private Long id;
+
+    @XmlTransient
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner")
     private User owner;
+
     @Column(name = "interv")
     private Long interval;
+
     @Column(name = "query_string")
     private String queryString;
 

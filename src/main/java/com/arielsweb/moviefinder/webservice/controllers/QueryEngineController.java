@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.arielsweb.moviefinder.index.IQueryEngine;
+import com.arielsweb.moviefinder.index.dto.PersistentQueryListResponse;
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
 import com.arielsweb.moviefinder.index.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.model.PersistentQuery;
@@ -129,6 +130,24 @@ public class QueryEngineController {
 
 	// service operation
 	persistentQueryService.delete(queryId);
+    }
+
+    @RequestMapping(value = "/getAllQueries/{userId}", method = RequestMethod.GET, headers = "content-type=text/plain")
+    @ResponseBody
+    public PersistentQueryListResponse getAllPersistedQueriesForUser(@PathVariable("userId") String userIdStr,
+	    HttpServletRequest request,
+	    HttpServletResponse response, User user) throws InvalidPersistentQueryIdException {
+	Long userId = null;
+	try {
+	    userId = Long.parseLong(userIdStr);
+	} catch (NumberFormatException nfe) {
+	    throw new InvalidPersistentQueryIdException("The persistent query id is malformed");
+	}
+
+	// service operation
+	List<PersistentQuery> queriesForUser = persistentQueryService.getQueriesForUser(userId);
+	PersistentQueryListResponse persistentQueryListResponse = new PersistentQueryListResponse(queriesForUser);
+	return persistentQueryListResponse;
     }
 
     /**

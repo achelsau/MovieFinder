@@ -3,6 +3,10 @@ package com.arielsweb.moviefinder.webservice.controllers;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -82,6 +86,26 @@ public class QueryEngineControllerTest {
 
 	// verify
 	verify(mockPersistentQueryService).save(persistentQuery);
+    }
+
+    @Test
+    public void testGetAllPersistedQueriesForUser() throws InvalidPersistentQueryException,
+	    InvalidPersistentQueryIdException {
+	// setup
+	long userId = 1L;
+	PersistentQuery persistentQuery1 = new PersistentQuery();
+	persistentQuery1.setQueryString("moon landing");
+	PersistentQuery persistentQuery2 = new PersistentQuery();
+	persistentQuery2.setQueryString("solar system");
+	List<PersistentQuery> queries = Arrays.asList(persistentQuery1, persistentQuery2);
+	
+	when(mockPersistentQueryService.getQueriesForUser(userId)).thenReturn(queries);
+
+	// execute
+	queryEngineController.getAllPersistedQueriesForUser("1", request, response, mockUser);
+
+	// verify
+	verify(mockPersistentQueryService).getQueriesForUser(userId);
     }
 
     @Test(expected = InvalidPersistentQueryException.class)

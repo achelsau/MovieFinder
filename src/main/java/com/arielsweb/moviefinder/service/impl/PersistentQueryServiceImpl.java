@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.SQLQuery;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.arielsweb.moviefinder.model.PersistentQuery;
 import com.arielsweb.moviefinder.model.User;
@@ -26,6 +27,7 @@ public class PersistentQueryServiceImpl extends GenericServiceImpl<PersistentQue
      * */
     @Override
     @SuppressWarnings("unchecked")
+    @Transactional(readOnly = true)
     public List<PersistentQuery> getQueriesForOnlineUsers() {
 	SQLQuery query = createSQLQuery(
 		"SELECT " + queryColumns + " FROM " + getTableName() + " query INNER JOIN "
@@ -43,6 +45,7 @@ public class PersistentQueryServiceImpl extends GenericServiceImpl<PersistentQue
      **/
     @Override
     @SuppressWarnings("unchecked")
+    @Transactional(readOnly = true)
     public List<PersistentQuery> getQueriesForUser(Long userId) {
 	SQLQuery query = createSQLQuery(
 		"SELECT " + queryColumns + " FROM " + getTableName() + " query INNER JOIN "
