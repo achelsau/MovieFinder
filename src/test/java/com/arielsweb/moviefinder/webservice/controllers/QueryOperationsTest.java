@@ -1,6 +1,7 @@
 package com.arielsweb.moviefinder.webservice.controllers;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNull;
 import static org.mockito.Mockito.mock;
 
 import java.util.List;
@@ -113,18 +114,15 @@ public class QueryOperationsTest {
 	assertEquals(pq.getInterval(), new Long(1000L));
 	assertEquals(pq.getQueryString(), "Lunar Landings");
 
-	// 2. although it was just an operation for persisting a query,
-	// an initial set of results it's still return so check results
+	// 2. because it was an operation that saved the query only the query id
+	// will be returned
+	Long queryId = resultInfoResponse.getQueryId();
+
+	assertEquals(pq.getId(), queryId);
+
 	List<ResultInfo> results = resultInfoResponse.getResults();
 
-	ResultInfo entry = results.get(0);
-	assertEquals(entry.getId(), new Long(4));
-	assertEquals(entry.getTitle(), "Cool Movie 4");
-	assertEquals(
-		"This movie presents a journey to the moon, landing on the lunar surface and then return back to Earth.",
-		entry.getDescription());
-	assertEquals(entry.getSource(), "Rotten Tomatoes");
-	assertEquals(entry.getRemotePath(), "http://www.rottentomatoes.com/m/cool_movie_4");
+	assertNull(results);
     }
 
     /**
@@ -160,17 +158,15 @@ public class QueryOperationsTest {
 	assertEquals(pq.getInterval(), new Long(1000L));
 	assertEquals(pq.getQueryString(), "Europa find life");
 
-	// 2. although it was just an operation for persisting a query,
-	// an initial set of results it's still return so check results
+	// 2. because it was an operation that saved the query only the query id
+	// will be returned
+	Long queryId = resultInfoResponse.getQueryId();
+
+	assertEquals(pq.getId(), queryId);
+
 	List<ResultInfo> results = resultInfoResponse.getResults();
 
-	ResultInfo entry = results.get(0);
-	assertEquals(entry.getId(), new Long(5));
-	assertEquals(entry.getTitle(), "Cool Movie 5");
-	assertEquals(entry.getDescription(),
-		"This movie presents a journey to Europa, Jupiter's satellite, to find life and discover other misteries");
-	assertEquals(entry.getSource(), "Rotten Tomatoes");
-	assertEquals(entry.getRemotePath(), "http://www.rottentomatoes.com/m/cool_movie_5");
+	assertNull(results);
     }
 
     /**

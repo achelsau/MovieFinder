@@ -82,26 +82,6 @@ public class QueryEngineControllerTest {
 
 	// verify
 	verify(mockPersistentQueryService).save(persistentQuery);
-	verify(mockQueryEngine).queryIndex(persistentQuery.getQueryString());
-    }
-
-    @Test(expected = InvalidPersistentQueryException.class)
-    public void testPersistInvalidQuery_NegativeInterval() throws InvalidPersistentQueryException {
-	// setup
-	PersistentQuery persistentQuery = new PersistentQuery();
-	persistentQuery.setInterval(-10L);
-	persistentQuery.setQueryString("Dummy Query");
-
-	// execute
-	try {
-	    queryEngineController.persistQuery(persistentQuery, request, response, mockUser);
-	} catch (InvalidPersistentQueryException ex) {
-	    throw ex;
-	}
-
-	// verify
-	verify(mockPersistentQueryService, never()).save(persistentQuery);
-	verify(mockQueryEngine, never()).queryIndex(persistentQuery.getQueryString());
     }
 
     @Test(expected = InvalidPersistentQueryException.class)

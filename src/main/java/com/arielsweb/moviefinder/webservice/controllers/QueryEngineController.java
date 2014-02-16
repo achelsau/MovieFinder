@@ -80,8 +80,7 @@ public class QueryEngineController {
     @ResponseBody
     public ResultInfoResponse persistQuery(@RequestBody PersistentQuery persistentQuery, HttpServletRequest request,
 	    HttpServletResponse response, User user) throws InvalidPersistentQueryException {
-	if (persistentQuery.getQueryString() == null || persistentQuery.getQueryString().isEmpty()
-		|| persistentQuery.getInterval() < 0) {
+	if (persistentQuery.getQueryString() == null || persistentQuery.getQueryString().isEmpty()) {
 	    throw new InvalidPersistentQueryException("The persistent query is malformed");
 	}
 
@@ -92,11 +91,8 @@ public class QueryEngineController {
 	// service operation
 	Long queryId = (Long) persistentQueryService.save(persistentQuery);
 
-	// actual query operation
-	List<ResultInfo> queryResults = queryEngine.queryIndex(persistentQuery.getQueryString());
-
 	// return both the results and the id of the query
-	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults, queryId);
+	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(null, queryId);
 	return resultInfoResponse;
     }
 

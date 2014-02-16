@@ -74,5 +74,11 @@
 
 		</sql>
 	</changeSet>
+	
+	<changeSet id="1.0-6" author="ariel">
+		<sql>
+			ALTER TABLE `persistentquery` CHANGE COLUMN `interv` `interv` INT(10) NULL  ;
+		</sql>
+	</changeSet>
 
 </databaseChangeLog>
