@@ -1,6 +1,14 @@
-define(['text!../pages/quick_search.html', 'text!../pages/persistent_search.html', 'jquery', 'result', 'constants'], function (quickSearch, persistentSearch, $, result, constants) {
+define(['text!../pages/quick_search.html', 
+        'text!../pages/persistent_search.html', 
+        'jquery', 
+        'result', 
+        'commonData'], 
+        function (quickSearch, persistentSearch, $, result, commonData) {
 	
 	function attachBody() {
+		// mock call
+		commonData.setUserData({username : 'Ion', password : 'abcd'});
+		
 		$("#body").append(quickSearch);
 		
 		$("#results_list").empty();
@@ -12,8 +20,8 @@ define(['text!../pages/quick_search.html', 'text!../pages/persistent_search.html
 		$("#searchButton").click(function(e) {
 			$.ajax({
 			  type : "POST",
-			  url: constants.basePath + "query/quickQuery/",
-			  headers: { 'Authorization': 'Ion:abcd' },
+			  url: commonData.getConstants().basePath + "query/quickQuery/",
+			  headers: { 'Authorization': commonData.getUserData().username + ":" + commonData.getUserData().password },
 			  contentType : "text/plain",
 			  data : $("#query_string").val()
 			}).done( handleSearchResponse );
@@ -22,12 +30,12 @@ define(['text!../pages/quick_search.html', 'text!../pages/persistent_search.html
 		$("#saveButton").click(function(e) {
 			$.ajax({
 				type: "POST",
-				url: constants.basePath + "query/storePersistentQuery/",
-				headers: {'Authorization': 'Ion:abcd'},
+				url: commonData.getConstants().basePath + "query/storePersistentQuery/",
+				headers: {'Authorization': commonData.getUserData().username + ":" + commonData.getUserData().password },
 				contentType: 'json/application',
 				data: JSON.stringify({queryString : $("#query_string").val()})
-			});
-		}).done( handleSaveQueryResponse );
+			}).done( handleSaveQueryResponse );
+		});
 		
 		$("#persistentSearchButton").click(function(e) {
 			$("#content").remove();

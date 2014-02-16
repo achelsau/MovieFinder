@@ -1,4 +1,7 @@
-define(['text!../pages/result.html', 'jquery', 'constants'], function (htmlPage, $, constants) {
+define(['text!../pages/result.html', 
+        'jquery', 
+        'commonData'], 
+        function (htmlPage, $, commonData) {
 	
 	function attachResult(parent, data) {
 		var result = $(htmlPage);
@@ -27,8 +30,8 @@ define(['text!../pages/result.html', 'jquery', 'constants'], function (htmlPage,
 		resultPage.find(".like_btn").click(function(e) {
 			$.ajax({
 			  type : "GET",
-			  url: constants.basePath + "relevanceFeedback/markIt/" + resultPage.find(".movie_id").val(),
-			  headers: { 'Authorization': 'Ion:abcd' },
+			  url: commonData.getConstants().basePath + "relevanceFeedback/markIt/" + resultPage.find(".movie_id").val(),
+			  headers: { 'Authorization': commonData.getUserData().username + ":" + commonData.getUserData().password },
 			  contentType : "text/plain",
 			  data : $("#query_string").val()
 			}).done( handleResponse );
