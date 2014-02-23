@@ -27,7 +27,10 @@ define(['text!../pages/persistent_search.html',
 	
 	function handlePopulationWithPersistentQueries(response) {
 		console.log(response);
-		$("#persistentQueries").append("<option value='" + + "'>" +  + "</option>");
+		
+		for (var i = 0; i < response.length; i++) {
+			$("#persistentQueries").append("<option value='" + response[i].id + "'>" + response[i].queryString + "</option>");
+		}
 	}
 	
 	function bindEventHandlers() {

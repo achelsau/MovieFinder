@@ -9,7 +9,7 @@
 	<description>MovieFinderServer</description>
 
 	<properties>
-		<org.springframework.version>3.1.1.RELEASE</org.springframework.version>
+		<org.springframework.version>3.1.2.RELEASE</org.springframework.version>
 		<junit.version>4.9</junit.version>
 		<hibernate.version>4.1.7.Final</hibernate.version>
 		<unitils.version>3.3</unitils.version>

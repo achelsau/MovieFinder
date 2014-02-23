@@ -8,7 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  * Represents a query that is persisted into the database. It contains a
@@ -25,7 +26,6 @@ public class PersistentQuery {
     @GeneratedValue
     private Long id;
 
-    @XmlTransient
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner")
     private User owner;
@@ -47,18 +47,22 @@ public class PersistentQuery {
 	this.id = id;
     }
 
+    @JsonIgnore
     public User getOwner() {
 	return owner;
     }
 
+    @JsonIgnore
     public void setOwner(User owner) {
 	this.owner = owner;
     }
 
+    @JsonIgnore
     public Long getInterval() {
 	return interval;
     }
 
+    @JsonIgnore
     public void setInterval(Long interval) {
 	this.interval = interval;
     }
