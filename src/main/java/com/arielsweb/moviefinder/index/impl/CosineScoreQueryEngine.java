@@ -241,18 +241,7 @@ public class CosineScoreQueryEngine implements IQueryEngine {
 
 	String[] queryTokens = TextParsingHelper.parseText(query);
 
-	// get default query weights (tf * idf), where idf is, by default, 1
-	Map<String, Short> queryTfs = new HashMap<String, Short>();
-	for (String queryToken : queryTokens) {
-	    short tf = (queryTfs.get(queryToken) == null) ? 0 : queryTfs.get(queryToken);
-	    
-	    queryTfs.put(queryToken, ++tf);
-	}
-
-	Map<String, Float> queryWeights = new HashMap<String, Float>();
-	for (String queryToken : queryTokens) {
-	    queryWeights.put(queryToken, 1f * queryTfs.get(queryToken));
-	}
+	Map<String, Float> queryWeights = TextParsingHelper.getQueryWeights(queryTokens);
 
 	return getCosineSimilarity(queryWeights);
     }
@@ -285,11 +274,5 @@ public class CosineScoreQueryEngine implements IQueryEngine {
      */
     public void setNormalizeScoreToDocumentLength(String normalizeScoreToDocumentLength) {
 	this.normalizeScoreToDocumentLength = normalizeScoreToDocumentLength;
-    }
-
-    @Override
-    public Map<String, Float> getQueryWeights() {
-	// TODO Auto-generated method stub
-	return null;
     }
 }

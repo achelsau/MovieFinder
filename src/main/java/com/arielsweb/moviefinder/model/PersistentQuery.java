@@ -1,5 +1,6 @@
 package com.arielsweb.moviefinder.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -40,8 +41,8 @@ public class PersistentQuery {
     @Column(name = "query_string")
     private String queryString;
 
-    @OneToMany(mappedBy = "parentQuery", cascade = CascadeType.ALL)
-    private List<PersistentQueryToken> tokens;
+    @OneToMany(mappedBy = "parentQuery", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<PersistentQueryToken> tokens = new ArrayList<PersistentQueryToken>();
 
     public PersistentQuery() {
     }
@@ -86,5 +87,57 @@ public class PersistentQuery {
 
     public void setTokens(List<PersistentQueryToken> tokens) {
 	this.tokens = tokens;
+    }
+
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + ((id == null) ? 0 : id.hashCode());
+	result = prime * result + ((interval == null) ? 0 : interval.hashCode());
+	result = prime * result + ((queryString == null) ? 0 : queryString.hashCode());
+	result = prime * result + ((tokens == null) ? 0 : tokens.hashCode());
+	return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	PersistentQuery other = (PersistentQuery) obj;
+	if (id == null) {
+	    if (other.id != null)
+		return false;
+	} else if (!id.equals(other.id))
+	    return false;
+	if (interval == null) {
+	    if (other.interval != null)
+		return false;
+	} else if (!interval.equals(other.interval))
+	    return false;
+	if (queryString == null) {
+	    if (other.queryString != null)
+		return false;
+	} else if (!queryString.equals(other.queryString))
+	    return false;
+	if (tokens == null) {
+	    if (other.tokens != null)
+		return false;
+	} else {
+	    if (tokens.size() != other.tokens.size()) {
+		return false;
+	    }
+
+	    for (PersistentQueryToken persistentQueryToken : tokens) {
+		if (!other.tokens.contains(persistentQueryToken)) {
+		    return false;
+		}
+	    }
+	}
+	return true;
     }
 }

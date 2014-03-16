@@ -3,6 +3,7 @@ package com.arielsweb.moviefinder.service;
 import java.util.List;
 
 import com.arielsweb.moviefinder.model.PersistentQuery;
+import com.arielsweb.moviefinder.model.PersistentQueryToken;
 
 /**
  * Service dealing with database operations related to {@link PersistentQuery}
@@ -28,4 +29,11 @@ public interface PersistentQueryService extends GenericService<PersistentQuery> 
      * @return the {@link List} of {@link PersistentQuery}ies
      */
     List<PersistentQuery> getQueriesForUser(Long userId);
+    
+    /**
+     * Gets query tokens from a query string
+     * 
+     * @return the list of {@link PersistentQueryToken}
+     */
+    List<PersistentQueryToken> getQueryTokens(PersistentQuery persistentQuery);
 }

@@ -20,6 +20,7 @@ import com.arielsweb.moviefinder.index.IQueryEngine;
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
 import com.arielsweb.moviefinder.index.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.model.PersistentQuery;
+import com.arielsweb.moviefinder.model.PersistentQueryToken;
 import com.arielsweb.moviefinder.model.User;
 import com.arielsweb.moviefinder.service.PersistentQueryService;
 import com.arielsweb.moviefinder.webservice.exceptions.InvalidPersistentQueryException;
@@ -87,6 +88,10 @@ public class QueryEngineController {
 	// bind the user performing the op. (since only him can share movies for
 	// himself)
 	persistentQuery.setOwner(user);
+	
+	List<PersistentQueryToken> persistentQueryTokens = persistentQueryService.getQueryTokens(persistentQuery);
+
+	persistentQuery.setTokens(persistentQueryTokens);
 
 	// service operation
 	Long queryId = (Long) persistentQueryService.save(persistentQuery);
@@ -95,6 +100,8 @@ public class QueryEngineController {
 	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(null, queryId);
 	return resultInfoResponse;
     }
+
+    
 
     @RequestMapping(value = "/updatePersistentQuery/", method = RequestMethod.POST, headers = "content-type=json/application")
     @ResponseBody

@@ -1,5 +1,7 @@
 package com.arielsweb.moviefinder.service.impl;
 
+import static junit.framework.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,13 +57,13 @@ public class PersistentQueryServiceTest implements IGenericServiceTest<Persisten
 
 	PersistentQueryToken token1 = new PersistentQueryToken();
 	token1.setToken("solar");
-	token1.setWeight(1.25d);
+	token1.setWeight(1.25f);
 	token1.setParentQuery(userQuery);
 	tokens.add(token1);
 
 	PersistentQueryToken token2 = new PersistentQueryToken();
 	token2.setToken("system");
-	token2.setWeight(0.25d);
+	token2.setWeight(0.25f);
 	token2.setParentQuery(userQuery);
 	tokens.add(token2);
 
@@ -69,13 +71,13 @@ public class PersistentQueryServiceTest implements IGenericServiceTest<Persisten
 
 	PersistentQueryToken token3 = new PersistentQueryToken();
 	token3.setToken("alpha");
-	token3.setWeight(0.35d);
+	token3.setWeight(0.35f);
 	token3.setParentQuery(userQuery);
 	tokens.add(token3);
 
 	PersistentQueryToken token4 = new PersistentQueryToken();
 	token4.setToken("cenatur");
-	token4.setWeight(0.55d);
+	token4.setWeight(0.55f);
 	token4.setParentQuery(userQuery);
 	tokens.add(token4);
 
@@ -115,13 +117,13 @@ public class PersistentQueryServiceTest implements IGenericServiceTest<Persisten
 
 	PersistentQueryToken token1 = new PersistentQueryToken();
 	token1.setToken("extraterrest");
-	token1.setWeight(1.25d);
+	token1.setWeight(1.25f);
 	token1.setParentQuery(query);
 	tokens.add(token1);
 
 	PersistentQueryToken token2 = new PersistentQueryToken();
 	token2.setToken("life");
-	token2.setWeight(0.25d);
+	token2.setWeight(0.25f);
 	token2.setParentQuery(query);
 	tokens.add(token2);
 
@@ -172,6 +174,63 @@ public class PersistentQueryServiceTest implements IGenericServiceTest<Persisten
 	int i = 0;
 	for (Long expId : expectedIds) {
 	    Assert.assertEquals(expId, queries.get(i).getId());
+	    i++;
+	}
+    }
+
+    @Test
+    public void testGetQueriesForUserWithTokens() {
+	// setup
+	PersistentQuery query = new PersistentQuery();
+	query.setInterval(1000L);
+	query.setQueryString("Extraterrestrial life");
+
+	List<PersistentQueryToken> tokens = new ArrayList<PersistentQueryToken>();
+
+	PersistentQueryToken token1 = new PersistentQueryToken();
+	token1.setToken("extraterrest");
+	token1.setWeight(1.25f);
+	token1.setParentQuery(query);
+	tokens.add(token1);
+
+	PersistentQueryToken token2 = new PersistentQueryToken();
+	token2.setToken("life");
+	token2.setWeight(0.25f);
+	token2.setParentQuery(query);
+	tokens.add(token2);
+
+	PersistentQueryToken token3 = new PersistentQueryToken();
+	token3.setToken("life");
+	token3.setWeight(0.25f);
+	token3.setParentQuery(query);
+	tokens.add(token3);
+
+	query.setTokens(tokens);
+
+	User owner = new User();
+	owner.setId(1L);
+	query.setOwner(owner);
+
+	queryDao.save(query);
+
+	// execute
+	List<PersistentQuery> queries = queryDao.getQueriesForUser(1L);
+
+	// verify
+	Assert.assertEquals(3, queries.size());
+
+	Long[] expectedIds = { query.getId(), Long.valueOf(1), Long.valueOf(2) };
+	int i = 0;
+	for (PersistentQuery persistentQuery : queries) {
+	    Assert.assertEquals(expectedIds[i], persistentQuery.getId());
+
+	    i++;
+	}
+
+	i = 0;
+	for (PersistentQueryToken token : queries.get(0).getTokens()) {
+	    assertEquals(tokens.get(i).getId(), token.getId());
+
 	    i++;
 	}
     }

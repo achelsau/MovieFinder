@@ -1,5 +1,7 @@
 package com.arielsweb.moviefinder.index.util;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -77,6 +79,22 @@ public class TextParsingHelper {
 	return parsedText.toString().split(MovieFinderConstants.STR_SPACE); // return
 								    // String[]
 								    // of words
+    }
+
+    public static Map<String, Float> getQueryWeights(String[] queryTokens) {
+	// get default query weights (tf * idf), where idf is, by default, 1
+	Map<String, Short> queryTfs = new HashMap<String, Short>();
+	for (String queryToken : queryTokens) {
+	    short tf = (queryTfs.get(queryToken) == null) ? 0 : queryTfs.get(queryToken);
+
+	    queryTfs.put(queryToken, ++tf);
+	}
+
+	Map<String, Float> queryWeights = new HashMap<String, Float>();
+	for (String queryToken : queryTokens) {
+	    queryWeights.put(queryToken, 1f * queryTfs.get(queryToken));
+	}
+	return queryWeights;
     }
 }
 

@@ -43,10 +43,4 @@ public interface IQueryEngine {
      * 		whether to divide the score by the length of the document or not
      */
     void setNormalizeScoreToDocumentLength(String normalizeScoreToDocumentLength);
-
-   /**
-     * Gets the query tokens as a map of <'token', score>
-     * @return the map of <'token', score>
-     */
-    Map<String, Float> getQueryWeights();
 }

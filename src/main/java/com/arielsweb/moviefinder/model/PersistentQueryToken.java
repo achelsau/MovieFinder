@@ -28,7 +28,7 @@ public class PersistentQueryToken {
     private String token;
 
     @Column
-    private Double weight;
+    private Float weight;
 
     /**
      * @return the token
@@ -48,7 +48,7 @@ public class PersistentQueryToken {
     /**
      * @return the weight
      */
-    public Double getWeight() {
+    public Float getWeight() {
 	return weight;
     }
 
@@ -56,7 +56,7 @@ public class PersistentQueryToken {
      * @param weight
      *            the weight to set
      */
-    public void setWeight(Double weight) {
+    public void setWeight(Float weight) {
 	this.weight = weight;
     }
 
@@ -80,5 +80,42 @@ public class PersistentQueryToken {
      */
     public void setParentQuery(PersistentQuery parentQuery) {
 	this.parentQuery = parentQuery;
+    }
+
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + ((id == null) ? 0 : id.hashCode());
+	result = prime * result + ((token == null) ? 0 : token.hashCode());
+	result = prime * result + ((weight == null) ? 0 : weight.hashCode());
+	return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	PersistentQueryToken other = (PersistentQueryToken) obj;
+	if (id == null) {
+	    if (other.id != null)
+		return false;
+	} else if (!id.equals(other.id))
+	    return false;
+	if (token == null) {
+	    if (other.token != null)
+		return false;
+	} else if (!token.equals(other.token))
+	    return false;
+	if (weight == null) {
+	    if (other.weight != null)
+		return false;
+	} else if (!weight.equals(other.weight))
+	    return false;
+	return true;
     }
 }

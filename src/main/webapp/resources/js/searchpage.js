@@ -6,7 +6,7 @@ define(['quickSearchPage',
 	
 	function attachBody() {
 		// mock call
-		commonData.setUserData({id:'19', username : 'Ion', password : 'abcd'});
+		commonData.setUserData({id:'1', username : 'Ion', password : 'abcd'});
 		
 		bindEventHandlers();
 		
