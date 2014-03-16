@@ -1,5 +1,8 @@
 package com.arielsweb.moviefinder.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
@@ -36,6 +40,9 @@ public class PersistentQuery {
     @Column(name = "query_string")
     private String queryString;
 
+    @OneToMany(mappedBy = "parentQuery", cascade = CascadeType.ALL)
+    private List<PersistentQueryToken> tokens;
+
     public PersistentQuery() {
     }
 
@@ -57,12 +64,10 @@ public class PersistentQuery {
 	this.owner = owner;
     }
 
-    @JsonIgnore
     public Long getInterval() {
 	return interval;
     }
 
-    @JsonIgnore
     public void setInterval(Long interval) {
 	this.interval = interval;
     }
@@ -73,5 +78,13 @@ public class PersistentQuery {
 
     public void setQueryString(String queryString) {
 	this.queryString = queryString;
+    }
+
+    public List<PersistentQueryToken> getTokens() {
+	return tokens;
+    }
+
+    public void setTokens(List<PersistentQueryToken> tokens) {
+	this.tokens = tokens;
     }
 }

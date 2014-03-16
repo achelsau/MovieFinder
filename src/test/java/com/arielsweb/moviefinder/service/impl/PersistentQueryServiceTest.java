@@ -1,5 +1,6 @@
 package com.arielsweb.moviefinder.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.Assert;
@@ -14,6 +15,7 @@ import org.unitils.spring.annotation.SpringApplicationContext;
 import org.unitils.spring.annotation.SpringBeanByType;
 
 import com.arielsweb.moviefinder.model.PersistentQuery;
+import com.arielsweb.moviefinder.model.PersistentQueryToken;
 import com.arielsweb.moviefinder.model.User;
 import com.arielsweb.moviefinder.service.PersistentQueryService;
 
@@ -65,6 +67,23 @@ public class PersistentQueryServiceTest implements IGenericServiceTest<Persisten
 	PersistentQuery query = new PersistentQuery();
 	query.setInterval(1000L);
 	query.setQueryString("Extraterrestrial life");
+
+	List<PersistentQueryToken> tokens = new ArrayList<PersistentQueryToken>();
+
+	PersistentQueryToken token1 = new PersistentQueryToken();
+	token1.setToken("extraterrest");
+	token1.setWeight(1.25d);
+	token1.setParentQuery(query);
+	tokens.add(token1);
+
+	PersistentQueryToken token2 = new PersistentQueryToken();
+	token2.setToken("life");
+	token2.setWeight(0.25d);
+	token2.setParentQuery(query);
+	tokens.add(token2);
+
+	query.setTokens(tokens);
+
 	User owner = new User();
 	owner.setId(1L);
 	query.setOwner(owner);

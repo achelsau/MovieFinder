@@ -29,6 +29,7 @@
 				<value>com.arielsweb.moviefinder.model.MovieDescriptor</value>
 				<value>com.arielsweb.moviefinder.model.PersistentQuery</value>
 				<value>com.arielsweb.moviefinder.model.MovieCrewPerson</value>
+				<value>com.arielsweb.moviefinder.model.PersistentQueryToken</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
