@@ -74,5 +74,24 @@
 
 		</sql>
 	</changeSet>
+	
+	<changeSet id="1.0-6" author="ariel">
+		<sql>
+			ALTER TABLE `persistentquery` CHANGE COLUMN `interv` `interv` INT(10) NULL  ;
+		</sql>
+	</changeSet>
+	
+	<changeSet id="1.0-7" author="ariel">
+		<sql>
+			CREATE TABLE `PERSISTENTQUERYTOKEN` (
+				`id` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+				`token` VARCHAR(60) NOT NULL,
+				`weight` DECIMAL(15, 9) NOT NULL,
+				`parent_query` INT(5)UNSIGNED NOT NULL,
+				PRIMARY KEY (`id`),
+				CONSTRAINT `FK_PERSISTENTQUERYTOKEN_PERSISTENTQUERY` FOREIGN KEY (`parent_query`) REFERENCES `PERSISTENTQUERY` (`id`) ON DELETE CASCADE
+			) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8 , COLLATE = utf8_general_ci;
+		</sql>
+	</changeSet> 
 
 </databaseChangeLog>

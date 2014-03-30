@@ -42,7 +42,7 @@ import com.arielsweb.moviefinder.service.MovieSourceService;
 @DataSet("ClearDescriptorsGenresAndSources.xml")
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 @SpringApplicationContext({ "applicationContext-data-test.xml" })
-@Transactional(TransactionMode.ROLLBACK)
+@Transactional(TransactionMode.DISABLED)
 public class CosineScoreQueryEngineTest {
     @SpringBeanByType
     private MovieDescriptorService movieDescriptorService;

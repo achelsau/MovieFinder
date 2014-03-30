@@ -21,7 +21,9 @@ import org.unitils.database.util.TransactionMode;
 import org.unitils.spring.annotation.SpringApplicationContext;
 
 import com.arielsweb.moviefinder.index.IQueryEngine;
+import com.arielsweb.moviefinder.index.util.TextParsingHelper;
 import com.arielsweb.moviefinder.model.PersistentQuery;
+import com.arielsweb.moviefinder.model.PersistentQueryToken;
 import com.arielsweb.moviefinder.model.User;
 import com.arielsweb.moviefinder.service.PersistentQueryService;
 import com.arielsweb.moviefinder.webservice.exceptions.InvalidPersistentQueryException;
@@ -86,6 +88,43 @@ public class QueryEngineControllerTest {
 
 	// verify
 	verify(mockPersistentQueryService).save(persistentQuery);
+    }
+
+    @Test
+    public void testSearchByPersistentQueryWithoutTokens() throws InvalidPersistentQueryException {
+	// setup
+	PersistentQuery persistentQuery = new PersistentQuery();
+	persistentQuery.setInterval(10L);
+	persistentQuery.setQueryString("Dummy Query");
+
+	// execute
+	queryEngineController.searchPersistentQuery(persistentQuery, request, response, mockUser);
+
+	// verify
+	verify(mockQueryEngine).queryIndex("Dummy Query");
+    }
+
+    @Test
+    public void testSearchByPersistentQueryWithTokens() throws InvalidPersistentQueryException {
+	// setup
+	PersistentQuery persistentQuery = new PersistentQuery();
+	persistentQuery.setInterval(10L);
+	persistentQuery.setQueryString("Dummy Query");
+
+	PersistentQueryToken persistentQueryToken1 = new PersistentQueryToken();
+	persistentQueryToken1.setToken("Dummy");
+	persistentQueryToken1.setWeight(1f);
+
+	PersistentQueryToken persistentQueryToken2 = new PersistentQueryToken();
+	persistentQueryToken2.setToken("Query");
+	persistentQueryToken2.setWeight(1f);
+	persistentQuery.setTokens(Arrays.asList(persistentQueryToken1, persistentQueryToken2));
+
+	// execute
+	queryEngineController.searchPersistentQuery(persistentQuery, request, response, mockUser);
+
+	// verify
+	verify(mockQueryEngine).queryIndex(TextParsingHelper.getQueryWeights(persistentQuery.getTokens()));
     }
 
     @Test

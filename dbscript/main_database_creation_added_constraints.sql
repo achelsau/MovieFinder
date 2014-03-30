@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS `moviefinder_scalability_test`;
-CREATE DATABASE `moviefinder_scalability_test`;
-USE `moviefinder_scalability_test`;
+DROP DATABASE IF EXISTS `moviefinder`;
+CREATE DATABASE `moviefinder`;
+USE `moviefinder`;
 
 set foreign_key_checks = 0;
 
