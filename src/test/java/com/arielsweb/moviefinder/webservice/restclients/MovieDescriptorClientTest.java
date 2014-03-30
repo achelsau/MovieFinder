@@ -5,7 +5,7 @@ import static junit.framework.Assert.assertEquals;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.arielsweb.moviefinder.index.dto.ResultInfoResponse;
+import com.arielsweb.moviefinder.webservice.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.webservice.util.IndexingEngineUtils;
 import com.arielsweb.moviefinder.webservice.util.QueryEngineUtils;
 
@@ -52,7 +52,7 @@ public class MovieDescriptorClientTest {
 
 	// 2. Query for it based on a word from the description
 	String query = "1q2w3e4r5t6y";
-	com.arielsweb.moviefinder.index.dto.ResultInfoResponse resultInfoResponse = QueryEngineUtils.quickQueryForMovie(query);
+	ResultInfoResponse resultInfoResponse = QueryEngineUtils.quickQueryForMovie(query);
 
 	assertEquals(resourceId, resultInfoResponse.getQueryId());
 
@@ -122,7 +122,7 @@ public class MovieDescriptorClientTest {
 
 	// 3. Query for it based on a word from the description
 	String query = "1q2w3e4r5t6y";
-	com.arielsweb.moviefinder.index.dto.ResultInfoResponse resultInfoResponse = QueryEngineUtils.quickQueryForMovie(query);
+	ResultInfoResponse resultInfoResponse = QueryEngineUtils.quickQueryForMovie(query);
 
 	assertEquals(resourceId, resultInfoResponse.getQueryId());
     }

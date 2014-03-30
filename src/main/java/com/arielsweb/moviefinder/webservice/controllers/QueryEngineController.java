@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.arielsweb.moviefinder.index.IQueryEngine;
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
-import com.arielsweb.moviefinder.index.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.index.util.TextParsingHelper;
 import com.arielsweb.moviefinder.model.PersistentQuery;
 import com.arielsweb.moviefinder.model.PersistentQueryToken;
 import com.arielsweb.moviefinder.model.User;
 import com.arielsweb.moviefinder.service.PersistentQueryService;
+import com.arielsweb.moviefinder.webservice.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.webservice.exceptions.InvalidPersistentQueryException;
 import com.arielsweb.moviefinder.webservice.exceptions.InvalidPersistentQueryIdException;
 import com.arielsweb.moviefinder.webservice.exceptions.InvalidQuickQueryException;

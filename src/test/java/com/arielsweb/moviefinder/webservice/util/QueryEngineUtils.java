@@ -15,8 +15,8 @@ import java.util.Comparator;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
-import com.arielsweb.moviefinder.index.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.model.PersistentQuery;
+import com.arielsweb.moviefinder.webservice.dto.ResultInfoResponse;
 
 /**
  * @author Ariel
@@ -30,7 +30,7 @@ public class QueryEngineUtils {
      *            the quick query to send to the server
      * @return the result for the quick query
      */
-    public static com.arielsweb.moviefinder.index.dto.ResultInfoResponse quickQueryForMovie(String query) {
+    public static ResultInfoResponse quickQueryForMovie(String query) {
 	try {
 	    URL queryUrl = new URL("https://localhost:8443/MovieFinderServer/mf/query/quickQuery/");
 

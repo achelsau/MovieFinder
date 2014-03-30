@@ -10,9 +10,9 @@ import org.unitils.UnitilsJUnit4TestClassRunner;
 import org.unitils.spring.annotation.SpringApplicationContext;
 import org.unitils.spring.annotation.SpringBeanByName;
 
-import com.arielsweb.moviefinder.index.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.service.PersistentQueryService;
 import com.arielsweb.moviefinder.webservice.controllers.QueryEngineController;
+import com.arielsweb.moviefinder.webservice.dto.ResultInfoResponse;
 import com.arielsweb.moviefinder.webservice.util.QueryEngineUtils;
 
 /**

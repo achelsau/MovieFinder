@@ -49,8 +49,6 @@ public class RelevanceFeedbackEngine {
      *            the parsed query tokens
      * @param relevantEntries
      *            the relevant document ids
-     * @param invertedIndex
-     *            the actual inverted index against which the refining is done
      * @return the resulted refined query
      */
     public Map<String, Float> getRefinedQuery(Map<String, Float> queryTokens, Long[] relevantEntries) {
