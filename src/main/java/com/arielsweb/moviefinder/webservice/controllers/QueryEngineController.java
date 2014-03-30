@@ -1,6 +1,7 @@
 package com.arielsweb.moviefinder.webservice.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.arielsweb.moviefinder.index.IQueryEngine;
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
 import com.arielsweb.moviefinder.index.dto.ResultInfoResponse;
+import com.arielsweb.moviefinder.index.util.TextParsingHelper;
 import com.arielsweb.moviefinder.model.PersistentQuery;
 import com.arielsweb.moviefinder.model.PersistentQueryToken;
 import com.arielsweb.moviefinder.model.User;
@@ -49,21 +51,6 @@ public class QueryEngineController {
 
     private IQueryEngine queryEngine;
 
-    /**
-     * Receives a quick query issued by the client-side
-     * 
-     * @param queryString
-     *            the actual query string sent by the client
-     * @param request
-     *            the http request
-     * @param resp
-     *            the http response
-     * @param user
-     *            the user performing the operation
-     * @return the results wrapped in a {@link ResultInfoResponse} - which
-     *         effectively is a map of <score, result>
-     * @throws InvalidQuickQueryException
-     */
     @RequestMapping(value = "/quickQuery", method = RequestMethod.POST, headers = "content-type=text/plain")
     @ResponseBody
     public ResultInfoResponse quickQuery(@RequestBody String queryString, HttpServletRequest request,
@@ -73,6 +60,30 @@ public class QueryEngineController {
 	}
 
 	List<ResultInfo> queryResults = queryEngine.queryIndex(queryString);
+	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults);
+	return resultInfoResponse;
+    }
+
+    @RequestMapping(value = "/searchPersistentQuery", method = RequestMethod.POST, headers = "content-type=json/application")
+    @ResponseBody
+    public ResultInfoResponse searchPersistentQuery(@RequestBody PersistentQuery persistentQuery,
+	    HttpServletRequest request, HttpServletResponse response, User user) throws InvalidPersistentQueryException {
+	if (persistentQuery.getQueryString() == null || persistentQuery.getQueryString().isEmpty()) {
+	    throw new InvalidPersistentQueryException("The persistent query is malformed");
+	}
+
+	List<ResultInfo> queryResults = null;
+	if (persistentQuery.getTokens() != null && persistentQuery.getTokens().size() > 0) {
+	    List<PersistentQueryToken> persistentQueryTokens = persistentQuery.getTokens();
+
+	    Map<String, Float> queryWeights = TextParsingHelper.getQueryWeights(persistentQueryTokens);
+
+	    queryResults = queryEngine.queryIndex(queryWeights);
+	} else {
+	    queryResults = queryEngine.queryIndex(persistentQuery.getQueryString());
+	}
+
+	// return both the results and the id of the query
 	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults);
 	return resultInfoResponse;
     }
@@ -100,8 +111,6 @@ public class QueryEngineController {
 	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(null, queryId);
 	return resultInfoResponse;
     }
-
-    
 
     @RequestMapping(value = "/updatePersistentQuery/", method = RequestMethod.POST, headers = "content-type=json/application")
     @ResponseBody

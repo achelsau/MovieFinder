@@ -4,6 +4,9 @@ define(['text!../pages/persistent_search.html',
         'result'],
 		function (persistentSearch, $, commonData, result) {
 	
+	var currentQueryTokens = null;
+	var currentSelectQuery = null;
+	
 	function attachBody() {
 		$("#content").remove();
 		
@@ -28,20 +31,33 @@ define(['text!../pages/persistent_search.html',
 	function handlePopulationWithPersistentQueries(response) {
 		console.log(response);
 		
+		var userData = commonData.getUserData();
+		var tokensMap = [];
 		for (var i = 0; i < response.length; i++) {
 			$("#persistentQueries").append("<option value='" + response[i].id + "'>" + response[i].queryString + "</option>");
+			
+			tokensMap[response[i].id] = response[i].tokens;
 		}
+		
+		userData.tokensMap = tokensMap;
 	}
 	
 	function bindEventHandlers() {
 		$("#searchButton").click(function(e) {
 			$.ajax({
 			  type : "POST",
-			  url: commonData.getConstants().basePath + "query/quickQuery/",
+			  url: commonData.getConstants().basePath + "query/searchPersistentQuery/",
 			  headers: { 'Authorization': commonData.getUserData().username + ":" + commonData.getUserData().password },
-			  contentType : "text/plain",
-			  data : $("#query_string").val()
+			  contentType : "json/application",
+			  data: JSON.stringify({queryString: currentSelectQuery, tokens : currentQueryTokens})
 			}).done( handleSearchResponse );
+		});
+		
+		$("#persistentQueries").change(function (e) {
+			var userData = commonData.getUserData();
+			var queryId = $("#persistentQueries option:selected").attr("value");
+			currentSelectQuery = $("#persistentQueries option:selected").text();
+			currentQueryTokens = userData.tokensMap[queryId];
 		});
 	}
 	

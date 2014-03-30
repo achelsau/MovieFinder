@@ -34,8 +34,12 @@ define(['text!../pages/result.html',
 			  headers: { 'Authorization': commonData.getUserData().username + ":" + commonData.getUserData().password },
 			  contentType : "text/plain",
 			  data : $("#query_string").val()
-			}).done( handleResponse );
+			}).done( handleLikeResponse );
 		});
+	}
+	
+	function handleLikeResponse(response) {
+		
 	}
 	
 	return {

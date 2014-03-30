@@ -199,12 +199,6 @@ public class PersistentQueryServiceTest implements IGenericServiceTest<Persisten
 	token2.setParentQuery(query);
 	tokens.add(token2);
 
-	PersistentQueryToken token3 = new PersistentQueryToken();
-	token3.setToken("life");
-	token3.setWeight(0.25f);
-	token3.setParentQuery(query);
-	tokens.add(token3);
-
 	query.setTokens(tokens);
 
 	User owner = new User();
@@ -219,15 +213,16 @@ public class PersistentQueryServiceTest implements IGenericServiceTest<Persisten
 	// verify
 	Assert.assertEquals(3, queries.size());
 
-	Long[] expectedIds = { query.getId(), Long.valueOf(1), Long.valueOf(2) };
-	int i = 0;
+	boolean containsNewQuery = false;
 	for (PersistentQuery persistentQuery : queries) {
-	    Assert.assertEquals(expectedIds[i], persistentQuery.getId());
-
-	    i++;
+	    if (persistentQuery.getId().equals(query.getId())) {
+		containsNewQuery = true;
+	    }
 	}
+	
+	Assert.assertTrue(containsNewQuery);
 
-	i = 0;
+	int i = 0;
 	for (PersistentQueryToken token : queries.get(0).getTokens()) {
 	    assertEquals(tokens.get(i).getId(), token.getId());
 

@@ -1,6 +1,7 @@
 package com.arielsweb.moviefinder.index.util;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,6 +9,7 @@ import java.util.regex.Pattern;
 import org.tartarus.snowball.StemWord;
 import org.tartarus.snowball.Stopwords;
 
+import com.arielsweb.moviefinder.model.PersistentQueryToken;
 import com.arielsweb.moviefinder.utilities.MovieFinderConstants;
 
 /**
@@ -94,6 +96,16 @@ public class TextParsingHelper {
 	for (String queryToken : queryTokens) {
 	    queryWeights.put(queryToken, 1f * queryTfs.get(queryToken));
 	}
+	return queryWeights;
+    }
+
+    public static Map<String, Float> getQueryWeights(List<PersistentQueryToken> persistentQueryTokens) {
+	Map<String, Float> queryWeights = new HashMap<String, Float>();
+
+	for (PersistentQueryToken persistentQueryToken : persistentQueryTokens) {
+	    queryWeights.put(persistentQueryToken.getToken(), persistentQueryToken.getWeight());
+	}
+
 	return queryWeights;
     }
 }

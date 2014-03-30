@@ -3,9 +3,17 @@ package com.arielsweb.moviefinder.index.util;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import junit.framework.Assert;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.unitils.UnitilsJUnit4TestClassRunner;
+
+import com.arielsweb.moviefinder.model.PersistentQueryToken;
 
 /**
  * Tests the {@link TestParsingHelper}
@@ -94,5 +102,30 @@ public class TextParsingHelperTest {
 	for (int i = 0; i < wordsParsed.length; i++) {
 	    assertTrue(expectedWords[i].equalsIgnoreCase(wordsParsed[i]));
 	}
+    }
+
+    @Test
+    public void testGetQueryWeightsFromPersistentQueryTokens() {
+	// setup
+	List<PersistentQueryToken> persistentQueryTokens = new ArrayList<PersistentQueryToken>();
+	PersistentQueryToken token1 = new PersistentQueryToken();
+	token1.setToken("token1");
+	token1.setWeight(1.2f);
+	persistentQueryTokens.add(token1);
+	
+	PersistentQueryToken token2 = new PersistentQueryToken();
+	token2.setToken("token2");
+	token2.setWeight(1.3f);
+	persistentQueryTokens.add(token2);
+
+	// execute
+	Map<String, Float> queryWeights = TextParsingHelper.getQueryWeights(persistentQueryTokens);
+
+	// verify
+	Float weight1 = queryWeights.get("token1");
+	Assert.assertEquals(1.2f, weight1);
+	    
+	Float weight2 = queryWeights.get("token2");
+	Assert.assertEquals(1.3f, weight2);
     }
 }

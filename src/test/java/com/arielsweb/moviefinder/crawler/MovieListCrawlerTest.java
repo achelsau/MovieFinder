@@ -20,7 +20,6 @@ import org.unitils.spring.annotation.SpringBeanByType;
 
 import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.MovieSource;
-import com.arielsweb.moviefinder.service.MovieDatabasePopulatorService;
 import com.arielsweb.moviefinder.service.MovieDescriptorService;
 import com.arielsweb.moviefinder.service.MovieSourceService;
 
@@ -42,8 +41,6 @@ public class MovieListCrawlerTest {
     public MovieDescriptorService movieDescriptorService;
     @SpringBeanByType
     public MovieSourceService movieSourceService;
-    @SpringBeanByType
-    public MovieDatabasePopulatorService movieDatabasePopulatorService;
 
     /**
      * Tests parsing http://www.arielsweb.com/utils/list_of_movies.html
@@ -55,7 +52,7 @@ public class MovieListCrawlerTest {
     @Test
     public void testParseListOfMovies() throws IOException, ParseException, InterruptedException {
 	// setup
-	MovieSource movieSource = movieDatabasePopulatorService.getMovieSource("IMDB", "http://www.imdb.com");
+	MovieSource movieSource = movieListCrawler.getMovieSource("IMDB", "http://www.imdb.com");
 
 	// execute
 	movieListCrawler.parseMovieList("http://www.arielsweb.com/utils/list_of_movies.html", movieSource);
@@ -97,7 +94,7 @@ public class MovieListCrawlerTest {
     @Ignore
     public void populateScalabilityDatabase() throws IOException, ParseException, InterruptedException {
 	// setup
-	MovieSource movieSource = movieDatabasePopulatorService.getMovieSource("IMDB", "http://www.imdb.com");
+	MovieSource movieSource = movieListCrawler.getMovieSource("IMDB", "http://www.imdb.com");
 
 	// execute
 	int i = 1;

@@ -2,6 +2,7 @@ package com.arielsweb.moviefinder.crawler;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
@@ -15,6 +16,7 @@ import com.arielsweb.moviefinder.crawler.exception.InvalidMovieException;
 import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.MovieSource;
 import com.arielsweb.moviefinder.service.MovieDescriptorService;
+import com.arielsweb.moviefinder.service.MovieSourceService;
 
 /**
  * Given the paginated list of movies from http://www.imdb.com, this crawler
@@ -34,11 +36,33 @@ public class MovieListCrawler {
     /** The logger. */
     protected org.apache.log4j.Logger log = Logger.getLogger(MovieListCrawler.class);
 
+    @Autowired
+    private MovieSourceService movieSourceService;
+
     /**
      * Creates a new movie list crawler
      */
     public MovieListCrawler() {
 
+    }
+
+    /**
+     * For a specific population run, either take a fresh copy of the
+     * {@link MovieSource} from the database or insert a new one.
+     */
+    public MovieSource getMovieSource(String sourceName, String url) {
+	List<MovieSource> sources = movieSourceService.list();
+	MovieSource source = null;
+	if (sources.size() == 1) {
+	    source = sources.get(0);
+	} else {
+	    source = new MovieSource();
+	    source.setLocation(url);
+	    source.setName(sourceName);
+	    movieSourceService.save(source);
+	}
+
+	return source;
     }
 
     /**
@@ -97,5 +121,9 @@ public class MovieListCrawler {
 	}
 	
 	return counter;
+    }
+
+    public void setMovieSourceService(MovieSourceService movieSourceService) {
+	this.movieSourceService = movieSourceService;
     }
 }
