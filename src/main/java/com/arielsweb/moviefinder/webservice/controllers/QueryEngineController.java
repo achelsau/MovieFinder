@@ -84,7 +84,7 @@ public class QueryEngineController {
 	}
 
 	// return both the results and the id of the query
-	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults);
+	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults, persistentQuery.getId());
 	return resultInfoResponse;
     }
 

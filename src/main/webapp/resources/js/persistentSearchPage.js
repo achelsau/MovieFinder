@@ -6,6 +6,7 @@ define(['text!../pages/persistent_search.html',
 	
 	var currentQueryTokens = null;
 	var currentSelectQuery = null;
+	var currentSelectedQueryId = null;
 	
 	function attachBody() {
 		$("#content").remove();
@@ -40,6 +41,13 @@ define(['text!../pages/persistent_search.html',
 		}
 		
 		userData.tokensMap = tokensMap;
+		
+		setCurrentlySelectedQuery();
+	}
+	
+	function setCurrentlySelectedQuery() {
+		currentSelectQuery = $("#persistentQueries option:selected").text();
+		currentSelectedQueryId = $("#persistentQueries option:selected").val();
 	}
 	
 	function bindEventHandlers() {
@@ -49,15 +57,12 @@ define(['text!../pages/persistent_search.html',
 			  url: commonData.getConstants().basePath + "query/searchPersistentQuery/",
 			  headers: { 'Authorization': commonData.getUserData().username + ":" + commonData.getUserData().password },
 			  contentType : "json/application",
-			  data: JSON.stringify({queryString: currentSelectQuery, tokens : currentQueryTokens})
+			  data: JSON.stringify({id : currentSelectedQueryId , queryString: currentSelectQuery, tokens : commonData.getUserData().tokensMap[currentSelectedQueryId]})
 			}).done( handleSearchResponse );
 		});
 		
 		$("#persistentQueries").change(function (e) {
-			var userData = commonData.getUserData();
-			var queryId = $("#persistentQueries option:selected").attr("value");
-			currentSelectQuery = $("#persistentQueries option:selected").text();
-			currentQueryTokens = userData.tokensMap[queryId];
+			setCurrentlySelectedQuery();
 		});
 	}
 	
@@ -65,8 +70,10 @@ define(['text!../pages/persistent_search.html',
 		$("#results_list").empty();
 		
 		var resultsArray = response.results;
+		var currentResult = null;
 		for (var i = 0; i < resultsArray.length; i++) {
-			result.attachResult("#results_list", resultsArray[i]);
+			currentResult = new result.Result();
+			currentResult.attachResult("#results_list", resultsArray[i], response.queryId);
 		}
 	}
 	

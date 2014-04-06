@@ -98,8 +98,10 @@ public class RelevanceFeedbackControllerTest {
 
 	persistentQuery.setTokens(Arrays.asList(persistentQueryToken1, persistentQueryToken2));
 	
-	RelevanceFeedbackRequest relevanceFeedbackRequest = new RelevanceFeedbackRequest(persistentQuery, movieId);
+	RelevanceFeedbackRequest relevanceFeedbackRequest = new RelevanceFeedbackRequest(persistentQuery.getId()
+		.toString(), movieId);
 	when(mockMDService.find(Long.parseLong(movieId))).thenReturn(new MovieDescriptor());
+	when(mockPersistentQueryService.find(persistentQuery.getId())).thenReturn(persistentQuery);
 	
 	// execute
 	controller.markIt(relevanceFeedbackRequest, mockRequest, mockResponse, mockUser);
@@ -111,6 +113,6 @@ public class RelevanceFeedbackControllerTest {
 		Mockito.any(MovieDescriptor.class));
 
 	order.verify(mockRelevanceFeedbackEngine).getRefinedQuery(Mockito.eq(queryWeights), Mockito.eq(movieIds));
-	order.verify(mockPersistentQueryService).save(Mockito.eq(persistentQuery));
+	order.verify(mockPersistentQueryService).update(Mockito.eq(persistentQuery));
     }
 }

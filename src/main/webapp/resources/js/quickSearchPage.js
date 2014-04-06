@@ -40,8 +40,10 @@ define(['text!../pages/quick_search.html',
 		$("#results_list").empty();
 		
 		var resultsArray = response.results;
+		var currentResult = null;
 		for (var i = 0; i < resultsArray.length; i++) {
-			result.attachResult("#results_list", resultsArray[i]);
+			currentResult = new result.Result();
+			currentResult.attachResult("#results_list", resultsArray[i], response.queryId);
 		}
 	}
 	
