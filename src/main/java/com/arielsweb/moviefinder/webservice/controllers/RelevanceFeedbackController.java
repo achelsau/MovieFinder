@@ -8,12 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.arielsweb.moviefinder.index.impl.RelevanceFeedbackEngine;
 import com.arielsweb.moviefinder.index.util.TextParsingHelper;
@@ -46,13 +45,15 @@ public class RelevanceFeedbackController {
 
     private PersistentQueryService persistentQueryService;
 
-    @RequestMapping(value = "/markIt/{movieId}", method = RequestMethod.POST, headers = "content-type=json/application")
-    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/markIt", method = RequestMethod.POST, headers = "content-type=json/application")
+    @ResponseBody
     public List<PersistentQueryToken> markIt(@RequestBody RelevanceFeedbackRequest relevanceFeedbackRequest,
 	    HttpServletRequest request, HttpServletResponse resp, User user) throws InvalidRelationIdException {
 	Long movieIdLong = 0L;
+	Long persistentQueryLong = 0L;
 	try {
 	    movieIdLong = Long.parseLong(relevanceFeedbackRequest.getRelevantMovieId());
+	    persistentQueryLong = Long.parseLong(relevanceFeedbackRequest.getPersistentQueryId());
 	} catch (NumberFormatException ex) {
 	    throw new InvalidRelationIdException(ex.getMessage());
 	}
@@ -60,7 +61,7 @@ public class RelevanceFeedbackController {
 	MovieDescriptor movieDescriptor = movieDescriptorService.find(movieIdLong);
 	userService.saveRelevantResult(user.getId(), movieDescriptor);
 
-	PersistentQuery persistentQuery = relevanceFeedbackRequest.getPersistentQuery();
+	PersistentQuery persistentQuery = persistentQueryService.find(persistentQueryLong);
 	Map<String, Float> queryWeights = TextParsingHelper.getQueryWeights(persistentQuery.getTokens());
 
 	Long[] relevantEntries = new Long[] { movieIdLong };
@@ -70,7 +71,7 @@ public class RelevanceFeedbackController {
 		queryWeights);
 
 	persistentQuery.setTokens(persistentQueryTokens);
-	persistentQueryService.save(persistentQuery);
+	persistentQueryService.update(persistentQuery);
 
 	return persistentQueryTokens;
     }
