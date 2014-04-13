@@ -20,8 +20,8 @@ define(['text!../pages/result.html',
 			result.find(".title").text(title);
 			
 			var description = data.description;
-			if (description.length > 502) {
-				description = description.substring(0, 502) + "...";
+			if (description.length > 402) {
+				description = description.substring(0, 402) + "...";
 			}
 			
 			result.find(".description").text(description);
