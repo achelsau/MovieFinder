@@ -3,8 +3,9 @@ define(['text!../pages/result.html',
         'commonData'], 
         function (htmlPage, $, commonData) {
 	
-	function Result() {
-	
+	function Result(viewType) {
+		var VIEW_TYPE = viewType;
+		
 		var currentQueryId = null;
 		var currentMovieId = null;
 		
@@ -26,12 +27,17 @@ define(['text!../pages/result.html',
 			
 			result.find(".description").text(description);
 			result.find(".movieImage").attr("src", data.remotePicture);
+			result.find(".imdbLink").attr("href", data.remotePath);
 			result.find(".movie_id").val(data.id);
 			currentMovieId = data.id;
 			
 			currentQueryId = queryId;
 			
-			bindEventHandlers(result);
+			if (VIEW_TYPE === "quickSearch") {
+				result.find(".like_btn").hide();
+			} else {
+				bindEventHandlers(result);
+			}
 		}
 		
 		function bindEventHandlers(resultPage) {
@@ -44,11 +50,11 @@ define(['text!../pages/result.html',
 				  data : JSON.stringify({persistentQueryId : currentQueryId, relevantMovieId: currentMovieId})
 				}).done( handleLikeResponse );
 			});
+			
+			
 		}
 		
 		function handleLikeResponse(response) {
-			alert("Like Given");
-	
 			var userData = commonData.getUserData();
 			userData.tokensMap[currentQueryId] = response;
 		}

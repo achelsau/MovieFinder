@@ -1,12 +1,7 @@
 package com.arielsweb.moviefinder.index.impl;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +15,9 @@ import org.unitils.spring.annotation.SpringApplicationContext;
 import org.unitils.spring.annotation.SpringBeanByType;
 
 import com.arielsweb.moviefinder.index.IndexEngine;
-import com.arielsweb.moviefinder.index.dto.IndexEntry;
-import com.arielsweb.moviefinder.index.dto.MovieDetailsDTO;
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
 import com.arielsweb.moviefinder.index.exception.InvalidMovieDescriptorException;
+import com.arielsweb.moviefinder.index.util.IndexReadWriteHelper;
 import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.service.MovieDescriptorService;
 
@@ -57,15 +51,7 @@ public class QueryLargeDatabaseTest {
 	long end = 0;
 
 	startAll = System.currentTimeMillis();
-	FileInputStream inStream = new FileInputStream(new File(
-		"D:\\.facultate\\dizertatie\\MovieFinderServer_git\\dbscript\\index_serialized_full_name_cast"));
-	ObjectInputStream ois = new ObjectInputStream(inStream);
-
-	HashMap<String, IndexEntry> invertedIndex = readInvertedIndex(ois);
-	HashMap<Long, MovieDetailsDTO> movieDetails = readMovieDetails(ois);
-
-	indexEngine.setCorpus(invertedIndex);
-	indexEngine.setMovieDetails(movieDetails);
+	IndexReadWriteHelper.setCorpusAndMovieDetails(indexEngine, "index_serialized_full_name_cast");
 
 	indexEngine.writeIndexToFile();
 
@@ -90,15 +76,7 @@ public class QueryLargeDatabaseTest {
 	/**
 	 * 1. Setup (put the index into memory)
 	 */
-	FileInputStream inStream = new FileInputStream(new File(
-		"D:\\.facultate\\dizertatie\\MovieFinderServer_git\\dbscript\\index_serialized_full_name_cast"));
-	ObjectInputStream ois = new ObjectInputStream(inStream);
-
-	HashMap<String, IndexEntry> invertedIndex = readInvertedIndex(ois);
-	HashMap<Long, MovieDetailsDTO> movieDetails = readMovieDetails(ois);
-
-	indexEngine.setCorpus(invertedIndex);
-	indexEngine.setMovieDetails(movieDetails);
+	IndexReadWriteHelper.setCorpusAndMovieDetails(indexEngine, "index_serialized_full_name_cast");
 
 	/**
 	 * 2. Run the query 1st time
@@ -152,23 +130,6 @@ public class QueryLargeDatabaseTest {
 	return count;
     }
 
-    @SuppressWarnings("unchecked")
-    private HashMap<String, IndexEntry> readInvertedIndex(ObjectInputStream ois) throws IOException,
-	    ClassNotFoundException {
-	HashMap<String, IndexEntry> invertedIndex = (HashMap<String, IndexEntry>) ois.readObject();
-
-	return invertedIndex;
-    }
-
-    @SuppressWarnings("unchecked")
-    private HashMap<Long, MovieDetailsDTO> readMovieDetails(ObjectInputStream ois) throws IOException,
-	    ClassNotFoundException {
-
-	HashMap<Long, MovieDetailsDTO> movieDetails = (HashMap<Long, MovieDetailsDTO>) ois.readObject();
-
-	return movieDetails;
-    }
-
     /**
      * Index data from the database
      * 
@@ -190,14 +151,6 @@ public class QueryLargeDatabaseTest {
 	log.warn("indexing took: " + (end - start));
 
 	// 2. serialize the MBI
-	serializeIndex();
-    }
-
-    private void serializeIndex() throws FileNotFoundException, IOException {
-	FileOutputStream outStream = new FileOutputStream(new File(
-		"D:\\.facultate\\dizertatie\\MovieFinderServer_git\\dbscript\\index_serialized"));
-	ObjectOutputStream oos = new ObjectOutputStream(outStream);
-	oos.writeObject(indexEngine.getInvertedIndex());
-	oos.writeObject(indexEngine.getMovieDetails());
+	IndexReadWriteHelper.serializeIndex(indexEngine);
     }
 }

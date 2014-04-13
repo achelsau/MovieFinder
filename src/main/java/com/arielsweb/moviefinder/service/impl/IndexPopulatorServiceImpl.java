@@ -1,5 +1,7 @@
 package com.arielsweb.moviefinder.service.impl;
 
+import java.io.IOException;
+
 import javax.annotation.PostConstruct;
 
 import org.apache.log4j.Logger;
@@ -39,9 +41,12 @@ public class IndexPopulatorServiceImpl {
      * @throws InvalidIndexPopulationException
      *             thrown if the index alredy contains data
      * @throws InvalidMovieDescriptorException
+     * @throws ClassNotFoundException
+     * @throws IOException
      */
     @PostConstruct
-    public void populateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException {
+    public void populateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException, IOException,
+	    ClassNotFoundException {
 	movieDescriptorService.populateIndex();
     }
 

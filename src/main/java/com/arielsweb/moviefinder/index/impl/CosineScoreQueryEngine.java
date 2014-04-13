@@ -31,6 +31,7 @@ import com.arielsweb.moviefinder.index.util.TextParsingHelper;
 public class CosineScoreQueryEngine implements IQueryEngine {
 
     public static int K = 15;
+    private static int MINIMUM_TERM_COUNT_FOR_NORMALIZATION = 30;
     private static IndexEngine indexingEngine;
     
     /** The logger. */
@@ -42,6 +43,8 @@ public class CosineScoreQueryEngine implements IQueryEngine {
      *            document has 10 words, the score is higher: 1. **/
     @Value("${index.useScoreNormalization}")
     private String normalizeScoreToDocumentLength;
+
+    private static int sumOfAll, count;
 
 
     public CosineScoreQueryEngine() {
@@ -178,6 +181,8 @@ public class CosineScoreQueryEngine implements IQueryEngine {
 	    if (Boolean.valueOf(normalizeScoreToDocumentLength)) {
 		normalizeScores(results);
 	    }
+
+	    // System.out.println("Average: " + ((double) sumOfAll / count));
 	    return getResultList(results);
 	} else {
 	    return new ArrayList<ResultInfo>(); // empty {@link ArrayList}
@@ -209,11 +214,17 @@ public class CosineScoreQueryEngine implements IQueryEngine {
 	movieIds = results.keySet().toArray(movieIds);
 	for (int i = 0; i < movieIds.length; i++) {
 	    ResultInfo resultInfo = results.get(movieIds[i]);
-	    float normalizedScore = (resultInfo.getScore() / movieDetails.get(movieIds[i]).getTermCount()) * 100;
-	    resultInfo.setScore(normalizedScore);
+	    
+	    sumOfAll += movieDetails.get(movieIds[i]).getTermCount();
+	    count++;
+	    
+	    if (movieDetails.get(movieIds[i]).getTermCount() > MINIMUM_TERM_COUNT_FOR_NORMALIZATION) {
+		float normalizedScore = (resultInfo.getScore() / movieDetails.get(movieIds[i]).getTermCount()) * 100;
+		resultInfo.setScore(normalizedScore);
 
-	    if (normalizedScore > scoreMax) {
-		scoreMax = normalizedScore;
+		if (normalizedScore > scoreMax) {
+		    scoreMax = normalizedScore;
+		}
 	    }
 	}
 

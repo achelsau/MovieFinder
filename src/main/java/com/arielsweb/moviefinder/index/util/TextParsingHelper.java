@@ -81,8 +81,8 @@ public class TextParsingHelper {
 	}
 
 	return parsedText.toString().split(MovieFinderConstants.STR_SPACE); // return
-								    // String[]
-								    // of words
+									    // //
+									    // words
     }
 
     public static Map<String, Float> getQueryWeights(String[] queryTokens) {

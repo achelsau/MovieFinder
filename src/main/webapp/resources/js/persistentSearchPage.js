@@ -72,7 +72,7 @@ define(['text!../pages/persistent_search.html',
 		var resultsArray = response.results;
 		var currentResult = null;
 		for (var i = 0; i < resultsArray.length; i++) {
-			currentResult = new result.Result();
+			currentResult = new result.Result(commonData.getConstants().PERSISTENT_SEARCH);
 			currentResult.attachResult("#results_list", resultsArray[i], response.queryId);
 		}
 	}

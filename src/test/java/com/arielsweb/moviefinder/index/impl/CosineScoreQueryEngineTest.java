@@ -396,6 +396,8 @@ public class CosineScoreQueryEngineTest {
 
 	invertedIndexEngine.setIndexFullNamesForCastAndCrew(false);
 
+	cosineQueryEngine.setNormalizeScoreToDocumentLength("false");
+
 	// execute
 	invertedIndexEngine.addEntry(descriptor1Serenity);
 	invertedIndexEngine.addEntry(descriptor2SavingPrivateRyan);
@@ -470,6 +472,8 @@ public class CosineScoreQueryEngineTest {
 
 	invertedIndexEngine.addEntry(descriptor8GhostShip);
 
+	cosineQueryEngine.setNormalizeScoreToDocumentLength("false");
+
 	// execute
 	List<ResultInfo> results = cosineQueryEngine.queryIndex("ship computer");
 
@@ -529,6 +533,8 @@ public class CosineScoreQueryEngineTest {
 	invertedIndexEngine.addEntry(descriptor7Prometheus);
 
 	invertedIndexEngine.addEntry(descriptor8GhostShip);
+
+	cosineQueryEngine.setNormalizeScoreToDocumentLength("false");
 
 	// execute
 	List<ResultInfo> results = cosineQueryEngine.queryIndex("ship computer");
@@ -590,6 +596,8 @@ public class CosineScoreQueryEngineTest {
 	invertedIndexEngine.addEntry(descriptor7Prometheus);
 
 	invertedIndexEngine.addEntry(descriptor8GhostShip);
+
+	cosineQueryEngine.setNormalizeScoreToDocumentLength("false");
 
 	// execute (the text parsing method makes discovery -> discoveri and
 	// discovered -> discov)
@@ -784,6 +792,8 @@ public class CosineScoreQueryEngineTest {
 
 	invertedIndexEngine.addEntry(descriptor8GhostShip);
 
+	cosineQueryEngine.setNormalizeScoreToDocumentLength("false");
+
 	// execute with the synopsis of the whole 3rd descriptor
 	List<ResultInfo> results = cosineQueryEngine
 		.queryIndex("From Marvel Studios and Paramount Pictures comes Iron Man, an action-packed take on the tale of wealthy philanthropist Tony Stark (Robert Downey Jr.), who develops an invulnerable robotic suit to fight the throes of evil. In addition to being filthy rich, billionaire industrialist Tony Stark is also a genius inventor. When Stark is kidnapped and forced to build a diabolical weapon, he instead uses his intelligence and ingenuity to construct an indestructible suit of armor and escape his captors. Once free, Stark discovers a deadly conspiracy that could destabilize the entire globe, and dons his powerful new suit on a mission to stop the villains and save the world. Gwyneth Paltrow co-stars as his secretary, Virginia \"Pepper\" Potts, while Terrence Howard fills the role of Jim \"Rhodey\" Rhodes, one of Stark s colleagues, whose military background leads him to help in the formation of the suit. Jon Favreau directs, with Marvel movie veterans Avi Arad and Kevin Feige producing.");
@@ -879,6 +889,8 @@ public class CosineScoreQueryEngineTest {
 	invertedIndexEngine.addEntry(descriptor7Prometheus);
 
 	invertedIndexEngine.addEntry(descriptor8GhostShip);
+
+	cosineQueryEngine.setNormalizeScoreToDocumentLength("false");
 
 	// execute with the synopsis of the whole 3rd descriptor concatenated to
 	// the whole 1st descriptor
@@ -1013,6 +1025,8 @@ public class CosineScoreQueryEngineTest {
 
 	invertedIndexEngine.addEntry(descriptor8GhostShip);
 
+	cosineQueryEngine.setNormalizeScoreToDocumentLength("false");
+
 	// execute
 	List<ResultInfo> results = cosineQueryEngine
 		.queryIndex("ship's computer ']['l' ]] \\&* 932342 Ġ ġ Ģ ģ Ĥ ĥ Ħ ħ Ĩ ĩ Ī ī Ĭ ĭ Į į İ ı Ĳ ĳ Ĵ ĵ Ķ ķ ĸ Ĺ ĺ Ļ ļ Ľ ľ Ŀ");
@@ -1127,6 +1141,8 @@ public class CosineScoreQueryEngineTest {
 	invertedIndexEngine.addEntry(descriptor2WorldOnWire);
 	invertedIndexEngine.addEntry(descriptor3IronMan);
 	invertedIndexEngine.addEntry(descriptor4HitchHiker);
+
+	cosineQueryEngine.setNormalizeScoreToDocumentLength("false");
 
 	// execute
 	List<ResultInfo> results = cosineQueryEngine

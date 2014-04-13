@@ -1,5 +1,6 @@
 package com.arielsweb.moviefinder.service.impl;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -28,10 +29,18 @@ public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescript
 
     @Override
     @Transactional(readOnly = false)
-    public void populateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException {
+    public void populateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException, IOException,
+	    ClassNotFoundException {
 	if (invertedIndexEngine.getInvertedIndex().size() > 0) {
-	    throw new InvalidIndexPopulationException("The index already has data in it! Don't spoil it!");
+	    throw new InvalidIndexPopulationException("The index already has data in it! Don't overwrite it!");
 	}
+
+	// if (IndexReadWriteHelper.serializedIndexExists("index_serialized")) {
+	// IndexReadWriteHelper.setCorpusAndMovieDetails(invertedIndexEngine,
+	// "index_serialized");
+	//
+	// return;
+	// }
 
 	// query for the Movie Descriptors
 	List<Long> ids = getMovieIds();
@@ -48,6 +57,8 @@ public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescript
 
 	log.info("Inverted index has " + invertedIndexEngine.getNumberOfDocuments() + " documents with "
 		+ invertedIndexEngine.getInvertedIndex().size() + " words in them.");
+
+	// IndexReadWriteHelper.serializeIndex(invertedIndexEngine);
     }
 
     @Override

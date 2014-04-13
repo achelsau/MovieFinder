@@ -1,5 +1,6 @@
 package com.arielsweb.moviefinder.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.arielsweb.moviefinder.index.exception.InvalidMovieDescriptorException;
@@ -50,9 +51,7 @@ public interface MovieDescriptorService extends GenericService<MovieDescriptor> 
      * memory index is lost. For example, in case of a power outage, the MBI
      * disappears but it still has a copy in the descriptors from the database
      * so, having those it can be recreated using this method.
-     * 
-     * @throws InvalidIndexPopulationException
-     *             thrown when the index is already populated
      */
-    void populateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException;
+    void populateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException, IOException,
+	    ClassNotFoundException;
 }

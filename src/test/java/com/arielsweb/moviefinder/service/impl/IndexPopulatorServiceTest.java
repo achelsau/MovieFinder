@@ -2,6 +2,7 @@ package com.arielsweb.moviefinder.service.impl;
 
 import static junit.framework.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.junit.Test;
@@ -42,9 +43,12 @@ public class IndexPopulatorServiceTest {
      * 
      * @throws InvalidIndexPopulationException
      * @throws InvalidMovieDescriptorException
+     * @throws ClassNotFoundException
+     * @throws IOException
      */
     @Test
-    public void testPopulateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException {
+    public void testPopulateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException,
+	    IOException, ClassNotFoundException {
 	// setup
 	indexEngine.clearIndex();// make sure the index is clean here
 
@@ -61,7 +65,8 @@ public class IndexPopulatorServiceTest {
     }
     
     @Test(expected = InvalidIndexPopulationException.class)
-    public void testPopulateIndex_errorExpected() throws InvalidIndexPopulationException, InvalidMovieDescriptorException {
+    public void testPopulateIndex_errorExpected() throws InvalidIndexPopulationException,
+	    InvalidMovieDescriptorException, IOException, ClassNotFoundException {
 	// setup
 	MovieSource source = new MovieSource();
 	source.setName("John");
