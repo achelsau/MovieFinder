@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.arielsweb.moviefinder.index.IndexEngine;
 import com.arielsweb.moviefinder.index.exception.InvalidMovieDescriptorException;
+import com.arielsweb.moviefinder.index.util.IndexReadWriteHelper;
 import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.service.MovieDescriptorService;
 import com.arielsweb.moviefinder.service.exceptions.InvalidIndexPopulationException;
@@ -35,12 +36,11 @@ public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescript
 	    throw new InvalidIndexPopulationException("The index already has data in it! Don't overwrite it!");
 	}
 
-	// if (IndexReadWriteHelper.serializedIndexExists("index_serialized")) {
-	// IndexReadWriteHelper.setCorpusAndMovieDetails(invertedIndexEngine,
-	// "index_serialized");
-	//
-	// return;
-	// }
+	if (IndexReadWriteHelper.serializedIndexExists("index_serialized")) {
+	    IndexReadWriteHelper.setCorpusAndMovieDetails(invertedIndexEngine, "index_serialized");
+
+	    return;
+	}
 
 	// query for the Movie Descriptors
 	List<Long> ids = getMovieIds();
@@ -58,7 +58,7 @@ public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescript
 	log.info("Inverted index has " + invertedIndexEngine.getNumberOfDocuments() + " documents with "
 		+ invertedIndexEngine.getInvertedIndex().size() + " words in them.");
 
-	// IndexReadWriteHelper.serializeIndex(invertedIndexEngine);
+	IndexReadWriteHelper.serializeIndex(invertedIndexEngine);
     }
 
     @Override
