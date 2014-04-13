@@ -24,16 +24,15 @@ body {
     margin: 0 auto;
     text-align: center;
     width: 1024px;
-    padding: 10px;
 }
 
 #results_list {
-	border: thin solid #CCCCCC;
+	border: thin solid #FFFFFF;
     height: 800px;
     margin: 10px auto 0;
     overflow-x: hidden;
     text-align: left;
-    width: 1000px;
+    width: 1024px;
 }
 
 .result {
@@ -41,7 +40,7 @@ body {
     height: 150px;
     margin-bottom: 5px;
     padding: 5px;
-    width: 968px;
+    width: 991px;
 }
 
 .photo {
@@ -52,6 +51,7 @@ body {
 .movie_details {
 	display: inline-block;
     float: left;
+    width: 888px;
 }
 
 .title {
