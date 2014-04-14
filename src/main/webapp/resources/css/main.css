@@ -54,10 +54,19 @@ body {
     width: 888px;
 }
 
+.movie_details a {
+	color: black;
+}
+
+.movie_details a:hover {
+	color: gray;
+}
+
 .title {
 	display: inline-block;
     margin-left: 4px;
     text-align: left;
+    text-decoration: underline;
 }
 
 .description {
