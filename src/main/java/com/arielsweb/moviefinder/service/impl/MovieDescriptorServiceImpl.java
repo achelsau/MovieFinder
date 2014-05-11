@@ -43,8 +43,9 @@ public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescript
 
 	// only when instatiated in production environment
 	// (StandardServletEnvironment) read the serialized index
+	boolean isOnDevEnvironment = applicationContext.getEnvironment().getClass().getName().contains("StandardServletEnvironment");
 	if (IndexReadWriteHelper.serializedIndexExists("index_serialized")
-		&& applicationContext.getEnvironment().getClass().getName().contains("StandardServletEnvironment")) {
+		&& isOnDevEnvironment) {
 	    IndexReadWriteHelper.setCorpusAndMovieDetails(invertedIndexEngine, "index_serialized");
 
 	    log.info("Inverted index has " + invertedIndexEngine.getNumberOfDocuments() + " documents with "
@@ -69,7 +70,9 @@ public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescript
 	log.info("Inverted index has " + invertedIndexEngine.getNumberOfDocuments() + " documents with "
 		+ invertedIndexEngine.getInvertedIndex().size() + " words in them.");
 
-	IndexReadWriteHelper.serializeIndex(invertedIndexEngine);
+	if (isOnDevEnvironment) {
+	    IndexReadWriteHelper.serializeIndex(invertedIndexEngine);
+	}
     }
 
     @Override
