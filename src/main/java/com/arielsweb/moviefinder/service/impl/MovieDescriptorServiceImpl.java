@@ -6,7 +6,10 @@ import java.util.List;
 
 import org.hibernate.SQLQuery;
 import org.hibernate.type.LongType;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,8 +28,10 @@ import com.arielsweb.moviefinder.utilities.Utils;
  * @data 1/12/2011
  */
 @Repository("movieDescriptorServiceImpl")
-public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescriptor> implements MovieDescriptorService {
+public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescriptor> implements MovieDescriptorService,
+	ApplicationContextAware {
     private IndexEngine invertedIndexEngine;
+    private ApplicationContext applicationContext;
 
     @Override
     @Transactional(readOnly = false)
@@ -36,8 +41,14 @@ public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescript
 	    throw new InvalidIndexPopulationException("The index already has data in it! Don't overwrite it!");
 	}
 
-	if (IndexReadWriteHelper.serializedIndexExists("index_serialized")) {
+	// only when instatiated in production environment
+	// (StandardServletEnvironment) read the serialized index
+	if (IndexReadWriteHelper.serializedIndexExists("index_serialized")
+		&& applicationContext.getEnvironment().getClass().getName().contains("StandardServletEnvironment")) {
 	    IndexReadWriteHelper.setCorpusAndMovieDetails(invertedIndexEngine, "index_serialized");
+
+	    log.info("Inverted index has " + invertedIndexEngine.getNumberOfDocuments() + " documents with "
+		    + invertedIndexEngine.getInvertedIndex().size() + " words in them.");
 
 	    return;
 	}
@@ -109,5 +120,10 @@ public class MovieDescriptorServiceImpl extends GenericServiceImpl<MovieDescript
 		LongType.INSTANCE);
 	
 	return query.list();
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+	this.applicationContext = applicationContext;
     }
 }

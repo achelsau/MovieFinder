@@ -4,7 +4,9 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,6 +22,9 @@ import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.spring.annotation.SpringApplicationContext;
 import org.unitils.spring.annotation.SpringBeanByType;
 
+import com.arielsweb.moviefinder.index.IndexEngine;
+import com.arielsweb.moviefinder.index.dto.IndexEntry;
+import com.arielsweb.moviefinder.index.exception.InvalidMovieDescriptorException;
 import com.arielsweb.moviefinder.model.Genre;
 import com.arielsweb.moviefinder.model.MovieCrewPerson;
 import com.arielsweb.moviefinder.model.MovieCrewPersonType;
@@ -27,6 +32,7 @@ import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.MovieSource;
 import com.arielsweb.moviefinder.service.MovieDescriptorService;
 import com.arielsweb.moviefinder.service.MovieSourceService;
+import com.arielsweb.moviefinder.service.exceptions.InvalidIndexPopulationException;
 
 /**
  * Tests the {@link MovieDescriptorService}
@@ -40,9 +46,13 @@ import com.arielsweb.moviefinder.service.MovieSourceService;
 @Transactional(TransactionMode.ROLLBACK)
 public class MovieDescriptorServiceTest implements IGenericServiceTest<MovieDescriptor> {
     @SpringBeanByType
+    private IndexEngine indexEngine;
+
+    @SpringBeanByType
     private MovieDescriptorService movieDescriptorService;
     @SpringBeanByType
     private MovieSourceService movieSourceService;
+
     private static final Long ONE = new Long(1);
 
     @Test
@@ -530,5 +540,51 @@ public class MovieDescriptorServiceTest implements IGenericServiceTest<MovieDesc
 
 	// verify
 	assertEquals(3, ids.size());
+    }
+
+    /**
+     * Tests the proper population of the inverted index
+     * 
+     * @throws InvalidIndexPopulationException
+     * @throws InvalidMovieDescriptorException
+     * @throws ClassNotFoundException
+     * @throws IOException
+     */
+    @Test
+    @DataSet("IndexPopulatorTest.xml")
+    public void testPopulateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException,
+	    IOException, ClassNotFoundException {
+	// setup
+	indexEngine.clearIndex();// make sure the index is clean here
+
+	// execute
+	movieDescriptorService.populateIndex();
+
+	// verify
+	HashMap<String, IndexEntry> corpus = indexEngine.getInvertedIndex();
+	int noOfDocs = indexEngine.getNumberOfDocuments();
+
+	assertEquals(16, corpus.size()); // how many documents are present in
+					 // the corpus
+	assertEquals(3, noOfDocs);
+    }
+
+    @Test(expected = InvalidIndexPopulationException.class)
+    public void testPopulateIndex_errorExpected() throws InvalidIndexPopulationException,
+	    InvalidMovieDescriptorException, IOException, ClassNotFoundException {
+	// setup
+	MovieSource source = new MovieSource();
+	source.setName("John");
+
+	MovieDescriptor rDescriptor = new MovieDescriptor();
+	rDescriptor.setSource(source);
+	rDescriptor.setRemotePath("new_path");
+	rDescriptor.setSynopsis("Test this");
+	rDescriptor.setName("Res Name");
+
+	indexEngine.addEntry(rDescriptor);
+
+	// execute
+	movieDescriptorService.populateIndex();
     }
 }

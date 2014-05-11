@@ -84,30 +84,18 @@ public class InvertedIndexEngine implements IndexEngine {
      * @throws InvalidMovieDescriptorException
      */
     private void addMovieDescriptorEntry(MovieDescriptor movieDescriptor) throws InvalidMovieDescriptorException {
-	boolean synopsisNotPresent = movieDescriptor.getSynopsis() == null
-		|| movieDescriptor.getSynopsis().length() == 0;
+	boolean synopsisPresent = (movieDescriptor.getSynopsis() != null && movieDescriptor.getSynopsis().length() > 0)
+		|| (movieDescriptor.getAlternateSynopsis() != null && movieDescriptor.getAlternateSynopsis().length() > 0);
 
-	String entryDesc = synopsisNotPresent ? movieDescriptor.getAlternateSynopsis() : movieDescriptor.getSynopsis();
+	boolean castCrewPresent = movieDescriptor.getActors().size() > 0
+		|| movieDescriptor.getScreenWriters().size() > 0 || movieDescriptor.getDirectors().size() > 0;
 
 	// it's pointless to add an empty synopsis movie at this point
-	if (isMovieMetadataEmpty(movieDescriptor, entryDesc)) {
+	if (!synopsisPresent && !castCrewPresent) {
 	    throw new InvalidMovieDescriptorException(Reason.MOVIE_DESCRIPTOR_WITH_EMPTY_SYNOPSIS);
 	}
 
 	createNewMovieDescriptorEntry(movieDescriptor);
-    }
-
-    /**
-     * Checks if movie metadata is empty (primary synopsis, alternate synopsis,
-     * cast and crew)
-     * 
-     * @param movieDescriptor the {@link MovieDescriptor
-     * @param entryDesc the primary or alternate synopsis,depending if primary exists or not
-     * @return true if the movie can be indexed, false the other way
-     */
-    private boolean isMovieMetadataEmpty(MovieDescriptor movieDescriptor, String entryDesc) {
-	return (entryDesc == null || entryDesc.isEmpty()) && movieDescriptor.getActors().size() == 0
-		&& movieDescriptor.getScreenWriters().size() == 0 && movieDescriptor.getDirectors().size() == 0;
     }
 
     /**

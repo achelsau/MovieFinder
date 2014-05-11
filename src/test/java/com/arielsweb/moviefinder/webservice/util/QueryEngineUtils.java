@@ -32,7 +32,7 @@ public class QueryEngineUtils {
      */
     public static ResultInfoResponse quickQueryForMovie(String query) {
 	try {
-	    URL queryUrl = new URL("https://localhost:8443/MovieFinderServer/mf/query/quickQuery/");
+	    URL queryUrl = new URL("https://localhost:8443/MovieFinderServer_git/mf/query/quickQuery/");
 
 	    HttpURLConnection queryConn = (HttpURLConnection) queryUrl.openConnection();
 	    queryConn.setDoOutput(true);
@@ -99,9 +99,9 @@ public class QueryEngineUtils {
 	try {
 	    URL queryUrl = null;
 	    if (id == null) { // then save it
-		queryUrl = new URL("https://localhost:8443/MovieFinderServer/mf/query/storePersistentQuery/");
+		queryUrl = new URL("https://localhost:8443/MovieFinderServer_git/mf/query/storePersistentQuery/");
 	    } else { // update it
-		queryUrl = new URL("https://localhost:8443/MovieFinderServer/mf/query/updatePersistentQuery/");
+		queryUrl = new URL("https://localhost:8443/MovieFinderServer_git/mf/query/updatePersistentQuery/");
 	    }
 
 	    HttpURLConnection queryConn = (HttpURLConnection) queryUrl.openConnection();
@@ -164,7 +164,8 @@ public class QueryEngineUtils {
     public static int removePersistentQuery(Long queryId) {
 	int responseCode = -1;
 	try {
-	    URL queryUrl = new URL("https://localhost:8443/MovieFinderServer/mf/query/deletePersistentQuery/" + queryId);
+	    URL queryUrl = new URL("https://localhost:8443/MovieFinderServer_git/mf/query/deletePersistentQuery/"
+		    + queryId);
 
 	    HttpURLConnection queryConn = (HttpURLConnection) queryUrl.openConnection();
 	    queryConn.setDoOutput(true);

@@ -35,8 +35,7 @@ public class IndexPopulatorServiceImpl {
     }
 
     /**
-     * This method is responsible for populating the memory based index
-     * (inverted-index)
+     * Populates the memory based index (inverted-index)
      * 
      * @throws InvalidIndexPopulationException
      *             thrown if the index alredy contains data
