@@ -1,0 +1,1307 @@
+2014-06-14 22:55:56,319 INFO  - Added Yes Man with rating 6.9
+2014-06-14 22:55:58,049 INFO  - Added Tinker Tailor Soldier Spy with rating 7.1
+2014-06-14 22:56:01,789 INFO  - Added Knowing with rating 6.2
+2014-06-14 22:56:04,647 INFO  - Added We Need to Talk About Kevin with rating 7.5
+2014-06-14 22:56:06,512 INFO  - Added Casablanca with rating 8.6
+2014-06-14 22:56:10,090 INFO  - Added Water for Elephants with rating 7.0
+2014-06-14 22:56:13,631 INFO  - Added Ice Age: Continental Drift with rating 6.7
+2014-06-14 22:56:15,579 INFO  - Added National Treasure with rating 6.9
+2014-06-14 22:56:18,998 INFO  - Added Natural Born Killers with rating 7.3
+2014-06-14 22:56:22,673 INFO  - Added In Your Eyes with rating 7.2
+2014-06-14 22:56:24,606 INFO  - Added Some Like It Hot with rating 8.4
+2014-06-14 22:56:26,539 INFO  - Added Parker with rating 6.2
+2014-06-14 22:56:28,447 INFO  - Added Cowboys & Aliens with rating 6.1
+2014-06-14 22:56:30,189 INFO  - Added The Five-Year Engagement with rating 6.2
+2014-06-14 22:56:32,289 INFO  - Added Home Alone with rating 7.4
+2014-06-14 22:56:34,064 INFO  - Added Valkyrie with rating 7.1
+2014-06-14 22:56:35,887 INFO  - Added Indiana Jones and the Last Crusade with rating 8.3
+2014-06-14 22:56:38,039 INFO  - Added My Sister's Keeper with rating 7.4
+2014-06-14 22:56:39,981 INFO  - Added Fantastic Mr. Fox with rating 7.8
+2014-06-14 22:56:42,097 INFO  - Added Before Sunrise with rating 8.1
+2014-06-14 22:56:44,014 INFO  - Added Hitman with rating 6.3
+2014-06-14 22:56:45,732 INFO  - Added Hooligans with rating 7.6
+2014-06-14 22:56:47,544 INFO  - Added In Secret with rating 6.3
+2014-06-14 22:56:53,291 INFO  - Added The Blues Brothers with rating 8.0
+2014-06-14 22:56:55,356 INFO  - Added Penelope with rating 6.9
+2014-06-14 22:56:57,419 INFO  - Added Get Smart with rating 6.5
+2014-06-14 22:56:59,689 INFO  - Added RocknRolla with rating 7.3
+2014-06-14 22:57:01,800 INFO  - Added The Thing with rating 8.2
+2014-06-14 22:57:01,800 INFO  - Finished inserting page starting from 1051
+2014-06-14 22:57:05,116 INFO  - Added Ratatouille with rating 8.0
+2014-06-14 22:57:06,891 INFO  - Added Flipped with rating 7.7
+2014-06-14 22:57:08,864 INFO  - Added Superman with rating 7.4
+2014-06-14 22:57:10,672 INFO  - Added The Butterfly Effect with rating 7.7
+2014-06-14 22:57:12,472 INFO  - Added Contraband with rating 6.5
+2014-06-14 22:57:14,202 INFO  - Added Wicker Park with rating 7.0
+2014-06-14 22:57:16,097 INFO  - Added The Color of Rain with rating 7.4
+2014-06-14 22:57:18,006 INFO  - Added La migliore offerta with rating 7.9
+2014-06-14 22:57:20,147 INFO  - Added Cruel Intentions with rating 6.9
+2014-06-14 22:57:21,994 INFO  - Added Point Break with rating 7.1
+2014-06-14 22:57:23,755 INFO  - Added The Elephant Man with rating 8.3
+2014-06-14 22:57:25,497 INFO  - Added Hard Candy with rating 7.2
+2014-06-14 22:57:27,354 INFO  - Added Pretty Woman with rating 6.9
+2014-06-14 22:57:29,547 INFO  - Added Up in the Air with rating 7.5
+2014-06-14 22:57:31,413 INFO  - Added Wild Child with rating 6.0
+2014-06-14 22:57:34,793 INFO  - Added Once Upon a Time in America with rating 8.4
+2014-06-14 22:57:36,997 INFO  - Added Hauru no ugoku shiro with rating 8.2
+2014-06-14 22:57:38,888 INFO  - Added Lucky Them with rating 6.3
+2014-06-14 22:57:40,885 INFO  - Added Step Up 2: The Streets with rating 6.1
+2014-06-14 22:57:42,806 INFO  - Added The Ides of March with rating 7.2
+2014-06-14 22:57:44,504 INFO  - Added The Exorcism of Emily Rose with rating 6.7
+2014-06-14 22:57:46,396 INFO  - Added The Princess Diaries with rating 6.1
+2014-06-14 22:57:48,271 INFO  - Added The Sisterhood of the Traveling Pants with rating 6.6
+2014-06-14 22:57:52,905 INFO  - Added A Hard Day's Night with rating 7.7
+2014-06-14 22:57:58,113 INFO  - Added I Am Legend with rating 7.2
+2014-06-14 22:57:59,944 INFO  - Added Adventureland with rating 6.8
+2014-06-14 22:58:07,730 INFO  - Added Cast Away with rating 7.7
+2014-06-14 22:58:09,730 INFO  - Added Underworld: Awakening with rating 6.4
+2014-06-14 22:58:11,622 INFO  - Added Alien: Resurrection with rating 6.3
+2014-06-14 22:58:13,454 INFO  - Added The Switch with rating 6.0
+2014-06-14 22:58:16,087 INFO  - Added The History Boys with rating 6.8
+2014-06-14 22:58:17,882 INFO  - Added Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb with rating 8.5
+2014-06-14 22:58:21,698 INFO  - Added The King's Speech with rating 8.1
+2014-06-14 22:58:23,762 INFO  - Added The Passion of the Christ with rating 7.1
+2014-06-14 22:58:25,538 INFO  - Added The Lorax with rating 6.5
+2014-06-14 22:58:27,413 INFO  - Added A League of Their Own with rating 7.2
+2014-06-14 22:58:30,853 INFO  - Added One Day with rating 7.0
+2014-06-14 22:58:32,621 INFO  - Added The Blair Witch Project with rating 6.4
+2014-06-14 22:58:37,726 INFO  - Finished inserting page starting from 1101
+2014-06-14 22:58:40,672 INFO  - Added Rain Man with rating 8.0
+2014-06-14 22:58:42,530 INFO  - Added Wild Things with rating 6.5
+2014-06-14 22:58:44,596 INFO  - Added The Firm with rating 6.8
+2014-06-14 22:58:48,054 INFO  - Added Jumanji with rating 6.8
+2014-06-14 22:58:50,478 INFO  - Added 3:10 to Yuma with rating 7.8
+2014-06-14 22:58:52,404 INFO  - Added Interview with the Vampire: The Vampire Chronicles with rating 7.6
+2014-06-14 22:58:54,062 INFO  - Added Get Him to the Greek with rating 6.4
+2014-06-14 22:58:55,870 INFO  - Added The Book of Eli with rating 6.9
+2014-06-14 22:58:57,570 INFO  - Added Grandma's Boy with rating 7.1
+2014-06-14 22:58:59,647 INFO  - Added Monty Python and the Holy Grail with rating 8.4
+2014-06-14 22:59:01,286 INFO  - Added Coraline with rating 7.7
+2014-06-14 22:59:05,178 INFO  - Added Trouble with the Curve with rating 6.8
+2014-06-14 22:59:07,044 INFO  - Added Thirteen with rating 6.9
+2014-06-14 22:59:08,954 INFO  - Added The Matrix Revolutions with rating 6.7
+2014-06-14 22:59:11,055 INFO  - Added The Mighty Ducks with rating 6.3
+2014-06-14 22:59:16,153 INFO  - Added Lucía y el sexo with rating 7.3
+2014-06-14 22:59:19,736 INFO  - Added Paul with rating 7.1
+2014-06-14 22:59:21,913 INFO  - Added War Horse with rating 7.3
+2014-06-14 22:59:23,763 INFO  - Added Dorian Gray with rating 6.3
+2014-06-14 22:59:27,287 INFO  - Added The Nightmare Before Christmas with rating 8.1
+2014-06-14 22:59:29,063 INFO  - Added Magnolia with rating 8.0
+2014-06-14 22:59:37,938 INFO  - Added My Girl with rating 6.8
+2014-06-14 22:59:40,050 INFO  - Added Vicky Cristina Barcelona with rating 7.2
+2014-06-14 22:59:42,104 INFO  - Added Gone Baby Gone with rating 7.7
+2014-06-14 22:59:45,736 INFO  - Added Back to the Future Part II with rating 7.8
+2014-06-14 22:59:49,411 INFO  - Added The Ugly Truth with rating 6.5
+2014-06-14 22:59:51,263 INFO  - Added The Karate Kid with rating 7.2
+2014-06-14 22:59:53,172 INFO  - Added Parkland with rating 6.3
+2014-06-14 22:59:56,610 INFO  - Added The Tree of Life with rating 6.7
+2014-06-14 22:59:58,272 INFO  - Added Licence to Kill with rating 6.6
+2014-06-14 23:00:00,085 INFO  - Added Bend It Like Beckham with rating 6.7
+2014-06-14 23:00:02,093 INFO  - Added The Fountain with rating 7.4
+2014-06-14 23:00:04,065 INFO  - Added Original Sin with rating 6.0
+2014-06-14 23:00:05,860 INFO  - Added 13 Going on 30 with rating 6.1
+2014-06-14 23:00:09,660 INFO  - Added Shichinin no samurai with rating 8.8
+2014-06-14 23:00:11,593 INFO  - Added Fright Night with rating 6.4
+2014-06-14 23:00:11,593 INFO  - Finished inserting page starting from 1151
+2014-06-14 23:00:14,685 INFO  - Added Killing Them Softly with rating 6.2
+2014-06-14 23:00:16,535 INFO  - Added Here Comes the Boom with rating 6.5
+2014-06-14 23:00:18,472 INFO  - Added Cry-Baby with rating 6.5
+2014-06-14 23:00:20,219 INFO  - Added Antichrist with rating 6.6
+2014-06-14 23:00:22,652 INFO  - Added Die Another Day with rating 6.1
+2014-06-14 23:00:24,785 INFO  - Added Little Children with rating 7.6
+2014-06-14 23:00:26,960 INFO  - Added Vanilla Sky with rating 6.9
+2014-06-14 23:00:28,668 INFO  - Added The Longest Yard with rating 6.3
+2014-06-14 23:00:30,414 INFO  - Added Casse-tête chinois with rating 7.2
+2014-06-14 23:00:32,359 INFO  - Added Abraham Lincoln: Vampire Hunter with rating 6.0
+2014-06-14 23:00:34,384 INFO  - Added Jamesy Boy with rating 6.2
+2014-06-14 23:00:36,043 INFO  - Added The Homesman with rating 7.1
+2014-06-14 23:00:39,543 INFO  - Added C'era una volta il West with rating 8.7
+2014-06-14 23:00:41,535 INFO  - Added The Fifth Estate with rating 6.1
+2014-06-14 23:00:43,551 INFO  - Added Mulholland Dr. with rating 8.0
+2014-06-14 23:00:45,609 INFO  - Added The Patriot with rating 7.1
+2014-06-14 23:00:49,055 INFO  - Added Seven Pounds with rating 7.7
+2014-06-14 23:00:50,895 INFO  - Added Soul Surfer with rating 7.1
+2014-06-14 23:00:52,830 INFO  - Added Artificial Intelligence: AI with rating 7.1
+2014-06-14 23:00:54,597 INFO  - Added Big with rating 7.3
+2014-06-14 23:00:56,397 INFO  - Added Twelve Monkeys with rating 8.1
+2014-06-14 23:01:00,122 INFO  - Added Mars Attacks! with rating 6.3
+2014-06-14 23:01:01,934 INFO  - Added Hours with rating 6.5
+2014-06-14 23:01:05,584 INFO  - Added Ida with rating 7.6
+2014-06-14 23:01:07,784 INFO  - Added Sling Blade with rating 8.1
+2014-06-14 23:01:09,734 INFO  - Added Indiana Jones and the Kingdom of the Crystal Skull with rating 6.3
+2014-06-14 23:01:13,829 INFO  - Added Caddyshack with rating 7.4
+2014-06-14 23:01:15,940 INFO  - Added The Da Vinci Code with rating 6.5
+2014-06-14 23:01:17,942 INFO  - Added Bronson with rating 7.1
+2014-06-14 23:01:19,597 INFO  - Added The House of Magic with rating 6.5
+2014-06-14 23:01:21,392 INFO  - Added Sunshine with rating 7.3
+2014-06-14 23:01:23,308 INFO  - Added The Mist with rating 7.2
+2014-06-14 23:01:25,638 INFO  - Added The Mask with rating 6.8
+2014-06-14 23:01:27,425 INFO  - Added Indiana Jones and the Temple of Doom with rating 7.6
+2014-06-14 23:01:29,483 INFO  - Added Thanks for Sharing with rating 6.4
+2014-06-14 23:01:31,539 INFO  - Added It's Kind of a Funny Story with rating 7.2
+2014-06-14 23:01:33,330 INFO  - Added Accepted with rating 6.5
+2014-06-14 23:01:35,017 INFO  - Added Amadeus with rating 8.4
+2014-06-14 23:01:36,992 INFO  - Added The Karate Kid with rating 6.2
+2014-06-14 23:01:38,817 INFO  - Added Leaving Las Vegas with rating 7.6
+2014-06-14 23:01:40,939 INFO  - Added The Other Boleyn Girl with rating 6.7
+2014-06-14 23:01:44,816 INFO  - Added The Rock with rating 7.4
+2014-06-14 23:01:46,641 INFO  - Added Snow White and the Seven Dwarfs with rating 7.7
+2014-06-14 23:01:48,506 INFO  - Added Hackers with rating 6.1
+2014-06-14 23:01:48,506 INFO  - Finished inserting page starting from 1201
+2014-06-14 23:01:53,616 INFO  - Added Walking Tall with rating 6.2
+2014-06-14 23:01:55,525 INFO  - Added Big Bad Wolves with rating 6.9
+2014-06-14 23:01:59,225 INFO  - Added Adventures in Babysitting with rating 6.8
+2014-06-14 23:02:01,116 INFO  - Added No se Aceptan Devoluciones with rating 7.7
+2014-06-14 23:02:02,933 INFO  - Added The Running Man with rating 6.6
+2014-06-14 23:02:06,676 INFO  - Added The Way Back with rating 7.3
+2014-06-14 23:02:08,516 INFO  - Added Tracks with rating 7.3
+2014-06-14 23:02:10,351 INFO  - Added Inkheart with rating 6.1
+2014-06-14 23:02:15,693 INFO  - Added The Darjeeling Limited with rating 7.2
+2014-06-14 23:02:17,680 INFO  - Added Jimmy's Hall with rating 6.8
+2014-06-14 23:02:21,085 INFO  - Added Kung fu with rating 7.8
+2014-06-14 23:02:25,327 INFO  - Added The Invisible Woman with rating 6.2
+2014-06-14 23:02:27,308 INFO  - Added The Devil's Double with rating 7.1
+2014-06-14 23:02:32,405 INFO  - Added 21 with rating 6.8
+2014-06-14 23:02:34,297 INFO  - Added Hellboy II: The Golden Army with rating 7.1
+2014-06-14 23:02:35,882 INFO  - Added The Fall with rating 7.9
+2014-06-14 23:02:37,840 INFO  - Added Cold Mountain with rating 7.2
+2014-06-14 23:02:39,728 INFO  - Added Blade with rating 7.1
+2014-06-14 23:02:41,630 INFO  - Added Dune with rating 6.6
+2014-06-14 23:02:43,362 INFO  - Added Hitch with rating 6.7
+2014-06-14 23:02:45,207 INFO  - Added The English Patient with rating 7.4
+2014-06-14 23:02:47,595 INFO  - Added Robin Hood with rating 6.7
+2014-06-14 23:02:49,422 INFO  - Added The School of Rock with rating 7.1
+2014-06-14 23:02:51,215 INFO  - Added The Reader with rating 7.6
+2014-06-14 23:02:53,248 INFO  - Added Adult World with rating 6.1
+2014-06-14 23:02:55,090 INFO  - Added Notting Hill with rating 7.0
+2014-06-14 23:02:56,881 INFO  - Added Being John Malkovich with rating 7.8
+2014-06-14 23:02:58,614 INFO  - Added The Golden Compass with rating 6.1
+2014-06-14 23:03:05,540 INFO  - Added Deja Vu with rating 7.0
+2014-06-14 23:03:07,840 INFO  - Added CBGB with rating 6.4
+2014-06-14 23:03:09,566 INFO  - Added Waterworld with rating 6.0
+2014-06-14 23:03:13,023 INFO  - Added Spaceballs with rating 7.1
+2014-06-14 23:03:15,314 INFO  - Added Sky High with rating 6.2
+2014-06-14 23:03:17,057 INFO  - Added The Game with rating 7.8
+2014-06-14 23:03:18,865 INFO  - Added O Brother, Where Art Thou? with rating 7.8
+2014-06-14 23:03:20,731 INFO  - Added Fast Times at Ridgemont High with rating 7.2
+2014-06-14 23:03:22,831 INFO  - Added Hachi: A Dog's Tale with rating 8.2
+2014-06-14 23:03:22,831 INFO  - Finished inserting page starting from 1251
+2014-06-14 23:03:27,699 INFO  - Added Dolphin Tale with rating 6.9
+2014-06-14 23:03:29,522 INFO  - Added Coach Carter with rating 7.2
+2014-06-14 23:03:31,731 INFO  - Added The Princess and the Frog with rating 7.2
+2014-06-14 23:03:33,656 INFO  - Added Tarzan with rating 7.2
+2014-06-14 23:03:35,531 INFO  - Added The Campaign with rating 6.2
+2014-06-14 23:03:39,130 INFO  - Added The Woman in Black with rating 6.5
+2014-06-14 23:03:40,747 INFO  - Added Rocky Balboa with rating 7.2
+2014-06-14 23:03:42,605 INFO  - Added Gremlins with rating 7.2
+2014-06-14 23:03:44,553 INFO  - Added Coming to America with rating 6.9
+2014-06-14 23:03:46,472 INFO  - Added Identity with rating 7.3
+2014-06-14 23:03:48,703 INFO  - Added Resident Evil: Apocalypse with rating 6.1
+2014-06-14 23:03:50,676 INFO  - Added Big Trouble in Little China with rating 7.3
+2014-06-14 23:03:53,931 INFO  - Added Snitch with rating 6.5
+2014-06-14 23:03:56,047 INFO  - Added 1408 with rating 6.8
+2014-06-14 23:03:58,003 INFO  - Added Before Sunset with rating 8.1
+2014-06-14 23:03:59,972 INFO  - Added MASH with rating 7.7
+2014-06-14 23:04:02,022 INFO  - Added Super Troopers with rating 7.1
+2014-06-14 23:04:03,838 INFO  - Added Match Point with rating 7.7
+2014-06-14 23:04:06,213 INFO  - Added Män som hatar kvinnor with rating 7.8
+2014-06-14 23:04:08,156 INFO  - Added Step Up 3D with rating 6.1
+2014-06-14 23:04:09,831 INFO  - Added Ghost World with rating 7.5
+2014-06-14 23:04:11,630 INFO  - Added Face/Off with rating 7.3
+2014-06-14 23:04:13,414 INFO  - Added Total Recall with rating 7.5
+2014-06-14 23:04:15,197 INFO  - Added Open Grave with rating 6.3
+2014-06-14 23:04:17,494 INFO  - Added Con Air with rating 6.8
+2014-06-14 23:04:27,005 INFO  - Added Push with rating 6.1
+2014-06-14 23:04:28,797 INFO  - Added Empire of the Sun with rating 7.8
+2014-06-14 23:04:30,712 INFO  - Added Closed Circuit with rating 6.1
+2014-06-14 23:04:32,490 INFO  - Added The Evil Dead with rating 7.6
+2014-06-14 23:04:38,738 INFO  - Added Jay and Silent Bob Strike Back with rating 6.9
+2014-06-14 23:04:42,497 INFO  - Added Bad Boys with rating 6.8
+2014-06-14 23:04:44,355 INFO  - Added Our Idiot Brother with rating 6.5
+2014-06-14 23:04:46,094 INFO  - Added Robin Hood: Men in Tights with rating 6.7
+2014-06-14 23:04:48,022 INFO  - Added Signs with rating 6.7
+2014-06-14 23:04:50,013 INFO  - Added Predators with rating 6.4
+2014-06-14 23:04:54,038 INFO  - Added Tomorrow Never Dies with rating 6.4
+2014-06-14 23:04:57,615 INFO  - Added It's a Wonderful Life with rating 8.7
+2014-06-14 23:04:59,327 INFO  - Finished inserting page starting from 1301
+2014-06-14 23:05:02,930 INFO  - Added Cannibal Holocaust with rating 6.0
+2014-06-14 23:05:04,580 INFO  - Added The Emperor's New Groove with rating 7.3
+2014-06-14 23:05:06,338 INFO  - Added The Words with rating 7.1
+2014-06-14 23:05:08,231 INFO  - Added Tower Heist with rating 6.2
+2014-06-14 23:05:10,069 INFO  - Added Body of Lies with rating 7.1
+2014-06-14 23:05:11,688 INFO  - Added Ocean's Thirteen with rating 6.9
+2014-06-14 23:05:13,904 INFO  - Added Robin Hood: Prince of Thieves with rating 6.9
+2014-06-14 23:05:15,483 INFO  - Added Words and Pictures with rating 6.6
+2014-06-14 23:05:17,114 INFO  - Added Irréversible with rating 7.4
+2014-06-14 23:05:18,980 INFO  - Added Jerry Maguire with rating 7.3
+2014-06-14 23:05:20,680 INFO  - Added Star Trek: The Wrath of Khan with rating 7.8
+2014-06-14 23:05:22,412 INFO  - Added The Longest Day with rating 7.8
+2014-06-14 23:05:24,221 INFO  - Added Misery with rating 7.8
+2014-06-14 23:05:31,553 INFO  - Added Citizen Kane with rating 8.5
+2014-06-14 23:05:33,170 INFO  - Added Kid Cannabis with rating 6.3
+2014-06-14 23:05:35,120 INFO  - Added Contagion with rating 6.7
+2014-06-14 23:05:36,830 INFO  - Added Garden State with rating 7.6
+2014-06-14 23:05:38,647 INFO  - Added Incendies with rating 8.2
+2014-06-14 23:05:40,837 INFO  - Added The Adventures of Tintin with rating 7.4
+2014-06-14 23:05:42,737 INFO  - Added The Jungle Book with rating 7.6
+2014-06-14 23:05:44,612 INFO  - Added The Best Man Holiday with rating 6.7
+2014-06-14 23:05:46,296 INFO  - Added Spanglish with rating 6.5
+2014-06-14 23:05:49,738 INFO  - Added Kung Fu Panda with rating 7.6
+2014-06-14 23:05:51,980 INFO  - Added Who Framed Roger Rabbit with rating 7.7
+2014-06-14 23:05:58,120 INFO  - Added Legend with rating 6.4
+2014-06-14 23:06:00,013 INFO  - Added Wolf Creek with rating 6.3
+2014-06-14 23:06:01,986 INFO  - Added Lords of Dogtown with rating 7.1
+2014-06-14 23:06:05,794 INFO  - Added Whiplash with rating 7.3
+2014-06-14 23:06:09,446 INFO  - Added The Wrestler with rating 8.0
+2014-06-14 23:06:13,097 INFO  - Added The Holiday with rating 6.9
+2014-06-14 23:06:14,863 INFO  - Added J. Edgar with rating 6.6
+2014-06-14 23:06:16,646 INFO  - Added Poltergeist with rating 7.4
+2014-06-14 23:06:18,378 INFO  - Added The Chronicles of Narnia: Prince Caspian with rating 6.6
+2014-06-14 23:06:20,396 INFO  - Added Waiting... with rating 6.8
+2014-06-14 23:06:23,886 INFO  - Added Toy Story 2 with rating 7.9
+2014-06-14 23:06:25,737 INFO  - Added The Others with rating 7.6
+2014-06-14 23:06:27,622 INFO  - Added The Last House on the Left with rating 6.6
+2014-06-14 23:06:29,730 INFO  - Added Alpha Dog with rating 6.9
+2014-06-14 23:06:32,253 INFO  - Added Talladega Nights: The Ballad of Ricky Bobby with rating 6.5
+2014-06-14 23:06:33,922 INFO  - Finished inserting page starting from 1351
+2014-06-14 23:06:37,804 INFO  - Added Das Boot with rating 8.5
+2014-06-14 23:06:39,696 INFO  - Added Cape Fear with rating 7.3
+2014-06-14 23:06:41,335 INFO  - Added Risky Business with rating 6.8
+2014-06-14 23:06:43,104 INFO  - Added The Broken Circle Breakdown with rating 7.8
+2014-06-14 23:06:45,472 INFO  - Added Animal House with rating 7.7
+2014-06-14 23:06:47,336 INFO  - Added Stand Up Guys with rating 6.6
+2014-06-14 23:06:49,613 INFO  - Added Madagascar with rating 6.9
+2014-06-14 23:06:51,605 INFO  - Added Bruce Almighty with rating 6.7
+2014-06-14 23:06:53,702 INFO  - Added The Descent with rating 7.3
+2014-06-14 23:06:55,796 INFO  - Added The Devil's Rejects with rating 6.9
+2014-06-14 23:06:57,468 INFO  - Added The Bourne Supremacy with rating 7.8
+2014-06-14 23:06:59,227 INFO  - Added Meet Joe Black with rating 7.1
+2014-06-14 23:07:02,936 INFO  - Added The Odd Life of Timothy Green with rating 6.6
+2014-06-14 23:07:06,296 INFO  - Added The Mechanic with rating 6.5
+2014-06-14 23:07:07,980 INFO  - Added 27 Dresses with rating 6.1
+2014-06-14 23:07:09,821 INFO  - Added Miss Pettigrew Lives for a Day with rating 7.1
+2014-06-14 23:07:11,496 INFO  - Added Sense and Sensibility with rating 7.7
+2014-06-14 23:07:13,537 INFO  - Added Closer with rating 7.3
+2014-06-14 23:07:15,526 INFO  - Added Willow with rating 7.2
+2014-06-14 23:07:17,976 INFO  - Added I, Robot with rating 7.1
+2014-06-14 23:07:24,055 INFO  - Added The Basketball Diaries with rating 7.3
+2014-06-14 23:07:25,843 INFO  - Added I Love You, Man with rating 7.1
+2014-06-14 23:07:27,754 INFO  - Added Memoirs of a Geisha with rating 7.3
+2014-06-14 23:07:34,820 INFO  - Added Chocolat with rating 7.3
+2014-06-14 23:07:36,434 INFO  - Added Safe House with rating 6.8
+2014-06-14 23:07:38,338 INFO  - Added Chicago with rating 7.2
+2014-06-14 23:07:40,329 INFO  - Added Secretary with rating 7.1
+2014-06-14 23:07:42,528 INFO  - Added Jackie Brown with rating 7.5
+2014-06-14 23:07:44,328 INFO  - Added Ocean's Twelve with rating 6.4
+2014-06-14 23:07:48,371 INFO  - Added St. Elmo's Fire with rating 6.3
+2014-06-14 23:07:50,267 INFO  - Added Double Jeopardy with rating 6.3
+2014-06-14 23:07:57,110 INFO  - Added The Untouchables with rating 8.0
+2014-06-14 23:07:58,901 INFO  - Added Silent Hill with rating 6.6
+2014-06-14 23:08:03,006 INFO  - Added Definitely, Maybe with rating 7.2
+2014-06-14 23:08:08,342 INFO  - Added Unbreakable with rating 7.2
+2014-06-14 23:08:10,274 INFO  - Finished inserting page starting from 1401
+2014-06-14 23:08:13,509 INFO  - Added Anastasia with rating 7.0
+2014-06-14 23:08:15,451 INFO  - Added I Spit on Your Grave with rating 6.3
+2014-06-14 23:08:19,051 INFO  - Added Reign of Fire with rating 6.2
+2014-06-14 23:08:20,900 INFO  - Added Metropolis with rating 8.4
+2014-06-14 23:08:22,592 INFO  - Added Takers with rating 6.2
+2014-06-14 23:08:24,408 INFO  - Added The Warriors with rating 7.7
+2014-06-14 23:08:26,175 INFO  - Added Love and Other Impossible Pursuits with rating 6.4
+2014-06-14 23:08:28,266 INFO  - Added Tucker & Dale vs. Evil with rating 7.6
+2014-06-14 23:08:30,234 INFO  - Added Lord of War with rating 7.6
+2014-06-14 23:08:31,934 INFO  - Added Lucky Number Slevin with rating 7.8
+2014-06-14 23:08:33,784 INFO  - Added A Dangerous Method with rating 6.5
+2014-06-14 23:08:39,483 INFO  - Added Cinderella with rating 7.3
+2014-06-14 23:08:41,372 INFO  - Added The Rum Diary with rating 6.2
+2014-06-14 23:08:43,116 INFO  - Added Rushmore with rating 7.8
+2014-06-14 23:08:48,400 INFO  - Added Atlantis: The Lost Empire with rating 6.7
+2014-06-14 23:08:53,833 INFO  - Added Leap Year with rating 6.4
+2014-06-14 23:08:57,538 INFO  - Added How to Lose a Guy in 10 Days with rating 6.3
+2014-06-14 23:08:59,916 INFO  - Added Miss Congeniality with rating 6.1
+2014-06-14 23:09:01,971 INFO  - Added Van Wilder with rating 6.4
+2014-06-14 23:09:04,007 INFO  - Added Finding Neverland with rating 7.8
+2014-06-14 23:09:05,655 INFO  - Added Non Stop with rating 7.7
+2014-06-14 23:09:10,830 INFO  - Added Freaky Friday with rating 6.1
+2014-06-14 23:09:13,127 INFO  - Added Madagascar 3: Europe's Most Wanted with rating 7.0
+2014-06-14 23:09:15,191 INFO  - Added Legends of the Fall with rating 7.5
+2014-06-14 23:09:16,830 INFO  - Added The Inbetweeners Movie with rating 6.8
+2014-06-14 23:09:21,883 INFO  - Added Yip Man with rating 8.1
+2014-06-14 23:09:23,483 INFO  - Added Heropanti with rating 6.1
+2014-06-14 23:09:26,920 INFO  - Added Lockout with rating 6.1
+2014-06-14 23:09:28,524 INFO  - Added Das Leben der Anderen with rating 8.5
+2014-06-14 23:09:30,363 INFO  - Added The Hills Have Eyes with rating 6.4
+2014-06-14 23:09:32,232 INFO  - Added The Crow with rating 7.6
+2014-06-14 23:09:34,040 INFO  - Added Going the Distance with rating 6.4
+2014-06-14 23:09:35,907 INFO  - Added Ninja Assassin with rating 6.4
+2014-06-14 23:09:37,815 INFO  - Added Clue with rating 7.4
+2014-06-14 23:09:39,716 INFO  - Added Apollo 13 with rating 7.6
+2014-06-14 23:09:43,316 INFO  - Added Road to Perdition with rating 7.8
+2014-06-14 23:09:43,316 INFO  - Finished inserting page starting from 1451
+2014-06-14 23:09:46,407 INFO  - Added Babel with rating 7.5
+2014-06-14 23:09:48,249 INFO  - Added Burn After Reading with rating 7.0
+2014-06-14 23:09:50,190 INFO  - Added TRON with rating 6.8
+2014-06-14 23:09:52,013 INFO  - Added When Harry Met Sally... with rating 7.6
+2014-06-14 23:09:53,830 INFO  - Added Knight and Day with rating 6.3
+2014-06-14 23:09:55,590 INFO  - Added Basic Instinct with rating 6.9
+2014-06-14 23:09:57,274 INFO  - Added The Score with rating 6.8
+2014-06-14 23:09:59,140 INFO  - Added The Terminal with rating 7.3
+2014-06-14 23:10:05,907 INFO  - Added Scent of a Woman with rating 8.0
+2014-06-14 23:10:07,823 INFO  - Added Hodejegerne with rating 7.6
+2014-06-14 23:10:10,132 INFO  - Added The Chronicles of Narnia: The Voyage of the Dawn Treader with rating 6.4
+2014-06-14 23:10:11,957 INFO  - Added Margin Call with rating 7.1
+2014-06-14 23:10:13,987 INFO  - Added Dances with Wolves with rating 8.0
+2014-06-14 23:10:15,663 INFO  - Added The Texas Chainsaw Massacre with rating 6.2
+2014-06-14 23:10:17,400 INFO  - Added The Greatest Game Ever Played with rating 7.5
+2014-06-14 23:10:19,373 INFO  - Added The New World with rating 6.7
+2014-06-14 23:10:21,240 INFO  - Added The Zero Theorem with rating 6.6
+2014-06-14 23:10:28,583 INFO  - Added The Hours with rating 7.6
+2014-06-14 23:10:32,451 INFO  - Added Quarantine with rating 6.1
+2014-06-14 23:10:34,534 INFO  - Added Butter with rating 6.3
+2014-06-14 23:10:41,351 INFO  - Added K-PAX with rating 7.4
+2014-06-14 23:10:43,246 INFO  - Added Annie Hall with rating 8.2
+2014-06-14 23:10:44,884 INFO  - Added People Like Us with rating 7.1
+2014-06-14 23:10:46,697 INFO  - Added Donnie Brasco with rating 7.8
+2014-06-14 23:10:49,989 INFO  - Added Insomnia with rating 7.2
+2014-06-14 23:10:51,938 INFO  - Added Wrong Turn with rating 6.1
+2014-06-14 23:10:55,869 INFO  - Added Ice Age with rating 7.6
+2014-06-14 23:10:57,742 INFO  - Added Akmareul boatda with rating 7.8
+2014-06-14 23:11:00,080 INFO  - Added Pitch Black with rating 7.1
+2014-06-14 23:11:02,319 INFO  - Added Tonari no Totoro with rating 8.3
+2014-06-14 23:11:04,130 INFO  - Added The Count of Monte Cristo with rating 7.7
+2014-06-14 23:11:06,188 INFO  - Added Bad Boys II with rating 6.5
+2014-06-14 23:11:07,964 INFO  - Added Super with rating 6.8
+2014-06-14 23:11:11,914 INFO  - Added Rambo with rating 7.1
+2014-06-14 23:11:13,647 INFO  - Added The Trials of Cate McCall with rating 6.1
+2014-06-14 23:11:18,605 INFO  - Added City Lights with rating 6.5
+2014-06-14 23:11:18,605 INFO  - Finished inserting page starting from 1501
+2014-06-14 23:11:25,847 INFO  - Added Centurion with rating 6.4
+2014-06-14 23:11:29,689 INFO  - Added Scream 2 with rating 6.0
+2014-06-14 23:11:31,439 INFO  - Added The Boat That Rocked with rating 7.4
+2014-06-14 23:11:36,639 INFO  - Added True Lies with rating 7.2
+2014-06-14 23:11:38,377 INFO  - Added Killer Elite with rating 6.5
+2014-06-14 23:11:40,154 INFO  - Added My Big Fat Greek Wedding with rating 6.6
+2014-06-14 23:11:44,172 INFO  - Added The Station Agent with rating 7.8
+2014-06-14 23:11:46,397 INFO  - Added The Wedding Singer with rating 6.8
+2014-06-14 23:11:48,155 INFO  - Added Chloe with rating 6.3
+2014-06-14 23:11:49,888 INFO  - Added Legally Blonde with rating 6.2
+2014-06-14 23:11:51,537 INFO  - Added The Quiet Man with rating 8.0
+2014-06-14 23:11:53,313 INFO  - Added Hotel Rwanda with rating 8.2
+2014-06-14 23:11:55,422 INFO  - Added Deep Impact with rating 6.1
+2014-06-14 23:11:57,660 INFO  - Added Ghost with rating 7.0
+2014-06-14 23:11:59,621 INFO  - Added The Transporter with rating 6.8
+2014-06-14 23:12:03,273 INFO  - Added Blitz with rating 6.2
+2014-06-14 23:12:05,596 INFO  - Added Major League with rating 7.2
+2014-06-14 23:12:07,613 INFO  - Added Close Encounters of the Third Kind with rating 7.7
+2014-06-14 23:12:09,462 INFO  - Added Upside Down with rating 6.4
+2014-06-14 23:12:13,695 INFO  - Added Metallica Through the Never with rating 7.4
+2014-06-14 23:12:15,740 INFO  - Added As Good as It Gets with rating 7.8
+2014-06-14 23:12:17,804 INFO  - Added 9 with rating 7.1
+2014-06-14 23:12:19,863 INFO  - Added Batoru rowaiaru with rating 7.8
+2014-06-14 23:12:21,911 INFO  - Added Rango with rating 7.3
+2014-06-14 23:12:24,058 INFO  - Added Hundraåringen som klev ut genom fönstret och försvann with rating 7.1
+2014-06-14 23:12:26,040 INFO  - Added The Rocketeer with rating 6.4
+2014-06-14 23:12:29,983 INFO  - Added Xi you xiang mo pian with rating 6.8
+2014-06-14 23:12:32,187 INFO  - Added A Few Good Men with rating 7.6
+2014-06-14 23:12:33,971 INFO  - Added Unstoppable with rating 6.8
+2014-06-14 23:12:35,846 INFO  - Added Speed Racer with rating 6.1
+2014-06-14 23:12:37,834 INFO  - Added Can't Hardly Wait with rating 6.5
+2014-06-14 23:12:41,285 INFO  - Added Take Me Home Tonight with rating 6.4
+2014-06-14 23:12:42,978 INFO  - Added Bad Words with rating 6.9
+2014-06-14 23:12:45,320 INFO  - Added Hot Tub Time Machine with rating 6.5
+2014-06-14 23:12:51,671 INFO  - Added Romancing the Stone with rating 6.9
+2014-06-14 23:12:53,595 INFO  - Added Smokin' Aces with rating 6.7
+2014-06-14 23:12:55,368 INFO  - Added The Mummy Returns with rating 6.3
+2014-06-14 23:12:57,402 INFO  - Added The Man in the Iron Mask with rating 6.4
+2014-06-14 23:12:57,402 INFO  - Finished inserting page starting from 1551
+2014-06-14 23:13:00,570 INFO  - Added Honey, I Shrunk the Kids with rating 6.2
+2014-06-14 23:13:02,435 INFO  - Added Hannibal Rising with rating 6.2
+2014-06-14 23:13:04,393 INFO  - Added Back to the Future Part III with rating 7.4
+2014-06-14 23:13:06,420 INFO  - Added The Thin Red Line with rating 7.6
+2014-06-14 23:13:10,462 INFO  - Added The Runaways with rating 6.6
+2014-06-14 23:13:12,254 INFO  - Added Rear Window with rating 8.6
+2014-06-14 23:13:17,487 INFO  - Added Case 39 with rating 6.2
+2014-06-14 23:13:20,193 INFO  - Added Ravenous with rating 7.1
+2014-06-14 23:13:22,103 INFO  - Added Brazil with rating 8.0
+2014-06-14 23:13:23,903 INFO  - Added Lars and the Real Girl with rating 7.4
+2014-06-14 23:13:25,713 INFO  - Added Eastern Promises with rating 7.7
+2014-06-14 23:13:31,170 INFO  - Added Låt den rätte komma in with rating 8.0
+2014-06-14 23:13:33,054 INFO  - Added The Young Victoria with rating 7.3
+2014-06-14 23:13:34,920 INFO  - Added 30 Days of Night with rating 6.6
+2014-06-14 23:13:36,719 INFO  - Added Mission: Impossible II with rating 6.0
+2014-06-14 23:13:38,431 INFO  - Added The Faculty with rating 6.4
+2014-06-14 23:13:40,287 INFO  - Added Brothers with rating 7.2
+2014-06-14 23:13:42,269 INFO  - Added The Last King of Scotland with rating 7.7
+2014-06-14 23:13:44,269 INFO  - Added Miracle with rating 7.5
+2014-06-14 23:13:46,078 INFO  - Added Traffic with rating 7.7
+2014-06-14 23:13:49,852 INFO  - Added Varsity Blues with rating 6.4
+2014-06-14 23:13:51,620 INFO  - Added My Week with Marilyn with rating 7.0
+2014-06-14 23:13:55,173 INFO  - Added The Craft with rating 6.2
+2014-06-14 23:13:57,281 INFO  - Added An Education with rating 7.3
+2014-06-14 23:13:59,186 INFO  - Added Kids with rating 7.0
+2014-06-14 23:14:00,907 INFO  - Added Four Brothers with rating 6.9
+2014-06-14 23:14:04,824 INFO  - Added Boyz n the Hood with rating 7.8
+2014-06-14 23:14:08,478 INFO  - Added Promised Land with rating 6.6
+2014-06-14 23:14:10,443 INFO  - Added Swordfish with rating 6.5
+2014-06-14 23:14:12,264 INFO  - Added Jarhead with rating 7.1
+2014-06-14 23:14:14,102 INFO  - Added Edge of Darkness with rating 6.6
+2014-06-14 23:14:16,485 INFO  - Added Chinatown with rating 8.3
+2014-06-14 23:14:18,285 INFO  - Added Devil with rating 6.3
+2014-06-14 23:14:19,977 INFO  - Added American Graffiti with rating 7.5
+2014-06-14 23:14:21,844 INFO  - Added Pleasantville with rating 7.5
+2014-06-14 23:14:23,727 INFO  - Added To Rome with Love with rating 6.3
+2014-06-14 23:14:25,428 INFO  - Added First Blood with rating 7.6
+2014-06-14 23:14:32,709 INFO  - Added Galaxy Quest with rating 7.3
+2014-06-14 23:14:32,710 INFO  - Finished inserting page starting from 1601
+2014-06-14 23:14:36,053 INFO  - Added The Kids Are All Right with rating 7.1
+2014-06-14 23:14:39,468 INFO  - Added Joy Ride with rating 6.6
+2014-06-14 23:14:43,562 INFO  - Added Windtalkers with rating 6.0
+2014-06-14 23:14:45,302 INFO  - Added Solomon Kane with rating 6.1
+2014-06-14 23:14:47,161 INFO  - Added Planet Terror with rating 7.3
+2014-06-14 23:14:48,911 INFO  - Added Breathe In with rating 6.5
+2014-06-14 23:14:52,769 INFO  - Added Milk with rating 7.7
+2014-06-14 23:14:54,470 INFO  - Added Primal Fear with rating 7.7
+2014-06-14 23:14:56,528 INFO  - Added The Thing with rating 6.3
+2014-06-14 23:14:58,551 INFO  - Added Die Hard: With a Vengeance with rating 7.6
+2014-06-14 23:15:00,326 INFO  - Added Megamind with rating 7.3
+2014-06-14 23:15:02,745 INFO  - Added Pop Gear with rating 6.6
+2014-06-14 23:15:06,309 INFO  - Added Carlito's Way with rating 7.9
+2014-06-14 23:15:08,317 INFO  - Added The Sorcerer's Apprentice with rating 6.2
+2014-06-14 23:15:13,237 INFO  - Added Dark City with rating 7.8
+2014-06-14 23:15:15,001 INFO  - Added Diary of a Wimpy Kid with rating 6.2
+2014-06-14 23:15:16,734 INFO  - Added Sleepers with rating 7.5
+2014-06-14 23:15:18,595 INFO  - Added Across the Universe with rating 7.5
+2014-06-14 23:15:20,378 INFO  - Added Tristan + Isolde with rating 6.9
+2014-06-14 23:15:22,670 INFO  - Added Final Destination with rating 6.8
+2014-06-14 23:15:27,841 INFO  - Added Wet Hot American Summer with rating 6.8
+2014-06-14 23:15:30,317 INFO  - Added The Time Traveler's Wife with rating 7.1
+2014-06-14 23:15:33,884 INFO  - Added Ghost Town with rating 6.8
+2014-06-14 23:15:35,728 INFO  - Added Premium Rush with rating 6.5
+2014-06-14 23:15:39,278 INFO  - Added Date Night with rating 6.3
+2014-06-14 23:15:41,525 INFO  - Added Layer Cake with rating 7.4
+2014-06-14 23:15:43,183 INFO  - Added Black Snake Moan with rating 7.1
+2014-06-14 23:15:45,008 INFO  - Added Elf with rating 6.9
+2014-06-14 23:15:46,887 INFO  - Added Tiger Eyes with rating 6.4
+2014-06-14 23:15:50,200 INFO  - Added Panic Room with rating 6.8
+2014-06-14 23:15:52,033 INFO  - Added Shrek 2 with rating 7.3
+2014-06-14 23:15:54,191 INFO  - Added Angus, Thongs and Perfect Snogging with rating 6.4
+2014-06-14 23:15:57,833 INFO  - Added Munich with rating 7.7
+2014-06-14 23:16:00,216 INFO  - Added Dogma with rating 7.4
+2014-06-14 23:16:02,469 INFO  - Added Event Horizon with rating 6.7
+2014-06-14 23:16:04,808 INFO  - Added Shakespeare in Love with rating 7.2
+2014-06-14 23:16:08,333 INFO  - Added Friends with Kids with rating 6.2
+2014-06-14 23:16:08,334 INFO  - Finished inserting page starting from 1651
+2014-06-14 23:16:11,499 INFO  - Added Maniac with rating 6.2
+2014-06-14 23:16:13,228 INFO  - Added Man of Tai Chi with rating 6.1
+2014-06-14 23:16:17,242 INFO  - Added Now and Then with rating 6.7
+2014-06-14 23:16:20,932 INFO  - Added Cars 2 with rating 6.4
+2014-06-14 23:16:22,866 INFO  - Added 10 Years with rating 6.1
+2014-06-14 23:16:24,691 INFO  - Added Maverick with rating 7.0
+2014-06-14 23:16:34,102 INFO  - Added Stranger Than Fiction with rating 7.7
+2014-06-14 23:16:36,165 INFO  - Added Hit and Run with rating 6.1
+2014-06-14 23:16:40,544 INFO  - Added The Rundown with rating 6.7
+2014-06-14 23:16:42,366 INFO  - Added Once with rating 8.0
+2014-06-14 23:16:44,636 INFO  - Added Vertigo with rating 8.4
+2014-06-14 23:16:46,532 INFO  - Added The American with rating 6.3
+2014-06-14 23:16:48,174 INFO  - Added The Artist with rating 8.0
+2014-06-14 23:16:50,515 INFO  - Added August Rush with rating 7.6
+2014-06-14 23:16:52,945 INFO  - Added Funny Games U.S. with rating 6.4
+2014-06-14 23:16:54,802 INFO  - Added W. with rating 6.4
+2014-06-14 23:17:00,101 INFO  - Added All Good Things with rating 6.3
+2014-06-14 23:17:02,049 INFO  - Added Saw II with rating 6.6
+2014-06-14 23:17:03,732 INFO  - Added Ace Ventura: Pet Detective with rating 6.9
+2014-06-14 23:17:05,582 INFO  - Added A History of Violence with rating 7.5
+2014-06-14 23:17:09,415 INFO  - Added The Last of the Mohicans with rating 7.8
+2014-06-14 23:17:16,686 INFO  - Added Hunger with rating 7.6
+2014-06-14 23:17:18,511 INFO  - Added Defiance with rating 7.2
+2014-06-14 23:17:20,336 INFO  - Added Rush Hour with rating 6.9
+2014-06-14 23:17:25,481 INFO  - Added Taking Lives with rating 6.1
+2014-06-14 23:17:27,323 INFO  - Added Seeking a Friend for the End of the World with rating 6.7
+2014-06-14 23:17:29,114 INFO  - Added Rocky IV with rating 6.6
+2014-06-14 23:17:38,010 INFO  - Added Lolita with rating 6.9
+2014-06-14 23:17:41,727 INFO  - Added M with rating 8.5
+2014-06-14 23:17:43,539 INFO  - Finished inserting page starting from 1701
+2014-06-14 23:17:51,108 INFO  - Added Barefoot with rating 6.7
+2014-06-14 23:17:53,144 INFO  - Added La piel que habito with rating 7.6
+2014-06-14 23:17:57,072 INFO  - Added Where the Wild Things Are with rating 6.8
+2014-06-14 23:17:59,000 INFO  - Added Adaptation. with rating 7.8
+2014-06-14 23:18:01,339 INFO  - Added Kiss Kiss Bang Bang with rating 7.7
+2014-06-14 23:18:03,426 INFO  - Added Center Stage with rating 6.6
+2014-06-14 23:18:05,825 INFO  - Added Fired Up! with rating 6.2
+2014-06-14 23:18:07,877 INFO  - Added Fracture with rating 7.2
+2014-06-14 23:18:09,739 INFO  - Added Master and Commander: The Far Side of the World with rating 7.4
+2014-06-14 23:18:11,578 INFO  - Added Hocus Pocus with rating 6.6
+2014-06-14 23:18:13,556 INFO  - Added The Babadook with rating 7.6
+2014-06-14 23:18:17,030 INFO  - Added Red State with rating 6.2
+2014-06-14 23:18:18,855 INFO  - Added American Wedding with rating 6.2
+2014-06-14 23:18:20,788 INFO  - Added Emperor with rating 6.5
+2014-06-14 23:18:22,821 INFO  - Added Halloween with rating 7.9
+2014-06-14 23:18:28,053 INFO  - Added Australia with rating 6.6
+2014-06-14 23:18:30,086 INFO  - Added The Iron Giant with rating 7.9
+2014-06-14 23:18:33,580 INFO  - Added Young Adult with rating 6.3
+2014-06-14 23:18:35,913 INFO  - Added Romeo and Juliet with rating 7.7
+2014-06-14 23:18:37,846 INFO  - Added Funny People with rating 6.4
+2014-06-14 23:18:39,696 INFO  - Added The Best Exotic Marigold Hotel with rating 7.3
+2014-06-14 23:18:41,439 INFO  - Added It's a Boy Girl Thing with rating 6.4
+2014-06-14 23:18:43,355 INFO  - Added V/H/S/2 with rating 6.1
+2014-06-14 23:18:45,072 INFO  - Added 13 with rating 6.1
+2014-06-14 23:18:46,788 INFO  - Added Underworld: Rise of the Lycans with rating 6.6
+2014-06-14 23:18:48,671 INFO  - Added Conan the Barbarian with rating 6.9
+2014-06-14 23:18:50,769 INFO  - Added Y tu mamá también with rating 7.7
+2014-06-14 23:18:52,438 INFO  - Added We Own the Night with rating 6.9
+2014-06-14 23:18:54,196 INFO  - Added Mean Streets with rating 7.5
+2014-06-14 23:18:55,938 INFO  - Added Better Living Through Chemistry with rating 6.2
+2014-06-14 23:19:01,022 INFO  - Added A Single Man with rating 7.6
+2014-06-14 23:19:02,946 INFO  - Added Phone Booth with rating 7.1
+2014-06-14 23:19:05,255 INFO  - Added Young Frankenstein with rating 8.1
+2014-06-14 23:19:07,103 INFO  - Added Liberal Arts with rating 6.8
+2014-06-14 23:19:10,654 INFO  - Added Bolt with rating 7.0
+2014-06-14 23:19:12,412 INFO  - Added Marley & Me with rating 7.1
+2014-06-14 23:19:14,406 INFO  - Added Four Rooms with rating 6.7
+2014-06-14 23:19:16,654 INFO  - Added Whip It with rating 6.9
+2014-06-14 23:19:18,386 INFO  - Added The Company You Keep with rating 6.4
+2014-06-14 23:19:20,187 INFO  - Finished inserting page starting from 1751
+2014-06-14 23:19:23,332 INFO  - Added Zathura: A Space Adventure with rating 6.1
+2014-06-14 23:19:25,740 INFO  - Added The Ninth Gate with rating 6.7
+2014-06-14 23:19:31,532 INFO  - Added Chasing Mavericks with rating 7.1
+2014-06-14 23:19:38,669 INFO  - Added Green Zone with rating 6.9
+2014-06-14 23:19:40,695 INFO  - Added House of 1000 Corpses with rating 6.0
+2014-06-14 23:19:42,729 INFO  - Added Alan Partridge: Alpha Papa with rating 7.1
+2014-06-14 23:19:46,153 INFO  - Added Fish Tank with rating 7.3
+2014-06-14 23:19:47,845 INFO  - Added Camp X-Ray with rating 8.1
+2014-06-14 23:19:49,520 INFO  - Added Cashback with rating 7.3
+2014-06-14 23:19:53,094 INFO  - Added The Killer Inside Me with rating 6.2
+2014-06-14 23:19:54,962 INFO  - Added Hot Rod with rating 6.7
+2014-06-14 23:19:57,061 INFO  - Added The Talented Mr. Ripley with rating 7.3
+2014-06-14 23:19:59,187 INFO  - Added Precious with rating 7.4
+2014-06-14 23:20:01,761 INFO  - Added Hitchcock with rating 6.9
+2014-06-14 23:20:03,445 INFO  - Added Unfaithful with rating 6.7
+2014-06-14 23:20:05,261 INFO  - Added Liar Liar with rating 6.8
+2014-06-14 23:20:07,511 INFO  - Added Army of Darkness with rating 7.6
+2014-06-14 23:20:12,045 INFO  - Added The Living Daylights with rating 6.7
+2014-06-14 23:20:17,370 INFO  - Added Spartacus with rating 8.0
+2014-06-14 23:20:19,103 INFO  - Added Welcome to the Punch with rating 6.1
+2014-06-14 23:20:20,845 INFO  - Added Leave Her to Heaven with rating 7.7
+2014-06-14 23:20:23,270 INFO  - Added Team America: World Police with rating 7.2
+2014-06-14 23:20:26,736 INFO  - Added Per un pugno di dollari with rating 8.1
+2014-06-14 23:20:30,121 INFO  - Added Jeff, Who Lives at Home with rating 6.5
+2014-06-14 23:20:33,736 INFO  - Added Lethal Weapon with rating 7.6
+2014-06-14 23:20:35,385 INFO  - Added The Baytown Outlaws with rating 6.3
+2014-06-14 23:20:41,263 INFO  - Added Act of Valor with rating 6.5
+2014-06-14 23:20:43,010 INFO  - Added The Collection with rating 6.1
+2014-06-14 23:20:45,161 INFO  - Added Crank with rating 7.0
+2014-06-14 23:20:48,597 INFO  - Added Kis uykusu with rating 9.6
+2014-06-14 23:20:52,664 INFO  - Added Slither with rating 6.5
+2014-06-14 23:20:54,336 INFO  - Added Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan with rating 7.3
+2014-06-14 23:20:56,110 INFO  - Added West Side Story with rating 7.6
+2014-06-14 23:20:56,110 INFO  - Finished inserting page starting from 1801
+2014-06-14 23:20:59,477 INFO  - Added Flash Gordon with rating 6.4
+2014-06-14 23:21:01,502 INFO  - Added To the Wonder with rating 6.0
+2014-06-14 23:21:03,558 INFO  - Added Frances Ha with rating 7.5
+2014-06-14 23:21:06,910 INFO  - Added Great Expectations with rating 6.4
+2014-06-14 23:21:08,785 INFO  - Added Meet the Fockers with rating 6.3
+2014-06-14 23:21:12,732 INFO  - Added Dead Silence with rating 6.2
+2014-06-14 23:21:16,510 INFO  - Added Bedtime Stories with rating 6.1
+2014-06-14 23:21:18,243 INFO  - Added Frozen with rating 6.2
+2014-06-14 23:21:21,652 INFO  - Added Lawrence of Arabia with rating 8.4
+2014-06-14 23:21:23,344 INFO  - Added Summer of Sam with rating 6.6
+2014-06-14 23:21:25,327 INFO  - Added State of Play with rating 7.1
+2014-06-14 23:21:27,510 INFO  - Added Secondhand Lions with rating 7.6
+2014-06-14 23:21:29,285 INFO  - Added Drag Me to Hell with rating 6.7
+2014-06-14 23:21:31,318 INFO  - Added Meet the Parents with rating 7.0
+2014-06-14 23:21:33,068 INFO  - Added The Cell with rating 6.3
+2014-06-14 23:21:39,215 INFO  - Added Bridget Jones's Diary with rating 6.7
+2014-06-14 23:21:40,902 INFO  - Added A Lot Like Love with rating 6.6
+2014-06-14 23:21:42,718 INFO  - Added Erased with rating 6.1
+2014-06-14 23:21:44,668 INFO  - Added Decoding Annie Parker with rating 6.6
+2014-06-14 23:21:46,684 INFO  - Added Once Upon a Time in Mexico with rating 6.4
+2014-06-14 23:21:50,234 INFO  - Added Mr. Morgan's Last Love with rating 6.9
+2014-06-14 23:21:52,135 INFO  - Added Kung Fu Panda 2 with rating 7.3
+2014-06-14 23:21:55,935 INFO  - Added Death Race with rating 6.4
+2014-06-14 23:21:57,961 INFO  - Added Enemy at the Gates with rating 7.6
+2014-06-14 23:21:59,993 INFO  - Added Invictus with rating 7.4
+2014-06-14 23:22:01,990 INFO  - Added Anonymous with rating 6.9
+2014-06-14 23:22:03,851 INFO  - Added Gandhi with rating 8.1
+2014-06-14 23:22:05,576 INFO  - Added Thank You for Smoking with rating 7.7
+2014-06-14 23:22:07,351 INFO  - Added Beverly Hills Cop with rating 7.3
+2014-06-14 23:22:09,150 INFO  - Added Flags of Our Fathers with rating 7.1
+2014-06-14 23:22:10,800 INFO  - Added L'inconnu du lac with rating 6.9
+2014-06-14 23:22:14,252 INFO  - Added Beerfest with rating 6.3
+2014-06-14 23:22:16,326 INFO  - Added The Raven with rating 6.4
+2014-06-14 23:22:18,143 INFO  - Added Rocky III with rating 6.6
+2014-06-14 23:22:21,942 INFO  - Added Driving Miss Daisy with rating 7.4
+2014-06-14 23:22:24,226 INFO  - Added Last Action Hero with rating 6.1
+2014-06-14 23:22:26,151 INFO  - Added Thelma & Louise with rating 7.4
+2014-06-14 23:22:27,917 INFO  - Added Me, Myself & Irene with rating 6.5
+2014-06-14 23:22:29,860 INFO  - Added Mary and Max with rating 8.2
+2014-06-14 23:22:31,968 INFO  - Added Goon with rating 6.8
+2014-06-14 23:22:31,968 INFO  - Finished inserting page starting from 1851
+2014-06-14 23:22:39,958 INFO  - Added [Rec] with rating 7.5
+2014-06-14 23:22:43,309 INFO  - Added Trick 'r Treat with rating 6.8
+2014-06-14 23:22:45,566 INFO  - Added Clerks II with rating 7.5
+2014-06-14 23:22:47,742 INFO  - Added Blue Velvet with rating 7.8
+2014-06-14 23:22:49,683 INFO  - Added Child's Play with rating 6.5
+2014-06-14 23:22:51,325 INFO  - Added The Lake House with rating 6.8
+2014-06-14 23:22:53,401 INFO  - Added The Great Escape with rating 8.3
+2014-06-14 23:22:55,318 INFO  - Added The Trip with rating 7.1
+2014-06-14 23:22:57,075 INFO  - Added Clerks. with rating 7.9
+2014-06-14 23:22:58,800 INFO  - Added Iron Sky with rating 6.0
+2014-06-14 23:23:00,609 INFO  - Added The Awakening with rating 6.5
+2014-06-14 23:23:02,392 INFO  - Added Dr. No with rating 7.3
+2014-06-14 23:23:05,875 INFO  - Added Submarine with rating 7.3
+2014-06-14 23:23:07,626 INFO  - Added You've Got Mail with rating 6.5
+2014-06-14 23:23:09,616 INFO  - Added Friday Night Lights with rating 7.3
+2014-06-14 23:23:15,051 INFO  - Added Next with rating 6.2
+2014-06-14 23:23:17,090 INFO  - Added The Magnificent Seven with rating 7.8
+2014-06-14 23:23:22,100 INFO  - Added Jeepers Creepers with rating 6.0
+2014-06-14 23:23:25,735 INFO  - Added Beasts of the Southern Wild with rating 7.3
+2014-06-14 23:23:28,009 INFO  - Added Roman Holiday with rating 8.1
+2014-06-14 23:23:29,795 INFO  - Added Goldfinger with rating 7.8
+2014-06-14 23:23:35,115 INFO  - Added ParaNorman with rating 7.0
+2014-06-14 23:23:37,407 INFO  - Added Under Siege with rating 6.4
+2014-06-14 23:23:39,426 INFO  - Added Letters to Juliet with rating 6.5
+2014-06-14 23:23:41,510 INFO  - Added Colombiana with rating 6.4
+2014-06-14 23:23:43,391 INFO  - Added Cellular with rating 6.5
+2014-06-14 23:23:48,901 INFO  - Added Corpse Bride with rating 7.4
+2014-06-14 23:23:50,667 INFO  - Added Kon-Tiki with rating 7.3
+2014-06-14 23:23:52,648 INFO  - Added 21 Grams with rating 7.8
+2014-06-14 23:23:55,988 INFO  - Added A Good Year with rating 6.9
+2014-06-14 23:23:57,898 INFO  - Added Manhunter with rating 7.2
+2014-06-14 23:24:02,215 INFO  - Added The Hunchback of Notre Dame with rating 6.9
+2014-06-14 23:24:07,292 INFO  - Added 25th Hour with rating 7.7
+2014-06-14 23:24:09,215 INFO  - Added The Number 23 with rating 6.4
+2014-06-14 23:24:09,215 INFO  - Finished inserting page starting from 1901
+2014-06-14 23:24:13,901 INFO  - Added The Sting with rating 8.4
+2014-06-14 23:24:17,784 INFO  - Added Frankenstein with rating 6.4
+2014-06-14 23:24:21,356 INFO  - Added Safe with rating 6.5
+2014-06-14 23:24:24,798 INFO  - Added The Sisterhood of the Traveling Pants 2 with rating 6.2
+2014-06-14 23:24:28,300 INFO  - Added Bonnie and Clyde with rating 7.9
+2014-06-14 23:24:30,439 INFO  - Added Lolita with rating 7.7
+2014-06-14 23:24:32,073 INFO  - Added Wall Street with rating 7.4
+2014-06-14 23:24:34,151 INFO  - Added Vacation with rating 7.4
+2014-06-14 23:24:35,967 INFO  - Added Flushed Away with rating 6.7
+2014-06-14 23:24:37,814 INFO  - Added Michael Kohlhaas with rating 6.3
+2014-06-14 23:24:39,756 INFO  - Added The Spiderwick Chronicles with rating 6.6
+2014-06-14 23:24:42,006 INFO  - Added The Birds with rating 7.8
+2014-06-14 23:24:44,234 INFO  - Added Underworld: Evolution with rating 6.7
+2014-06-14 23:24:46,059 INFO  - Added The Prince of Egypt with rating 6.9
+2014-06-14 23:24:51,101 INFO  - Added Transporter 2 with rating 6.3
+2014-06-14 23:24:53,051 INFO  - Added Demolition Man with rating 6.6
+2014-06-14 23:24:55,096 INFO  - Added Christine with rating 6.6
+2014-06-14 23:24:57,256 INFO  - Added Harold & Kumar Go to White Castle with rating 7.2
+2014-06-14 23:24:59,392 INFO  - Added Red Dawn with rating 6.3
+2014-06-14 23:25:01,589 INFO  - Added Choke with rating 6.5
+2014-06-14 23:25:05,088 INFO  - Added The 13th Warrior with rating 6.5
+2014-06-14 23:25:06,784 INFO  - Added Sideways with rating 7.6
+2014-06-14 23:25:09,981 INFO  - Added The Invention of Lying with rating 6.4
+2014-06-14 23:25:11,647 INFO  - Added Flashdance with rating 6.0
+2014-06-14 23:25:15,227 INFO  - Added Charlie Wilson's War with rating 7.1
+2014-06-14 23:25:18,458 INFO  - Added What Women Want with rating 6.4
+2014-06-14 23:25:20,796 INFO  - Added High Fidelity with rating 7.6
+2014-06-14 23:25:22,591 INFO  - Added Cliffhanger with rating 6.3
+2014-06-14 23:25:24,351 INFO  - Added Speed with rating 7.2
+2014-06-14 23:25:26,172 INFO  - Added Saturday Night Fever with rating 6.8
+2014-06-14 23:25:32,905 INFO  - Added Venuto al mondo with rating 7.4
+2014-06-14 23:25:34,988 INFO  - Added Extremely Loud & Incredibly Close with rating 6.9
+2014-06-14 23:25:40,947 INFO  - Added North by Northwest with rating 8.5
+2014-06-14 23:25:43,180 INFO  - Added Philadelphia with rating 7.7
+2014-06-14 23:25:44,917 INFO  - Added Miami Vice with rating 6.0
+2014-06-14 23:25:44,917 INFO  - Finished inserting page starting from 1951
+2014-06-14 23:25:49,888 INFO  - Added Billy Elliot with rating 7.7
+2014-06-14 23:25:52,392 INFO  - Added Just One of the Guys with rating 6.4
+2014-06-14 23:25:56,100 INFO  - Added Celda 211 with rating 7.7
+2014-06-14 23:25:57,812 INFO  - Added Die Hard 2 with rating 7.1
+2014-06-14 23:26:00,139 INFO  - Added The Assassination of Jesse James by the Coward Robert Ford with rating 7.6
+2014-06-14 23:26:01,968 INFO  - Added Get the Gringo with rating 7.0
+2014-06-14 23:26:04,167 INFO  - Added Perfect Sense with rating 7.1
+2014-06-14 23:26:06,146 INFO  - Added El orfanato with rating 7.5
+2014-06-14 23:26:11,633 INFO  - Added Nick and Norah's Infinite Playlist with rating 6.7
+2014-06-14 23:26:13,987 INFO  - Added The Color Purple with rating 7.8
+2014-06-14 23:26:17,602 INFO  - Added The Great Gatsby with rating 6.4
+2014-06-14 23:26:23,229 INFO  - Added The Ghost Writer with rating 7.3
+2014-06-14 23:26:25,712 INFO  - Added High Plains Drifter with rating 7.7
+2014-06-14 23:26:31,645 INFO  - Added Desperado with rating 7.2
+2014-06-14 23:26:37,160 INFO  - Added The Skeleton Key with rating 6.5
+2014-06-14 23:26:38,904 INFO  - Added Ella Enchanted with rating 6.3
+2014-06-14 23:26:41,475 INFO  - Added Boys Don't Cry with rating 7.6
+2014-06-14 23:26:43,170 INFO  - Added Treasure Planet with rating 7.0
+2014-06-14 23:26:46,683 INFO  - Added Primer with rating 7.0
+2014-06-14 23:26:48,486 INFO  - Added Bernie with rating 6.8
+2014-06-14 23:26:50,374 INFO  - Added Powder with rating 6.5
+2014-06-14 23:26:53,654 INFO  - Added The Last Sunset with rating 6.8
+2014-06-14 23:26:55,545 INFO  - Added The Perfect Storm with rating 6.3
+2014-06-14 23:26:57,528 INFO  - Added Deadfall with rating 6.3
+2014-06-14 23:27:03,061 INFO  - Added Martha Marcy May Marlene with rating 7.0
+2014-06-14 23:27:04,853 INFO  - Added Space Jam with rating 6.1
+2014-06-14 23:27:06,678 INFO  - Added Payback with rating 7.1
+2014-06-14 23:27:08,562 INFO  - Added The Boondock Saints II: All Saints Day with rating 6.4
+2014-06-14 23:27:10,600 INFO  - Added What Maisie Knew with rating 7.5
+2014-06-14 23:27:12,520 INFO  - Added The Losers with rating 6.4
+2014-06-14 23:27:16,429 INFO  - Added What Happens in Vegas with rating 6.1
+2014-06-14 23:27:18,208 INFO  - Added Shark Tale with rating 6.0
+2014-06-14 23:27:20,394 INFO  - Added Le scaphandre et le papillon with rating 8.1
+2014-06-14 23:27:22,191 INFO  - Added Gwoemul with rating 7.0
+2014-06-14 23:27:22,191 INFO  - Finished inserting page starting from 2001
+2014-06-14 23:27:25,271 INFO  - Added The Beaver with rating 6.7
+2014-06-14 23:27:29,265 INFO  - Added Wristcutters: A Love Story with rating 7.4
+2014-06-14 23:27:34,949 INFO  - Added Buried with rating 7.0
+2014-06-14 23:27:36,790 INFO  - Added Raising Helen with rating 6.0
+2014-06-14 23:27:38,465 INFO  - Added Air Force One with rating 6.4
+2014-06-14 23:27:41,957 INFO  - Added Lakeview Terrace with rating 6.2
+2014-06-14 23:27:43,791 INFO  - Added Rendition with rating 6.8
+2014-06-14 23:27:45,408 INFO  - Added Anger Management with rating 6.2
+2014-06-14 23:27:47,828 INFO  - Added TMNT with rating 6.4
+2014-06-14 23:27:49,500 INFO  - Added Spread with rating 6.0
+2014-06-14 23:27:52,949 INFO  - Added The Waterboy with rating 6.0
+2014-06-14 23:27:56,351 INFO  - Added Johnny English Reborn with rating 6.3
+2014-06-14 23:27:58,099 INFO  - Added That Thing You Do! with rating 6.8
+2014-06-14 23:28:01,683 INFO  - Added Sneakers with rating 7.1
+2014-06-14 23:28:03,452 INFO  - Added The Great Dictator with rating 8.5
+2014-06-14 23:28:05,269 INFO  - Added Field of Dreams with rating 7.6
+2014-06-14 23:28:09,435 INFO  - Added Le passé with rating 8.0
+2014-06-14 23:28:11,902 INFO  - Added De rouille et d'os with rating 7.5
+2014-06-14 23:28:13,949 INFO  - Added Starred Up with rating 7.8
+2014-06-14 23:28:15,710 INFO  - Added Fair Game with rating 6.8
+2014-06-14 23:28:19,452 INFO  - Added Freedom Writers with rating 7.5
+2014-06-14 23:28:21,410 INFO  - Added All the President's Men with rating 8.0
+2014-06-14 23:28:25,335 INFO  - Added The Holy Mountain with rating 7.8
+2014-06-14 23:28:27,068 INFO  - Added Revenge of the Nerds with rating 6.6
+2014-06-14 23:28:32,759 INFO  - Added From Hell with rating 6.9
+2014-06-14 23:28:34,868 INFO  - Added Pay It Forward with rating 7.1
+2014-06-14 23:28:37,378 INFO  - Added Till the Clouds Roll By with rating 6.5
+2014-06-14 23:28:39,552 INFO  - Added Out of Sight with rating 7.1
+2014-06-14 23:28:41,344 INFO  - Added The Abyss with rating 7.6
+2014-06-14 23:28:45,059 INFO  - Added Friday the 13th with rating 6.5
+2014-06-14 23:28:48,461 INFO  - Added The Human Stain with rating 6.3
+2014-06-14 23:28:51,792 INFO  - Added The Hunt for Red October with rating 7.6
+2014-06-14 23:28:53,968 INFO  - Added Peter Pan with rating 7.4
+2014-06-14 23:28:56,012 INFO  - Added Martyrs with rating 7.1
+2014-06-14 23:28:58,026 INFO  - Added The Cider House Rules with rating 7.4
+2014-06-14 23:29:00,084 INFO  - Added Nuovo Cinema Paradiso with rating 8.5
+2014-06-14 23:29:00,084 INFO  - Finished inserting page starting from 2051
+2014-06-14 23:29:03,442 INFO  - Added Capote with rating 7.4
+2014-06-14 23:29:05,259 INFO  - Added The Guardian with rating 6.8
+2014-06-14 23:29:09,134 INFO  - Added Salmon Fishing in the Yemen with rating 6.9
+2014-06-14 23:29:13,206 INFO  - Added The Truth About Emanuel with rating 6.0
+2014-06-14 23:29:23,867 INFO  - Added Oliver! with rating 7.5
+2014-06-14 23:29:25,492 INFO  - Added This Is Spinal Tap with rating 8.0
+2014-06-14 23:29:27,214 INFO  - Added Faster with rating 6.5
+2014-06-14 23:29:31,417 INFO  - Added Sleepless in Seattle with rating 6.8
+2014-06-14 23:29:33,300 INFO  - Added The Thomas Crown Affair with rating 6.8
+2014-06-14 23:29:34,984 INFO  - Added Exam with rating 6.9
+2014-06-14 23:29:38,483 INFO  - Added S.W.A.T. with rating 6.0
+2014-06-14 23:29:40,117 INFO  - Added Big Stan with rating 6.2
+2014-06-14 23:29:41,980 INFO  - Added Blades of Glory with rating 6.4
+2014-06-14 23:29:44,317 INFO  - Added It's Complicated with rating 6.6
+2014-06-14 23:29:46,792 INFO  - Added A Bronx Tale with rating 7.8
+2014-06-14 23:29:48,575 INFO  - Added WarGames with rating 7.1
+2014-06-14 23:29:52,875 INFO  - Added The Tall Man with rating 6.0
+2014-06-14 23:29:56,442 INFO  - Added Crank: High Voltage with rating 6.2
+2014-06-14 23:30:00,433 INFO  - Added Ali G Indahouse with rating 6.2
+2014-06-14 23:30:04,101 INFO  - Added They Live with rating 7.3
+2014-06-14 23:30:05,943 INFO  - Added Molly Maxwell with rating 6.3
+2014-06-14 23:30:08,384 INFO  - Added World Without End with rating 6.0
+2014-06-14 23:30:10,575 INFO  - Added Revenge with rating 6.2
+2014-06-14 23:30:12,666 INFO  - Added Falling Down with rating 7.6
+2014-06-14 23:30:14,774 INFO  - Added Road House with rating 6.4
+2014-06-14 23:30:16,468 INFO  - Added Crash with rating 6.3
+2014-06-14 23:30:20,391 INFO  - Added Steel Magnolias with rating 7.2
+2014-06-14 23:30:22,233 INFO  - Added Easy Rider with rating 7.4
+2014-06-14 23:30:24,008 INFO  - Added Cube with rating 7.4
+2014-06-14 23:30:26,016 INFO  - Added Slap Shot with rating 7.4
+2014-06-14 23:30:32,527 INFO  - Added The Taking of Pelham 1 2 3 with rating 6.4
+2014-06-14 23:30:34,317 INFO  - Added Gake no ue no Ponyo with rating 7.7
+2014-06-14 23:30:38,451 INFO  - Finished inserting page starting from 2101
+2014-06-14 23:30:41,616 INFO  - Added Sahara with rating 6.0
+2014-06-14 23:30:45,083 INFO  - Added Morning Glory with rating 6.5
+2014-06-14 23:30:46,938 INFO  - Added The Bucket List with rating 7.4
+2014-06-14 23:30:55,071 INFO  - Added Star Trek: Nemesis with rating 6.4
+2014-06-14 23:31:00,158 INFO  - Added The Horse Whisperer with rating 6.5
+2014-06-14 23:31:02,307 INFO  - Added The Painted Veil with rating 7.5
+2014-06-14 23:31:05,765 INFO  - Added The Motel Life with rating 6.1
+2014-06-14 23:31:09,290 INFO  - Added Bill & Ted's Excellent Adventure with rating 6.9
+2014-06-14 23:31:11,712 INFO  - Added Punch-Drunk Love with rating 7.3
+2014-06-14 23:31:15,116 INFO  - Added My Best Friend's Wedding with rating 6.3
+2014-06-14 23:31:16,990 INFO  - Added Nineteen Eighty-Four with rating 7.2
+2014-06-14 23:31:18,665 INFO  - Added Space Cowboys with rating 6.4
+2014-06-14 23:31:22,031 INFO  - Added Fanboys with rating 6.6
+2014-06-14 23:31:23,840 INFO  - Added The Right Stuff with rating 7.9
+2014-06-14 23:31:25,748 INFO  - Added The Dark Crystal with rating 7.2
+2014-06-14 23:31:29,832 INFO  - Added Reign Over Me with rating 7.6
+2014-06-14 23:31:37,882 INFO  - Added White Oleander with rating 7.2
+2014-06-14 23:31:39,514 INFO  - Added The Kingdom with rating 7.1
+2014-06-14 23:31:41,431 INFO  - Added Ain't Them Bodies Saints with rating 6.5
+2014-06-14 23:31:44,897 INFO  - Added City Lights with rating 8.6
+2014-06-14 23:31:46,757 INFO  - Added National Treasure: Book of Secrets with rating 6.5
+2014-06-14 23:31:48,831 INFO  - Added The Wedding Date with rating 6.0
+2014-06-14 23:31:50,723 INFO  - Added Robin Hood with rating 7.6
+2014-06-14 23:31:52,640 INFO  - Added Sunshine Cleaning with rating 6.9
+2014-06-14 23:31:54,799 INFO  - Added Fear with rating 6.1
+2014-06-14 23:31:56,889 INFO  - Added Dirty Harry with rating 7.8
+2014-06-14 23:31:58,639 INFO  - Added Mad Max 2 with rating 7.6
+2014-06-14 23:32:00,384 INFO  - Added Pi with rating 7.5
+2014-06-14 23:32:04,140 INFO  - Added Smashed with rating 6.8
+2014-06-14 23:32:06,041 INFO  - Added Glory with rating 8.0
+2014-06-14 23:32:07,723 INFO  - Added 30 Minutes or Less with rating 6.2
+2014-06-14 23:32:11,264 INFO  - Added Saved! with rating 6.9
+2014-06-14 23:32:13,489 INFO  - Added Ben-Hur with rating 8.2
+2014-06-14 23:32:13,489 INFO  - Finished inserting page starting from 2151
+2014-06-14 23:32:16,863 INFO  - Added Ironclad with rating 6.2
+2014-06-14 23:32:18,848 INFO  - Added Kingpin with rating 6.9
+2014-06-14 23:32:20,729 INFO  - Added Tin Cup with rating 6.3
+2014-06-14 23:32:22,515 INFO  - Added This Is England with rating 7.7
+2014-06-14 23:32:24,216 INFO  - Added What Dreams May Come with rating 6.9
+2014-06-14 23:32:25,997 INFO  - Added The AristoCats with rating 7.1
+2014-06-14 23:32:27,882 INFO  - Added The Joneses with rating 6.5
+2014-06-14 23:32:29,807 INFO  - Added Butch Cassidy and the Sundance Kid with rating 8.2
+2014-06-14 23:32:31,572 INFO  - Added Secret Window with rating 6.6
+2014-06-14 23:32:35,440 INFO  - Added Metegol with rating 7.3
+2014-06-14 23:32:37,288 INFO  - Added Little Women with rating 7.3
+2014-06-14 23:32:41,264 INFO  - Added Small Soldiers with rating 6.1
+2014-06-14 23:32:43,090 INFO  - Added The Outlaw Josey Wales with rating 7.9
+2014-06-14 23:32:45,157 INFO  - Added Ed Wood with rating 7.9
+2014-06-14 23:32:46,865 INFO  - Added The Rebound with rating 6.4
+2014-06-14 23:32:48,615 INFO  - Added Mystery Men with rating 6.0
+2014-06-14 23:32:50,354 INFO  - Added The Insider with rating 7.9
+2014-06-14 23:32:52,404 INFO  - Added Dragon Ball Z: Battle of Gods with rating 7.4
+2014-06-14 23:32:54,373 INFO  - Added Starsky & Hutch with rating 6.1
+2014-06-14 23:32:56,090 INFO  - Added A Night in Old Mexico with rating 6.2
+2014-06-14 23:32:59,922 INFO  - Added Shrek Forever After with rating 6.4
+2014-06-14 23:33:01,721 INFO  - Added Just Friends with rating 6.3
+2014-06-14 23:33:03,640 INFO  - Added Sky Captain and the World of Tomorrow with rating 6.1
+2014-06-14 23:33:05,632 INFO  - Added South Park: Bigger Longer & Uncut with rating 7.8
+2014-06-14 23:33:09,512 INFO  - Added The Piano with rating 7.6
+2014-06-14 23:33:11,779 INFO  - Added Newsies with rating 6.9
+2014-06-14 23:33:15,615 INFO  - Added My Cousin Vinny with rating 7.5
+2014-06-14 23:33:17,463 INFO  - Added Arbitrage with rating 6.7
+2014-06-14 23:33:19,157 INFO  - Added Alice in Wonderland with rating 7.4
+2014-06-14 23:33:22,804 INFO  - Added Horton Hears a Who! with rating 6.9
+2014-06-14 23:33:24,412 INFO  - Added Rubinrot with rating 6.0
+2014-06-14 23:33:26,298 INFO  - Added Monster's Ball with rating 7.1
+2014-06-14 23:33:30,064 INFO  - Added Daybreakers with rating 6.5
+2014-06-14 23:33:31,806 INFO  - Added Of Mice and Men with rating 7.6
+2014-06-14 23:33:33,563 INFO  - Added Tenacious D in The Pick of Destiny with rating 6.8
+2014-06-14 23:33:35,474 INFO  - Added Shrek the Third with rating 6.0
+2014-06-14 23:33:39,173 INFO  - Added Little Shop of Horrors with rating 6.9
+2014-06-14 23:33:41,237 INFO  - Added Peggy Sue Got Married with rating 6.3
+2014-06-14 23:33:43,878 INFO  - Added Ice Princess with rating 6.0
+2014-06-14 23:33:45,698 INFO  - Added Assault on Wall Street with rating 6.1
+2014-06-14 23:33:47,562 INFO  - Added Addams Family Values with rating 6.5
+2014-06-14 23:33:49,353 INFO  - Added Life of Brian with rating 8.2
+2014-06-14 23:33:49,353 INFO  - Finished inserting page starting from 2201
+2014-06-14 23:33:52,612 INFO  - Added Sex, Lies, and Videotape with rating 7.2
+2014-06-14 23:33:54,454 INFO  - Added Another Earth with rating 7.0
+2014-06-14 23:33:57,878 INFO  - Added Robots with rating 6.3
+2014-06-14 23:33:59,987 INFO  - Added Life as a House with rating 7.6
+2014-06-14 23:34:02,145 INFO  - Added God Bless America with rating 7.3
+2014-06-14 23:34:04,048 INFO  - Added A Night at the Roxbury with rating 6.2
+2014-06-14 23:34:07,470 INFO  - Added Pet Sematary with rating 6.5
+2014-06-14 23:34:11,062 INFO  - Added Dan in Real Life with rating 6.8
+2014-06-14 23:34:12,853 INFO  - Added Wall Street: Money Never Sleeps with rating 6.3
+2014-06-14 23:34:14,795 INFO  - Added The Towering Inferno with rating 6.9
+2014-06-14 23:34:16,740 INFO  - Added Singin' in the Rain with rating 8.4
+2014-06-14 23:34:18,480 INFO  - Added Eagle Eye with rating 6.6
+2014-06-14 23:34:20,528 INFO  - Added Excision with rating 6.1
+2014-06-14 23:34:22,336 INFO  - Added A Streetcar Named Desire with rating 8.1
+2014-06-14 23:34:23,994 INFO  - Added Cool Hand Luke with rating 8.2
+2014-06-14 23:34:25,953 INFO  - Added Antz with rating 6.6
+2014-06-14 23:34:27,961 INFO  - Added A Scanner Darkly with rating 7.1
+2014-06-14 23:34:29,731 INFO  - Added Win Win with rating 7.2
+2014-06-14 23:34:31,573 INFO  - Added Animal Kingdom with rating 7.3
+2014-06-14 23:34:33,303 INFO  - Added Beginners with rating 7.2
+2014-06-14 23:34:35,273 INFO  - Added A Perfect Getaway with rating 6.5
+2014-06-14 23:34:40,710 INFO  - Added Serendipity with rating 6.9
+2014-06-14 23:34:42,626 INFO  - Added Dogville with rating 8.0
+2014-06-14 23:34:44,361 INFO  - Added Celeste & Jesse Forever with rating 6.6
+2014-06-14 23:34:52,644 INFO  - Added Trading Places with rating 7.5
+2014-06-14 23:34:55,231 INFO  - Added Go with rating 7.3
+2014-06-14 23:35:01,176 INFO  - Added The Sessions with rating 7.2
+2014-06-14 23:35:02,877 INFO  - Added Nowhere Boy with rating 7.2
+2014-06-14 23:35:04,694 INFO  - Added Borgman with rating 6.9
+2014-06-14 23:35:08,794 INFO  - Added Casanova with rating 6.5
+2014-06-14 23:35:10,839 INFO  - Added Crocodile Dundee with rating 6.5
+2014-06-14 23:35:12,760 INFO  - Added I'm Not There. with rating 7.0
+2014-06-14 23:35:16,185 INFO  - Added One Fine Day with rating 6.4
+2014-06-14 23:35:21,685 INFO  - Added How to Lose Friends & Alienate People with rating 6.5
+2014-06-14 23:35:24,018 INFO  - Added The Three Musketeers with rating 6.3
+2014-06-14 23:35:25,898 INFO  - Added The Crucible with rating 6.9
+2014-06-14 23:35:25,898 INFO  - Finished inserting page starting from 2251
+2014-06-14 23:35:29,018 INFO  - Added Rock Star with rating 6.1
+2014-06-14 23:35:41,887 INFO  - Added Airheads with rating 6.0
+2014-06-14 23:35:43,543 INFO  - Added Womb with rating 6.4
+2014-06-14 23:35:45,501 INFO  - Added Fun with Dick and Jane with rating 6.1
+2014-06-14 23:35:51,647 INFO  - Added Bringing Up Baby with rating 8.1
+2014-06-14 23:35:54,126 INFO  - Added Mona Lisa Smile with rating 6.3
+2014-06-14 23:35:56,134 INFO  - Added Commando with rating 6.6
+2014-06-14 23:35:58,414 INFO  - Added The Men Who Stare at Goats with rating 6.3
+2014-06-14 23:36:00,046 INFO  - Added The Eagle with rating 6.2
+2014-06-14 23:36:09,749 INFO  - Added Manhattan with rating 8.0
+2014-06-14 23:36:11,731 INFO  - Added The Barefoot Contessa with rating 7.1
+2014-06-14 23:36:13,809 INFO  - Added Dirty Dancing: Havana Nights with rating 6.0
+2014-06-14 23:36:15,826 INFO  - Added Tomorrow, When the War Began with rating 6.2
+2014-06-14 23:36:20,025 INFO  - Added Over the Hedge with rating 6.8
+2014-06-14 23:36:25,092 INFO  - Added La Bamba with rating 6.8
+2014-06-14 23:36:27,025 INFO  - Added The Game Plan with rating 6.2
+2014-06-14 23:36:29,041 INFO  - Added God's Pocket with rating 6.4
+2014-06-14 23:36:30,842 INFO  - Added He Got Game with rating 6.9
+2014-06-14 23:36:38,583 INFO  - Added Lord of the Flies with rating 6.4
+2014-06-14 23:36:42,266 INFO  - Added Meet the Robinsons with rating 6.9
+2014-06-14 23:36:44,291 INFO  - Added Outbreak with rating 6.5
+2014-06-14 23:36:46,059 INFO  - Added Ali with rating 6.7
+2014-06-14 23:36:49,542 INFO  - Added Candyman with rating 6.5
+2014-06-14 23:36:51,383 INFO  - Added Mallrats with rating 7.2
+2014-06-14 23:36:54,833 INFO  - Added Bottle Rocket with rating 7.2
+2014-06-14 23:36:56,616 INFO  - Added Mysterious Skin with rating 7.8
+2014-06-14 23:36:58,383 INFO  - Added Escape from New York with rating 7.2
+2014-06-14 23:37:00,208 INFO  - Added Frequency with rating 7.3
+2014-06-14 23:37:01,971 INFO  - Added Paranormal Activity with rating 6.4
+2014-06-14 23:37:01,971 INFO  - Finished inserting page starting from 2301
+2014-06-14 23:37:05,025 INFO  - Added The Simpsons Movie with rating 7.4
+2014-06-14 23:37:08,713 INFO  - Added The Art of Getting By with rating 6.6
+2014-06-14 23:37:10,430 INFO  - Added Unthinkable with rating 7.1
+2014-06-14 23:37:12,649 INFO  - Added For a Good Time, Call... with rating 6.0
+2014-06-14 23:37:16,157 INFO  - Added Star Trek: The Motion Picture with rating 6.3
+2014-06-14 23:37:17,932 INFO  - Added The Duchess with rating 6.9
+2014-06-14 23:37:19,716 INFO  - Added Fried Green Tomatoes with rating 7.6
+2014-06-14 23:37:21,591 INFO  - Added James and the Giant Peach with rating 6.7
+2014-06-14 23:37:23,675 INFO  - Added The Cable Guy with rating 6.0
+2014-06-14 23:37:27,395 INFO  - Added Never Been Kissed with rating 6.0
+2014-06-14 23:37:29,663 INFO  - Added Outlander with rating 6.3
+2014-06-14 23:37:31,746 INFO  - Added Seeking Justice with rating 6.2
+2014-06-14 23:37:33,928 INFO  - Added Spy Game with rating 7.0
+2014-06-14 23:37:37,471 INFO  - Added Last Night with rating 6.6
+2014-06-14 23:37:39,420 INFO  - Added Legend of the Guardians: The Owls of Ga'Hoole with rating 7.0
+2014-06-14 23:37:43,497 INFO  - Added Uptown Girls with rating 6.0
+2014-06-14 23:37:47,613 INFO  - Added Live and Let Die with rating 6.8
+2014-06-14 23:37:49,440 INFO  - Added Death at a Funeral with rating 7.4
+2014-06-14 23:37:54,676 INFO  - Added Trust with rating 7.0
+2014-06-14 23:37:56,507 INFO  - Added The Bodyguard with rating 6.0
+2014-06-14 23:37:58,557 INFO  - Added Half Nelson with rating 7.3
+2014-06-14 23:38:00,596 INFO  - Added Flyboys with rating 6.6
+2014-06-14 23:38:02,330 INFO  - Added Chaplin with rating 7.6
+2014-06-14 23:38:07,698 INFO  - Added The Debt with rating 6.9
+2014-06-14 23:38:09,348 INFO  - Added Hellion with rating 7.6
+2014-06-14 23:38:14,507 INFO  - Added Rescue Dawn with rating 7.4
+2014-06-14 23:38:16,299 INFO  - Added Diary of a Wimpy Kid: Dog Days with rating 6.4
+2014-06-14 23:38:18,098 INFO  - Added Robot & Frank with rating 7.1
+2014-06-14 23:38:20,032 INFO  - Added At Middleton with rating 6.6
+2014-06-14 23:38:23,481 INFO  - Added Enter the Dragon with rating 7.7
+2014-06-14 23:38:25,289 INFO  - Added Yi dai zong shi with rating 6.5
+2014-06-14 23:38:27,398 INFO  - Added Drop Dead Gorgeous with rating 6.5
+2014-06-14 23:38:29,440 INFO  - Added I Now Pronounce You Chuck & Larry with rating 6.1
+2014-06-14 23:38:35,023 INFO  - Added The Forbidden Kingdom with rating 6.6
+2014-06-14 23:38:36,790 INFO  - Added Glengarry Glen Ross with rating 7.9
+2014-06-14 23:38:38,738 INFO  - Finished inserting page starting from 2351
+2014-06-14 23:38:41,839 INFO  - Added Detachment with rating 7.7
+2014-06-14 23:38:43,821 INFO  - Added Letters from Iwo Jima with rating 8.0
+2014-06-14 23:38:58,372 INFO  - Added Mr. Holland's Opus with rating 7.3
+2014-06-14 23:39:00,105 INFO  - Added Triangle with rating 6.9
+2014-06-14 23:39:06,369 INFO  - Added The Hunter with rating 6.8
+2014-06-14 23:39:09,687 INFO  - Added Heartbreakers with rating 6.2
+2014-06-14 23:39:11,461 INFO  - Added Any Given Sunday with rating 6.8
+2014-06-14 23:39:15,095 INFO  - Added Attack the Block with rating 6.6
+2014-06-14 23:39:18,680 INFO  - Added Dog Day Afternoon with rating 8.1
+2014-06-14 23:39:20,522 INFO  - Added Music and Lyrics with rating 6.5
+2014-06-14 23:39:22,321 INFO  - Added Surrogates with rating 6.3
+2014-06-14 23:39:24,922 INFO  - Added Running Scared with rating 7.5
+2014-06-14 23:39:26,697 INFO  - Added Titan A.E. with rating 6.6
+2014-06-14 23:39:29,189 INFO  - Added Never Say Never Again with rating 6.2
+2014-06-14 23:39:30,938 INFO  - Added Eden Lake with rating 6.9
+2014-06-14 23:39:36,705 INFO  - Added Bound by Honor with rating 7.9
+2014-06-14 23:39:40,706 INFO  - Added Enemy Mine with rating 6.9
+2014-06-14 23:39:43,002 INFO  - Added Highlander with rating 7.2
+2014-06-14 23:39:45,205 INFO  - Added Born on the Fourth of July with rating 7.2
+2014-06-14 23:39:48,780 INFO  - Added Ice Age: Dawn of the Dinosaurs with rating 7.1
+2014-06-14 23:39:50,685 INFO  - Added The Guard with rating 7.3
+2014-06-14 23:39:54,754 INFO  - Added Beyond Borders with rating 6.4
+2014-06-14 23:39:56,404 INFO  - Added One Hundred and One Dalmatians with rating 7.2
+2014-06-14 23:39:58,444 INFO  - Added Rush Hour 3 with rating 6.2
+2014-06-14 23:40:00,347 INFO  - Added Enter the Void with rating 7.3
+2014-06-14 23:40:02,263 INFO  - Added Low Down with rating 7.9
+2014-06-14 23:40:04,580 INFO  - Added Ronin with rating 7.3
+2014-06-14 23:40:10,088 INFO  - Added Private Parts with rating 6.8
+2014-06-14 23:40:13,821 INFO  - Added Wo hu cang long with rating 7.9
+2014-06-14 23:40:15,588 INFO  - Finished inserting page starting from 2401
+2014-06-14 23:40:18,597 INFO  - Added Men of Honor with rating 7.1
+2014-06-14 23:40:20,671 INFO  - Added Evil Dead II with rating 7.9
+2014-06-14 23:40:24,451 INFO  - Added Manam with rating 8.4
+2014-06-14 23:40:30,486 INFO  - Added Parental Guidance with rating 6.1
+2014-06-14 23:40:32,287 INFO  - Added Rudderless with rating 7.8
+2014-06-14 23:40:34,135 INFO  - Added Per qualche dollaro in più with rating 8.4
+2014-06-14 23:40:36,179 INFO  - Added Beneath the Planet of the Apes with rating 6.1
+2014-06-14 23:40:40,263 INFO  - Added Chitty Chitty Bang Bang with rating 6.9
+2014-06-14 23:40:43,972 INFO  - Added The 'Burbs with rating 6.8
+2014-06-14 23:40:45,688 INFO  - Added Elizabeth with rating 7.6
+2014-06-14 23:40:47,387 INFO  - Added Wild Target with rating 6.9
+2014-06-14 23:40:49,303 INFO  - Added Chasing Liberty with rating 6.1
+2014-06-14 23:40:51,172 INFO  - Added Nanny McPhee with rating 6.6
+2014-06-14 23:40:53,087 INFO  - Added Red Lights with rating 6.2
+2014-06-14 23:40:55,196 INFO  - Added Bee Movie with rating 6.2
+2014-06-14 23:40:57,054 INFO  - Added Mirrors with rating 6.2
+2014-06-14 23:41:01,303 INFO  - Added John Q with rating 7.0
+2014-06-14 23:41:05,470 INFO  - Added Ginger & Rosa with rating 6.2
+2014-06-14 23:41:13,953 INFO  - Added Amistad with rating 7.2
+2014-06-14 23:41:15,881 INFO  - Added The Big Chill with rating 7.2
+2014-06-14 23:41:19,353 INFO  - Added A Little Bit of Heaven with rating 6.3
+2014-06-14 23:41:21,180 INFO  - Added Mr. Bean's Holiday with rating 6.2
+2014-06-14 23:41:24,762 INFO  - Added Some Kind of Wonderful with rating 7.1
+2014-06-14 23:41:26,511 INFO  - Added The Bone Collector with rating 6.6
+2014-06-14 23:41:28,469 INFO  - Added Madagascar: Escape 2 Africa with rating 6.7
+2014-06-14 23:41:30,254 INFO  - Added Save the Last Dance with rating 6.1
+2014-06-14 23:41:32,171 INFO  - Added Drift with rating 6.3
+2014-06-14 23:41:34,319 INFO  - Added Gnomeo & Juliet with rating 6.0
+2014-06-14 23:41:36,386 INFO  - Added Habitación en Roma with rating 6.2
+2014-06-14 23:41:38,411 INFO  - Added The Rainmaker with rating 7.0
+2014-06-14 23:41:42,154 INFO  - Added Take This Waltz with rating 6.6
+2014-06-14 23:41:44,195 INFO  - Added Doubt with rating 7.5
+2014-06-14 23:41:47,654 INFO  - Added Carnage with rating 7.2
+2014-06-14 23:41:51,104 INFO  - Added Cuban Fury with rating 6.4
+2014-06-14 23:41:51,104 INFO  - Finished inserting page starting from 2451
+2014-06-14 23:41:56,037 INFO  - Added Homeward Bound: The Incredible Journey with rating 6.9
+2014-06-14 23:41:57,737 INFO  - Added JFK with rating 8.0
+2014-06-14 23:42:01,096 INFO  - Added A View to a Kill with rating 6.3
+2014-06-14 23:42:03,002 INFO  - Added Det sjunde inseglet with rating 8.3
+2014-06-14 23:42:05,479 INFO  - Added The Fugitive with rating 7.8
+2014-06-14 23:42:07,210 INFO  - Added In Her Shoes with rating 6.5
+2014-06-14 23:42:09,477 INFO  - Added Cleopatra with rating 7.0
+2014-06-14 23:42:13,352 INFO  - Added Extract with rating 6.2
+2014-06-14 23:42:17,771 INFO  - Added Rush Hour 2 with rating 6.5
+2014-06-14 23:42:21,502 INFO  - Added Mindhunters with rating 6.4
+2014-06-14 23:42:23,227 INFO  - Added Doomsday with rating 6.0
+2014-06-14 23:42:25,110 INFO  - Added Kiss the Girls with rating 6.5
+2014-06-14 23:42:29,025 INFO  - Added The Rules of Attraction with rating 6.8
+2014-06-14 23:42:32,868 INFO  - Added Grave Encounters with rating 6.1
+2014-06-14 23:42:37,812 INFO  - Added The Experiment with rating 6.4
+2014-06-14 23:42:40,135 INFO  - Added 10 with rating 6.0
+2014-06-14 23:42:44,209 INFO  - Added Tremors with rating 7.2
+2014-06-14 23:42:45,978 INFO  - Added Fack ju Göhte with rating 7.2
+2014-06-14 23:42:49,543 INFO  - Added Just Like Heaven with rating 6.8
+2014-06-14 23:42:51,284 INFO  - Added Somewhere with rating 6.3
+2014-06-14 23:42:55,379 INFO  - Added Flightplan with rating 6.2
+2014-06-14 23:42:57,318 INFO  - Added Girl with a Pearl Earring with rating 7.0
+2014-06-14 23:42:59,517 INFO  - Added The Brass Teapot with rating 6.4
+2014-06-14 23:43:01,442 INFO  - Added Control with rating 7.8
+2014-06-14 23:43:05,878 INFO  - Added Laura with rating 8.1
+2014-06-14 23:43:07,675 INFO  - Added Soylent Green with rating 7.1
+2014-06-14 23:43:11,060 INFO  - Added Minuscule - La vallée des fourmis perdues with rating 7.3
+2014-06-14 23:43:13,362 INFO  - Added Monsters vs. Aliens with rating 6.6
+2014-06-14 23:43:15,118 INFO  - Added OXV: The Manual with rating 7.3
+2014-06-14 23:43:16,853 INFO  - Added Stripes with rating 6.9
+2014-06-14 23:43:18,759 INFO  - Added Fatal Attraction with rating 6.9
+2014-06-14 23:43:20,437 INFO  - Added Evolution with rating 6.0
+2014-06-14 23:43:22,308 INFO  - Added Still Mine with rating 7.4
+2014-06-14 23:43:24,083 INFO  - Added The Fly with rating 7.5
+2014-06-14 23:43:26,003 INFO  - Added Frankenweenie with rating 7.0
+2014-06-14 23:43:29,709 INFO  - Added The Witches with rating 6.8
+2014-06-14 23:43:29,709 INFO  - Finished inserting page starting from 2501
+2014-06-14 23:43:33,509 INFO  - Added Hereafter with rating 6.5
+2014-06-14 23:43:37,712 INFO  - Added Tears of the Sun with rating 6.6
+2014-06-14 23:43:39,553 INFO  - Added The Conspirator with rating 7.0
+2014-06-14 23:43:41,525 INFO  - Added Simon Birch with rating 6.9
+2014-06-14 23:43:43,328 INFO  - Added Bloodsport with rating 6.8
+2014-06-14 23:43:45,084 INFO  - Added Imagine Me & You with rating 6.9
+2014-06-14 23:43:46,792 INFO  - Added The Hooligan Factory with rating 6.7
+2014-06-14 23:43:51,000 INFO  - Added Taps with rating 6.7
+2014-06-14 23:43:52,733 INFO  - Added Sweet November with rating 6.6
+2014-06-14 23:43:54,450 INFO  - Added In the Name of the Father with rating 8.2
+2014-06-14 23:43:56,425 INFO  - Added The Mothman Prophecies with rating 6.5
+2014-06-14 23:43:58,341 INFO  - Added Becoming Jane with rating 7.1
+2014-06-14 23:44:00,174 INFO  - Added Bully with rating 7.0
+2014-06-14 23:44:01,994 INFO  - Added Escape from Alcatraz with rating 7.6
+2014-06-14 23:44:04,125 INFO  - Added For Your Eyes Only with rating 6.8
+2014-06-14 23:44:06,183 INFO  - Added Midnight Cowboy with rating 8.0
+2014-06-14 23:44:08,900 INFO  - Added Network with rating 8.2
+2014-06-14 23:44:12,327 INFO  - Added Four Weddings and a Funeral with rating 7.1
+2014-06-14 23:44:14,377 INFO  - Added Shanghai Knights with rating 6.2
+2014-06-14 23:44:18,353 INFO  - Added Amores perros with rating 8.2
+2014-06-14 23:44:22,208 INFO  - Added Witness with rating 7.5
+2014-06-14 23:44:23,945 INFO  - Added Rounders with rating 7.4
+2014-06-14 23:44:28,245 INFO  - Added Tommy Boy with rating 7.0
+2014-06-14 23:44:29,921 INFO  - Added Chicken Run with rating 7.1
+2014-06-14 23:44:39,324 INFO  - Added Much Ado About Nothing with rating 7.5
+2014-06-14 23:44:42,586 INFO  - Added Youth in Revolt with rating 6.5
+2014-06-14 23:44:44,291 INFO  - Added An American Werewolf in London with rating 7.6
+2014-06-14 23:44:47,736 INFO  - Added Shoot 'Em Up with rating 6.8
+2014-06-14 23:44:49,390 INFO  - Added Everything Must Go with rating 6.5
+2014-06-14 23:44:54,357 INFO  - Added En kongelig affære with rating 7.6
+2014-06-14 23:44:56,137 INFO  - Added Rambo: First Blood Part II with rating 6.3
+2014-06-14 23:44:58,253 INFO  - Added Grumpy Old Men with rating 6.9
+2014-06-14 23:44:59,882 INFO  - Added Candy with rating 7.3
+2014-06-14 23:45:03,857 INFO  - Added The Rocker with rating 6.2
+2014-06-14 23:45:06,088 INFO  - Finished inserting page starting from 2551
+2014-06-14 23:45:09,848 INFO  - Added Practical Magic with rating 6.0
+2014-06-14 23:45:12,457 INFO  - Added Frida with rating 7.4
+2014-06-14 23:45:18,732 INFO  - Added Sunset Blvd. with rating 8.6
+2014-06-14 23:45:22,173 INFO  - Added Jacob's Ladder with rating 7.6
+2014-06-14 23:45:24,273 INFO  - Added Night of the Living Dead with rating 8.0
+2014-06-14 23:45:26,131 INFO  - Added Revolver with rating 6.5
+2014-06-14 23:45:27,948 INFO  - Added The Life of David Gale with rating 7.5
+2014-06-14 23:45:30,607 INFO  - Added Hostage with rating 6.6
+2014-06-14 23:45:32,248 INFO  - Added Fever Pitch with rating 6.2
+2014-06-14 23:45:34,081 INFO  - Added Notes on a Scandal with rating 7.5
+2014-06-14 23:45:35,848 INFO  - Added The Texas Chain Saw Massacre with rating 7.5
+2014-06-14 23:45:41,802 INFO  - Added The Young and Prodigious T.S. Spivet with rating 7.1
+2014-06-14 23:45:43,939 INFO  - Added Banlieue 13 with rating 7.2
+2014-06-14 23:45:45,740 INFO  - Added A Nightmare on Elm Street 3: Dream Warriors with rating 6.5
+2014-06-14 23:45:47,515 INFO  - Added Punisher: War Zone with rating 6.0
+2014-06-14 23:45:51,403 INFO  - Added Life of a King with rating 6.9
+2014-06-14 23:45:53,939 INFO  - Added Stake Land with rating 6.6
+2014-06-14 23:45:56,531 INFO  - Added Cyrus with rating 6.3
+2014-06-14 23:46:00,935 INFO  - Added Ultimo tango a Parigi with rating 7.2
+2014-06-14 23:46:02,705 INFO  - Added A River Runs Through It with rating 7.3
+2014-06-14 23:46:06,194 INFO  - Added Kynodontas with rating 7.2
+2014-06-14 23:46:07,955 INFO  - Added John Dies at the End with rating 6.5
+2014-06-14 23:46:09,847 INFO  - Added The Seasoning House with rating 6.1
+2014-06-14 23:46:13,861 INFO  - Added Tootsie with rating 7.4
+2014-06-14 23:46:16,339 INFO  - Added Whatever Works with rating 7.2
+2014-06-14 23:46:18,205 INFO  - Added New York, I Love You with rating 6.3
+2014-06-14 23:46:21,622 INFO  - Added Zwartboek with rating 7.9
+2014-06-14 23:46:23,322 INFO  - Added Fallen with rating 7.0
+2014-06-14 23:46:25,314 INFO  - Added Brick with rating 7.5
+2014-06-14 23:46:27,539 INFO  - Added The Frighteners with rating 7.2
+2014-06-14 23:46:29,530 INFO  - Added Night Train to Lisbon with rating 6.8
+2014-06-14 23:46:34,488 INFO  - Added Hot Shots! with rating 6.7
+2014-06-14 23:46:36,238 INFO  - Added The Doors with rating 7.2
+2014-06-14 23:46:39,972 INFO  - Added Upstream Color with rating 6.8
+2014-06-14 23:46:42,077 INFO  - Added World Trade Center with rating 6.0
+2014-06-14 23:46:46,005 INFO  - Added Ninja: Shadow of a Tear with rating 6.2
+2014-06-14 23:46:48,230 INFO  - Added 8MM with rating 6.5
+2014-06-14 23:46:48,230 INFO  - Finished inserting page starting from 2601
+2014-06-14 23:46:51,305 INFO  - Added You Will Meet a Tall Dark Stranger with rating 6.3
+2014-06-14 23:46:53,071 INFO  - Added Dreamgirls with rating 6.6
+2014-06-14 23:46:55,288 INFO  - Added Hustle & Flow with rating 7.4
+2014-06-14 23:46:57,155 INFO  - Added I Love You Phillip Morris with rating 6.7
+2014-06-14 23:46:58,805 INFO  - Added La haine with rating 8.1
+2014-06-14 23:47:02,680 INFO  - Added Blood and Bone with rating 6.7
+2014-06-14 23:47:10,971 INFO  - Added Executive Decision with rating 6.4
+2014-06-14 23:47:14,985 INFO  - Added The Warrior's Way with rating 6.3
+2014-06-14 23:47:16,623 INFO  - Added Red Eye with rating 6.5
+2014-06-14 23:47:18,640 INFO  - Added Raising Arizona with rating 7.5
+2014-06-14 23:47:20,596 INFO  - Added Keith with rating 7.6
+2014-06-14 23:47:22,881 INFO  - Added Hellraiser with rating 7.1
+2014-06-14 23:47:24,621 INFO  - Added Deux jours, une nuit with rating 7.4
+2014-06-14 23:47:26,362 INFO  - Added American Mary with rating 6.3
+2014-06-14 23:47:28,093 INFO  - Added The Nanny Diaries with rating 6.1
+2014-06-14 23:47:30,126 INFO  - Added A Serious Man with rating 7.0
+2014-06-14 23:47:32,363 INFO  - Added Menace II Society with rating 7.5
+2014-06-14 23:47:34,146 INFO  - Added Saw III with rating 6.2
+2014-06-14 23:47:40,627 INFO  - Added 2 States with rating 7.4
+2014-06-14 23:47:42,362 INFO  - Added Vi är bäst! with rating 7.1
+2014-06-14 23:47:44,270 INFO  - Added Better Off Dead... with rating 7.3
+2014-06-14 23:47:49,537 INFO  - Added Jûsan-nin no shikaku with rating 7.6
+2014-06-14 23:47:51,337 INFO  - Added Sunshine on Leith with rating 6.7
+2014-06-14 23:47:53,262 INFO  - Added Ray with rating 7.8
+2014-06-14 23:47:55,095 INFO  - Added Take the Lead with rating 6.6
+2014-06-14 23:47:58,493 INFO  - Added North Country with rating 7.2
+2014-06-14 23:48:02,453 INFO  - Added Paycheck with rating 6.2
+2014-06-14 23:48:08,702 INFO  - Added Gentlemen Prefer Blondes with rating 7.3
+2014-06-14 23:48:12,120 INFO  - Added Behind Enemy Lines with rating 6.4
+2014-06-14 23:48:15,820 INFO  - Added Clear and Present Danger with rating 6.9
+2014-06-14 23:48:18,404 INFO  - Added Elizabeth: The Golden Age with rating 6.9
+2014-06-14 23:48:26,242 INFO  - Finished inserting page starting from 2651
+2014-06-14 23:48:29,146 INFO  - Added Battle in Seattle with rating 6.8
+2014-06-14 23:48:36,061 INFO  - Added Street Kings with rating 6.8
+2014-06-14 23:48:43,072 INFO  - Added Kramer vs. Kramer with rating 7.8
+2014-06-14 23:48:44,856 INFO  - Added Amour with rating 7.8
+2014-06-14 23:48:48,793 INFO  - Added Conviction with rating 7.2
+2014-06-14 23:48:56,030 INFO  - Added Bobby with rating 7.1
+2014-06-14 23:48:57,747 INFO  - Added The Loved Ones with rating 6.7
+2014-06-14 23:48:59,851 INFO  - Added Weekend at Bernie's with rating 6.3
+2014-06-14 23:49:03,244 INFO  - Added Your Sister's Sister with rating 6.7
+2014-06-14 23:49:04,951 INFO  - Added Final Destination 2 with rating 6.2
+2014-06-14 23:49:07,234 INFO  - Added Quadrophenia with rating 7.3
+2014-06-14 23:49:09,043 INFO  - Added What Lies Beneath with rating 6.6
+2014-06-14 23:49:10,835 INFO  - Added Rocky II with rating 7.1
+2014-06-14 23:49:12,868 INFO  - Added The Rite with rating 6.0
+2014-06-14 23:49:14,885 INFO  - Added Dick Tracy with rating 6.1
+2014-06-14 23:49:20,502 INFO  - Added Modern Times with rating 8.6
+2014-06-14 23:49:22,768 INFO  - Added Tusen ganger god natt with rating 7.3
+2014-06-14 23:49:24,527 INFO  - Added Blast from the Past with rating 6.5
+2014-06-14 23:49:27,951 INFO  - Added A Good Old Fashioned Orgy with rating 6.2
+2014-06-14 23:49:31,309 INFO  - Added The Way with rating 7.4
+2014-06-14 23:49:33,368 INFO  - Added The Last Kiss with rating 6.5
+2014-06-14 23:49:38,710 INFO  - Added Confessions of a Dangerous Mind with rating 7.1
+2014-06-14 23:49:40,492 INFO  - Added Sophie's Choice with rating 7.7
+2014-06-14 23:49:42,518 INFO  - Added A Fish Called Wanda with rating 7.6
+2014-06-14 23:49:44,393 INFO  - Added Charlotte's Web with rating 6.4
+2014-06-14 23:49:46,817 INFO  - Added Ace Ventura: When Nature Calls with rating 6.2
+2014-06-14 23:49:52,486 INFO  - Added Three Kings with rating 7.2
+2014-06-14 23:49:54,343 INFO  - Added La dolce vita with rating 8.1
+2014-06-14 23:49:56,210 INFO  - Added Jin líng shí san chai with rating 7.6
+2014-06-14 23:49:58,095 INFO  - Added Rabbit Hole with rating 7.0
+2014-06-14 23:49:59,764 INFO  - Finished inserting page starting from 2701
+2014-06-14 23:50:03,173 INFO  - Added The Jungle Book with rating 6.0
+2014-06-14 23:50:08,320 INFO  - Added Julie & Julia with rating 7.0
+2014-06-14 23:50:12,209 INFO  - Added Moonstruck with rating 7.1
+2014-06-14 23:50:14,421 INFO  - Added Ôdishon with rating 7.3
+2014-06-14 23:50:16,217 INFO  - Added Kaze no tani no Naushika with rating 8.2
+2014-06-14 23:50:18,363 INFO  - Added Stealing Beauty with rating 6.6
+2014-06-14 23:50:20,375 INFO  - Added Angel Heart with rating 7.4
+2014-06-14 23:50:22,500 INFO  - Added The Producers with rating 6.4
+2014-06-14 23:50:24,283 INFO  - Added The Face of Love with rating 6.2
+2014-06-14 23:50:29,201 INFO  - Added The Kite Runner with rating 7.6
+2014-06-14 23:50:31,314 INFO  - Added Mansfield Park with rating 7.1
+2014-06-14 23:50:38,275 INFO  - Added Invincible with rating 7.1
+2014-06-14 23:50:41,684 INFO  - Added The Road to El Dorado with rating 6.8
+2014-06-14 23:50:44,001 INFO  - Added The Mask of Zorro with rating 6.7
+2014-06-14 23:50:45,967 INFO  - Added Munster, Go Home! with rating 6.3
+2014-06-14 23:50:47,960 INFO  - Added Waiting for Forever with rating 6.1
+2014-06-14 23:50:52,708 INFO  - Added Malcolm X with rating 7.7
+2014-06-14 23:50:54,351 INFO  - Added Open Season with rating 6.2
+2014-06-14 23:50:57,934 INFO  - Added The Man Who Wasn't There with rating 7.6
+2014-06-14 23:51:01,466 INFO  - Added Great Expectations with rating 6.8
+2014-06-14 23:51:03,477 INFO  - Added Death Becomes Her with rating 6.4
+2014-06-14 23:51:05,442 INFO  - Added The Yards with rating 6.4
+2014-06-14 23:51:10,368 INFO  - Added Braindead with rating 7.6
+2014-06-14 23:51:12,143 INFO  - Added Derailed with rating 6.6
+2014-06-14 23:51:13,868 INFO  - Added Chasing Amy with rating 7.4
+2014-06-14 23:51:15,676 INFO  - Added Cirque du Freak: The Vampire's Assistant with rating 6.0
+2014-06-14 23:51:17,376 INFO  - Added The Adventures of Priscilla, Queen of the Desert with rating 7.5
+2014-06-14 23:51:21,333 INFO  - Added World's Greatest Dad with rating 7.0
+2014-06-14 23:51:25,239 INFO  - Added Gosford Park with rating 7.3
+2014-06-14 23:51:27,083 INFO  - Added Machine Gun Preacher with rating 6.9
+2014-06-14 23:51:29,043 INFO  - Added High Noon with rating 8.1
+2014-06-14 23:51:30,784 INFO  - Added Hard Ball with rating 6.3
+2014-06-14 23:51:32,601 INFO  - Added Le Week-End with rating 6.5
+2014-06-14 23:51:34,409 INFO  - Added Paths of Glory with rating 8.5
+2014-06-14 23:51:34,409 INFO  - Finished inserting page starting from 2751
+2014-06-14 23:51:37,550 INFO  - Added Stir of Echoes with rating 7.0
+2014-06-14 23:51:39,341 INFO  - Added Because of Winn-Dixie with rating 6.3
+2014-06-14 23:51:43,307 INFO  - Added The SpongeBob SquarePants Movie with rating 6.9
+2014-06-14 23:51:45,059 INFO  - Added All About Eve with rating 8.4
+2014-06-14 23:51:46,882 INFO  - Added The Naked Gun: From the Files of Police Squad! with rating 7.6
+2014-06-14 23:51:48,609 INFO  - Added The Constant Gardener with rating 7.5
+2014-06-14 23:51:52,642 INFO  - Added I Heart Huckabees with rating 6.8
+2014-06-14 23:51:56,775 INFO  - Added Fright Night with rating 7.1
+2014-06-14 23:51:58,893 INFO  - Added Kissing Jessica Stein with rating 6.7
+2014-06-14 23:52:02,918 INFO  - Added A Mighty Heart with rating 6.7
+2014-06-14 23:52:04,982 INFO  - Added A Bridge Too Far with rating 7.4
+2014-06-14 23:52:06,634 INFO  - Added Sleepaway Camp with rating 6.1
+2014-06-14 23:52:08,392 INFO  - Added Darkman with rating 6.4
+2014-06-14 23:52:10,198 INFO  - Added Notorious with rating 6.6
+2014-06-14 23:52:12,274 INFO  - Added Chained with rating 6.4
+2014-06-14 23:52:16,160 INFO  - Added While You Were Sleeping with rating 6.6
+2014-06-14 23:52:17,926 INFO  - Added Johnny English with rating 6.0
+2014-06-14 23:52:21,973 INFO  - Added The Dead Pool with rating 6.3
+2014-06-14 23:52:24,226 INFO  - Added Splash with rating 6.2
+2014-06-14 23:52:26,609 INFO  - Added Top Secret! with rating 7.2
+2014-06-14 23:52:28,623 INFO  - Added Akira with rating 8.1
+2014-06-14 23:52:30,423 INFO  - Added Christmas Vacation with rating 7.5
+2014-06-14 23:52:32,232 INFO  - Added Home Alone 2: Lost in New York with rating 6.4
+2014-06-14 23:52:34,015 INFO  - Added Lethal Weapon 2 with rating 7.2
+2014-06-14 23:52:35,918 INFO  - Added Transporter 3 with rating 6.0
+2014-06-14 23:52:38,243 INFO  - Added Uncle Buck with rating 6.9
+2014-06-14 23:52:40,106 INFO  - Added The Wild Bunch with rating 8.1
+2014-06-14 23:52:46,514 INFO  - Added Happy Feet with rating 6.5
+2014-06-14 23:52:48,476 INFO  - Added The Family Man with rating 6.7
+2014-06-14 23:52:50,173 INFO  - Added Star Trek: Insurrection with rating 6.4
+2014-06-14 23:52:54,151 INFO  - Added Ramona and Beezus with rating 6.7
+2014-06-14 23:52:55,914 INFO  - Added The Omen with rating 7.6
+2014-06-14 23:52:57,639 INFO  - Added How High with rating 6.2
+2014-06-14 23:53:00,430 INFO  - Added Away We Go with rating 7.1
+2014-06-14 23:53:04,109 INFO  - Added Four Lions with rating 7.3
+2014-06-14 23:53:06,489 INFO  - Added La môme with rating 7.7
+2014-06-14 23:53:08,173 INFO  - Added Empire Records with rating 6.7
+2014-06-14 23:53:09,826 INFO  - Added Best Man Down with rating 6.5
+2014-06-14 23:53:11,572 INFO  - Added Don't Be a Menace to South Central While Drinking Your Juice in the Hood with rating 6.6
+2014-06-14 23:53:13,889 INFO  - Added In the Land of Women with rating 6.6
+2014-06-14 23:53:13,889 INFO  - Finished inserting page starting from 2801
