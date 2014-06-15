@@ -18,8 +18,6 @@ import com.arielsweb.moviefinder.index.IndexEngine;
 import com.arielsweb.moviefinder.index.dto.ResultInfo;
 import com.arielsweb.moviefinder.index.exception.InvalidMovieDescriptorException;
 import com.arielsweb.moviefinder.index.util.IndexReadWriteHelper;
-import com.arielsweb.moviefinder.model.MovieDescriptor;
-import com.arielsweb.moviefinder.service.MovieDescriptorService;
 
 /**
  * Test indexing almost 14000 movie data
@@ -30,8 +28,6 @@ import com.arielsweb.moviefinder.service.MovieDescriptorService;
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 @SpringApplicationContext({ "applicationContext-data-test.xml" })
 public class QueryLargeDatabaseTest {
-    @SpringBeanByType
-    private MovieDescriptorService movieDescriptorService;
 
     @SpringBeanByType
     private IndexEngine indexEngine;
@@ -113,44 +109,4 @@ public class QueryLargeDatabaseTest {
 	queryEngine.queryIndex(newQueryVector);
     }
 
-    private long indexDataFromDB(long count) {
-	// populate the index
-	for (int i = 1; i <= count; i++) {
-	    MovieDescriptor movieDescriptor = movieDescriptorService.find((long) i);
-	    if (movieDescriptor != null) {
-		try {
-		    indexEngine.addEntry(movieDescriptor);
-
-		    log.warn("indexed: " + i);
-		} catch (InvalidMovieDescriptorException imde) {
-		    log.warn("didn't index " + i + " because of not enough data");
-		}
-	    }
-	}
-	return count;
-    }
-
-    /**
-     * Index data from the database
-     * 
-     * @throws IOException
-     * @throws InvalidMovieDescriptorException
-     * 
-     */
-    @Test
-    @Ignore
-    public void indexFromDatabase() throws IOException, InvalidMovieDescriptorException {
-	long start = System.currentTimeMillis();
-	long end = System.currentTimeMillis();
-
-	// 1. get movies from the database
-	indexDataFromDB(16100);
-
-	end = System.currentTimeMillis();
-
-	log.warn("indexing took: " + (end - start));
-
-	// 2. serialize the MBI
-	IndexReadWriteHelper.serializeIndex(indexEngine);
-    }
 }

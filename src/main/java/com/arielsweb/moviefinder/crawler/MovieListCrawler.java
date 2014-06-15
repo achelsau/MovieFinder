@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.arielsweb.moviefinder.crawler.exception.InvalidMovieException;
+import com.arielsweb.moviefinder.databasepopulation.DatabasePopulator;
 import com.arielsweb.moviefinder.model.MovieDescriptor;
 import com.arielsweb.moviefinder.model.MovieSource;
 import com.arielsweb.moviefinder.service.MovieDescriptorService;
@@ -106,10 +107,10 @@ public class MovieListCrawler {
 		    MovieDescriptor movieDescriptor = movieObjectCrawler.getMovieObject("http://www.imdb.com/title/",
 			    movieId);
 
-		    if (movieDescriptor != null) {
+		    if (movieDescriptor != null && movieDescriptor.getRating() >= DatabasePopulator.MINIMUM_ACCEPTED_RATING) {
 			movieDescriptor.setSource(source);
 			movieDescriptorService.save(movieDescriptor);
-			log.info("Added " + movieDescriptor.getName());
+			log.info("Added " + movieDescriptor.getName() + " with rating " + movieDescriptor.getRating());
 
 			counter++;
 		    }
@@ -117,6 +118,8 @@ public class MovieListCrawler {
 		    // do nothing here and jump to next movie
 		    continue;
 		}
+	    } else {
+		log.info("Already added " + linkToMovie);
 	    }
 	}
 	
