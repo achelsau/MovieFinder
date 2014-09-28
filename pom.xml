@@ -13,6 +13,10 @@
 		<junit.version>4.9</junit.version>
 		<hibernate.version>4.1.7.Final</hibernate.version>
 		<unitils.version>3.3</unitils.version>
+		<!-- Sonar -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sonar.junit.reportsPath>target/surefire-reports</sonar.junit.reportsPath>
+		<sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath>
 	</properties>
 
 	<build>
@@ -22,7 +26,17 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-        <plugins>
+		
+		<plugins>
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+			  <source>1.5</source>
+			  <target>1.5</target>
+			</configuration>
+		  </plugin>
+		
             <plugin> 
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
@@ -75,6 +89,40 @@
                 <liquibase.changeLogFile>src/main/resources/db/db.changelog-master.xml</liquibase.changeLogFile>
             </properties>
         </profile>
+		
+		<!-- BEGIN: Specific to mapping unit tests and covered code -->
+		<profile>
+		  <id>coverage-per-test</id>
+		  <build>
+			<plugins>
+			  <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<!-- Minimal supported version is 2.4 -->
+				<version>2.13</version>
+				<configuration>
+				  <properties>
+					<property>
+					  <name>listener</name>
+					  <value>org.sonar.java.jacoco.JUnitListener</value>
+					</property>
+				  </properties>
+				</configuration>
+			  </plugin>
+			</plugins>
+		  </build>
+
+		  <dependencies>
+			<dependency>
+			  <groupId>org.codehaus.sonar-plugins.java</groupId>
+			  <artifactId>sonar-jacoco-listeners</artifactId>
+			  <version>1.2</version>
+			  <scope>test</scope>
+			</dependency>
+		  </dependencies>
+		</profile>
+	  <!-- END: Specific to mapping unit tests and covered code -->
+		
     </profiles>
 
 	<dependencies>
@@ -144,6 +192,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.18</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		
 
 		<!-- Liquibase -->
 		<dependency>
@@ -159,7 +214,7 @@
 			<version>${junit.version}</version>
 		</dependency>
 
-		<!-- Liquibase -->
+		<!-- Unitils -->
 		<dependency>
 			<groupId>org.unitils</groupId>
 			<artifactId>unitils</artifactId>
