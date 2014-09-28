@@ -345,7 +345,7 @@ public class InvertedIndexEngine implements IndexEngine {
 	corpusWords = invertedIndex.keySet().toArray(corpusWords);
 	try {
 	    FileWriter fw = new FileWriter(
-		    "D:\\.facultate\\dizertatie\\MovieFinderServer_git\\dbscript\\index_outputed");
+		    "D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\index_outputed");
 	    BufferedWriter out = new BufferedWriter(fw);
 
 	    HashMap<Genre, Set<String>> genreToWords = new HashMap<Genre, Set<String>>();

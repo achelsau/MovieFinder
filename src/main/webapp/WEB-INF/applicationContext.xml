@@ -15,7 +15,7 @@
 	    http://www.springframework.org/schema/mvc 
 	    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 	<context:annotation-config />
-	<context:component-scan base-package="com.arielsweb.moviefinder" />	
+	<context:component-scan base-package="com.arielsweb.moviefinder"/>
 		
 	<import resource="applicationContext-data.xml" />
 	<bean id="viewResolver"

@@ -23,7 +23,7 @@ import com.arielsweb.moviefinder.index.dto.MovieDetailsDTO;
 public class IndexReadWriteHelper {
 
     public static boolean serializedIndexExists(String indexFile) throws FileNotFoundException {
-	File file = new File("D:\\.facultate\\dizertatie\\MovieFinderServer_git\\dbscript\\" + indexFile);
+	File file = new File("D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\" + indexFile);
 	
 	return file.exists() && !file.isDirectory();
     }
@@ -31,7 +31,7 @@ public class IndexReadWriteHelper {
     public static void setCorpusAndMovieDetails(IndexEngine indexEngine, String fileName) throws IOException,
 	    ClassNotFoundException {
 	FileInputStream inStream = new FileInputStream(new File(
-		"D:\\.facultate\\dizertatie\\MovieFinderServer_git\\dbscript\\" + fileName));
+		"D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\" + fileName));
 	ObjectInputStream ois = new ObjectInputStream(inStream);
 
 	HashMap<String, IndexEntry> invertedIndex = readInvertedIndex(ois);
@@ -60,7 +60,7 @@ public class IndexReadWriteHelper {
 
     public static void serializeIndex(IndexEngine indexEngine) throws FileNotFoundException, IOException {
 	FileOutputStream outStream = new FileOutputStream(new File(
-		"D:\\.facultate\\dizertatie\\MovieFinderServer_git\\dbscript\\index_serialized"));
+		"D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\index_serialized"));
 	ObjectOutputStream oos = new ObjectOutputStream(outStream);
 	oos.writeObject(indexEngine.getInvertedIndex());
 	oos.writeObject(indexEngine.getMovieDetails());

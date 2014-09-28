@@ -4,7 +4,7 @@ define(function() {
 	
 	function getConstants() {
 		return { 
-			basePath : 'https://localhost:8443/MovieFinderServer_git/mf/',
+			basePath : 'https://localhost:8443/MovieFinderServer/mf/',
 			QUICK_SEARCH : 'quickSearch',
 			PERSISTENT_SEARCH : 'persistentSearch'
 		};

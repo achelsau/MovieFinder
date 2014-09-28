@@ -22,9 +22,12 @@ import com.arielsweb.moviefinder.model.MovieSource;
 @Component
 public class DatabasePopulator {
 
-    private static final int NUMBER_OF_MINUTES_TO_CRAWL = 180;
-    private static int NUMBER_OF_MOVIES_TO_BE_INSERTED_IN_DB = 6000;
-    public static int MINIMUM_ACCEPTED_RATING = 6;
+    /**
+     * The Settings
+     */
+    private static final int MAX_NUMBER_OF_MINUTES_TO_CRAWL = 100;
+    public static final int MINIMUM_ACCEPTED_RATING = 6;
+    private static final int START_CRAWL_FROM_INDEX = 7701;
 
     @Autowired
     private MovieListCrawler movieListCrawler;
@@ -37,20 +40,21 @@ public class DatabasePopulator {
      * @throws ParseException
      * @throws InterruptedException
      */
-    public void populateDatabaseFromIMDB(int numberOfMoviesToBeInserted, int numberOfMinutesToCrawl)
+    public void populateDatabaseFromIMDB(int numberOfMinutesToCrawl)
 	    throws IOException, ParseException, InterruptedException {
 	MovieSource movieSource = movieListCrawler.getMovieSource("IMDB", "http://www.imdb.com");
 
-	int i = 2851;
+	int i = START_CRAWL_FROM_INDEX, count = 0;
 
 	DateTime startDate = DateTime.now();
+	DateTime endDate = startDate.plusMinutes(MAX_NUMBER_OF_MINUTES_TO_CRAWL);
+	
+	while (DateTime.now().isBefore(endDate)) {
+	    count += movieListCrawler.parseMovieList("http://www.imdb.com/search/title?at=0&sort=moviemeter,asc&start="
+		    + i + "&title_type=feature", movieSource);
 
-	while (i < NUMBER_OF_MOVIES_TO_BE_INSERTED_IN_DB
-		&& DateTime.now().isBefore(startDate.plusMinutes(NUMBER_OF_MINUTES_TO_CRAWL))) {
-	    movieListCrawler.parseMovieList("http://www.imdb.com/search/title?at=0&sort=moviemeter,asc&start=" + i
-		    + "&title_type=feature", movieSource);
-
-	    Logger.getLogger(DatabasePopulator.class).info("Finished inserting page starting from " + i);
+	    Logger.getLogger(DatabasePopulator.class).info(
+		    "Finished inserting page starting from " + i + " and reached count " + count);
 
 	    i += 50;
 	}
@@ -65,12 +69,11 @@ public class DatabasePopulator {
     public static void main(String[] args) throws IOException, ParseException, InterruptedException {
 	DatabasePopulator databasePopulator = new DatabasePopulator();
 
-	ApplicationContext appContext = new ClassPathXmlApplicationContext(
-	        "WEB-INF/applicationContext.xml");
-	
+	ApplicationContext appContext = new ClassPathXmlApplicationContext("WEB-INF/applicationContext.xml");
+
 	appContext.getAutowireCapableBeanFactory().autowireBean(databasePopulator);
 
-	databasePopulator.populateDatabaseFromIMDB(NUMBER_OF_MOVIES_TO_BE_INSERTED_IN_DB, NUMBER_OF_MINUTES_TO_CRAWL);
+	databasePopulator.populateDatabaseFromIMDB(MAX_NUMBER_OF_MINUTES_TO_CRAWL);
 
     }
 }
