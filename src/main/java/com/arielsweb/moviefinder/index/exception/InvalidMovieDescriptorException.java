@@ -12,38 +12,37 @@ import com.arielsweb.moviefinder.model.MovieDescriptor;
  */
 public class InvalidMovieDescriptorException extends Exception {
 
-    private static final long serialVersionUID = 6522391925784456445L;
-    
-    /**
-     * Denotes the reason why InvalidMovieDescriptor exception ocurred
-     * 
-     * @author Ariel
-     * 
-     */
-    public enum Reason {
-	MOVIE_DESCRIPTOR_IS_NULL,
+	private static final long serialVersionUID = 6522391925784456445L;
 
-	MOVIE_DESCRIPTOR_DOES_NOT_EXIST,
+	/**
+	 * Denotes the reason why InvalidMovieDescriptor exception ocurred
+	 * 
+	 * @author Ariel
+	 * 
+	 */
+	public enum Reason {
+		MOVIE_DESCRIPTOR_IS_NULL,
 
-	MOVIE_DESCRIPTOR_WITH_EMPTY_SYNOPSIS
-    }
+		MOVIE_DESCRIPTOR_DOES_NOT_EXIST,
 
-    private Reason reason;
+		MOVIE_DESCRIPTOR_WITH_EMPTY_SYNOPSIS
+	}
 
-    public InvalidMovieDescriptorException(Reason reason) {
-	this.reason = reason;
-    }
+	private Reason reason;
 
-    /**
-     * Getter and setter for the reason
-     */
+	public InvalidMovieDescriptorException(Reason reason) {
+		this.reason = reason;
+	}
 
-    public Reason getReason() {
-	return reason;
-    }
+	/**
+	 * Getter and setter for the reason
+	 */
 
-    public void setReason(Reason reason) {
-	this.reason = reason;
-    }
+	public Reason getReason() {
+		return reason;
+	}
+
+	public void setReason(Reason reason) {
+		this.reason = reason;
+	}
 }
-

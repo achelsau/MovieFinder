@@ -8,13 +8,13 @@ package com.arielsweb.moviefinder.service.impl;
  */
 public interface IGenericServiceTest<T> {
 
-    void testFind();
+	void testFind();
 
-    void testUpdate();
+	void testUpdate();
 
-    void testSave();
+	void testSave();
 
-    void testDeleteByEntity();
+	void testDeleteByEntity();
 
-    void testDeleteById();
+	void testDeleteById();
 }

@@ -20,58 +20,58 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class MovieSource implements Serializable {
 
-    private static final long serialVersionUID = -6689879649964736112L;
+	private static final long serialVersionUID = -6689879649964736112L;
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    
-    @Column
-    private String name;
+	@Id
+	@GeneratedValue
+	private Long id;
 
-    @Column
-    private String location;
+	@Column
+	private String name;
 
-    public MovieSource() {
-    }
+	@Column
+	private String location;
 
-    /**
-     * Getters and setters
-     */
-    public Long getId() {
-	return id;
-    }
-
-    public void setId(Long id) {
-	this.id = id;
-    }
-
-    public String getName() {
-	return name;
-    }
-
-    public void setName(String name) {
-	this.name = name;
-    }
-
-    public String getLocation() {
-	return location;
-    }
-
-    public void setLocation(String location) {
-	this.location = location;
-    }
-
-    public boolean equals(Object source) {
-	if (source instanceof MovieSource) {
-	    if (this.id != null && ((MovieSource) source).getId() != null) {
-		return this.id.equals(((MovieSource) source).getId());
-	    }
-	    
-	    return this.location.equals(((MovieSource) source).getLocation())
-		    && this.name.equals(((MovieSource) source).getName());
+	public MovieSource() {
 	}
 
-	return false;
-    }
+	/**
+	 * Getters and setters
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public boolean equals(Object source) {
+		if (source instanceof MovieSource) {
+			if (this.id != null && ((MovieSource) source).getId() != null) {
+				return this.id.equals(((MovieSource) source).getId());
+			}
+
+			return this.location.equals(((MovieSource) source).getLocation())
+					&& this.name.equals(((MovieSource) source).getName());
+		}
+
+		return false;
+	}
 }

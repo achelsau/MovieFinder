@@ -19,63 +19,63 @@ import com.arielsweb.moviefinder.service.MovieDescriptorService;
  */
 @Service("indexEngineServiceImpl")
 public class IndexEngineServiceImpl {
-    private MovieDescriptorService movieDescriptorService;
-    private IndexEngine indexingEngine;
+	private MovieDescriptorService movieDescriptorService;
+	private IndexEngine indexingEngine;
 
-    /**
-     * Adds a movie description to the DB and MBI
-     * 
-     * @param movieDescriptor
-     *            the {@link MovieDescriptor} to add to both DB and MBI
-     * @return the id of the newly added movie descriptor
-     * @throws InvalidMovieDescriptorException
-     */
-    public Long addEntry(MovieDescriptor movieDescriptor) throws InvalidMovieDescriptorException {
-	// first save the entity into the database (the id will be populated
-	// after that)
-	movieDescriptorService.save(movieDescriptor);
+	/**
+	 * Adds a movie description to the DB and MBI
+	 * 
+	 * @param movieDescriptor
+	 *            the {@link MovieDescriptor} to add to both DB and MBI
+	 * @return the id of the newly added movie descriptor
+	 * @throws InvalidMovieDescriptorException
+	 */
+	public Long addEntry(MovieDescriptor movieDescriptor) throws InvalidMovieDescriptorException {
+		// first save the entity into the database (the id will be populated
+		// after that)
+		movieDescriptorService.save(movieDescriptor);
 
-	// add to MBI
-	indexingEngine.addEntry(movieDescriptor);
+		// add to MBI
+		indexingEngine.addEntry(movieDescriptor);
 
-	return movieDescriptor.getId();
-    }
+		return movieDescriptor.getId();
+	}
 
-    /**
-     * Removes a {@link MovieDescriptor} from the DB and MBI
-     * 
-     * @param id
-     *            the id of the movie descriptor to remove
-     * @throws InvalidMovieDescriptorException
-     */
-    public void removeEntry(@PathVariable("movieId") String id) throws InvalidMovieDescriptorException {
-	Long movieId = Long.valueOf(id);
-	movieDescriptorService.delete(movieId);
+	/**
+	 * Removes a {@link MovieDescriptor} from the DB and MBI
+	 * 
+	 * @param id
+	 *            the id of the movie descriptor to remove
+	 * @throws InvalidMovieDescriptorException
+	 */
+	public void removeEntry(@PathVariable("movieId") String id) throws InvalidMovieDescriptorException {
+		Long movieId = Long.valueOf(id);
+		movieDescriptorService.delete(movieId);
 
-	indexingEngine.removeEntry(movieId);
-    }
+		indexingEngine.removeEntry(movieId);
+	}
 
-    /**
-     * Updates a {@link MovieDescriptor} from the DB and MBI
-     * 
-     * @param movieDescriptor
-     *            the {@link MovieDescriptor} to update (important: it needs a
-     *            valid id from the DB in order for the update to be performed)
-     * @throws InvalidMovieDescriptorException
-     */
-    public void updateEntry(@RequestBody MovieDescriptor movieDescriptor) throws InvalidMovieDescriptorException {
-	movieDescriptorService.update(movieDescriptor);
+	/**
+	 * Updates a {@link MovieDescriptor} from the DB and MBI
+	 * 
+	 * @param movieDescriptor
+	 *            the {@link MovieDescriptor} to update (important: it needs a
+	 *            valid id from the DB in order for the update to be performed)
+	 * @throws InvalidMovieDescriptorException
+	 */
+	public void updateEntry(@RequestBody MovieDescriptor movieDescriptor) throws InvalidMovieDescriptorException {
+		movieDescriptorService.update(movieDescriptor);
 
-	indexingEngine.updateEntry(movieDescriptor);
-    }
+		indexingEngine.updateEntry(movieDescriptor);
+	}
 
-    @Autowired
-    public void setMovieDescriptorService(MovieDescriptorService movieDescriptorService) {
-	this.movieDescriptorService = movieDescriptorService;
-    }
+	@Autowired
+	public void setMovieDescriptorService(MovieDescriptorService movieDescriptorService) {
+		this.movieDescriptorService = movieDescriptorService;
+	}
 
-    @Autowired
-    public void setIndexingEngine(IndexEngine indexingEngine) {
-	this.indexingEngine = indexingEngine;
-    }
+	@Autowired
+	public void setIndexingEngine(IndexEngine indexingEngine) {
+		this.indexingEngine = indexingEngine;
+	}
 }

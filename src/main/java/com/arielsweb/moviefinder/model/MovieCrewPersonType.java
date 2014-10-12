@@ -7,9 +7,9 @@ package com.arielsweb.moviefinder.model;
  * 
  */
 public enum MovieCrewPersonType {
-    ACTOR,
+	ACTOR,
 
-    DIRECTOR,
+	DIRECTOR,
 
-    SCREENWRITER
+	SCREENWRITER
 }

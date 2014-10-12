@@ -9,15 +9,15 @@ package com.arielsweb.moviefinder.webservice.exceptions;
  */
 public class InvalidPersistentQueryException extends Exception {
 
-    private static final long serialVersionUID = -2422320379942244297L;
+	private static final long serialVersionUID = -2422320379942244297L;
 
-    /**
-     * Creates a new exception
-     * 
-     * @param message
-     *            the message to display to the user
-     */
-    public InvalidPersistentQueryException(String message) {
-	super(message);
-    }
+	/**
+	 * Creates a new exception
+	 * 
+	 * @param message
+	 *            the message to display to the user
+	 */
+	public InvalidPersistentQueryException(String message) {
+		super(message);
+	}
 }

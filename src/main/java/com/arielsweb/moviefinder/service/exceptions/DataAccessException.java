@@ -10,31 +10,31 @@ package com.arielsweb.moviefinder.service.exceptions;
  */
 public class DataAccessException extends RuntimeException {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    public DataAccessException() {
-    }
+	public DataAccessException() {
+	}
 
-    /**
-     * @param message
-     */
-    public DataAccessException(String message) {
-	super(message);
-    }
+	/**
+	 * @param message
+	 */
+	public DataAccessException(String message) {
+		super(message);
+	}
 
-    /**
-     * @param cause
-     */
-    public DataAccessException(Throwable cause) {
-	super(cause);
-    }
+	/**
+	 * @param cause
+	 */
+	public DataAccessException(Throwable cause) {
+		super(cause);
+	}
 
-    /**
-     * @param message
-     * @param cause
-     */
-    public DataAccessException(String message, Throwable cause) {
-	super(message, cause);
-    }
+	/**
+	 * @param message
+	 * @param cause
+	 */
+	public DataAccessException(String message, Throwable cause) {
+		super(message, cause);
+	}
 
 }

@@ -23,79 +23,79 @@ import com.arielsweb.moviefinder.utilities.MovieFinderConstants;
 @Entity
 public class MovieCrewPerson implements Serializable {
 
-    private static final long serialVersionUID = 6066058019869498075L;
+	private static final long serialVersionUID = 6066058019869498075L;
 
-    @Id
-    @GeneratedValue
-    private Long id;
+	@Id
+	@GeneratedValue
+	private Long id;
 
-    @Column(name = MovieFinderConstants.FULL_NAME)
-    private String fullName;
+	@Column(name = MovieFinderConstants.FULL_NAME)
+	private String fullName;
 
-    @Column(name = MovieFinderConstants.TYPE)
-    @Enumerated(EnumType.ORDINAL)
-    private MovieCrewPersonType crewPersonType;
+	@Column(name = MovieFinderConstants.TYPE)
+	@Enumerated(EnumType.ORDINAL)
+	private MovieCrewPersonType crewPersonType;
 
-    /**
-     * Default constructor
-     */
-    public MovieCrewPerson() {
-    }
-
-    /**
-     * Creates a new actor, director or screenwriter entity
-     * 
-     * @param fullName
-     *            the name of the crew or cast member
-     */
-    public MovieCrewPerson(String fullName, MovieCrewPersonType crewPersonType) {
-	this.fullName = fullName;
-	this.crewPersonType = crewPersonType;
-    }
-
-    public Long getId() {
-	return id;
-    }
-
-    public String getFullName() {
-	return fullName;
-    }
-
-    public void setFullName(String fullName) {
-	this.fullName = fullName;
-    }
-
-    /**
-     * @return the crewPersonType
-     */
-    public MovieCrewPersonType getCrewPersonType() {
-	return crewPersonType;
-    }
-
-    /**
-     * @param crewPersonType
-     *            the crewPersonType to set
-     */
-    public void setCrewPersonType(MovieCrewPersonType crewPersonType) {
-	this.crewPersonType = crewPersonType;
-    }
-
-    public String toString() {
-	return this.fullName;
-    }
-
-    public int hashCode() {
-	return this.fullName.hashCode();
-    }
-
-    /**
-     * Full name column is set as UNIQUE at the DB level
-     */
-    public boolean equals(Object object) {
-	if (object instanceof MovieCrewPerson) {
-	    return (((MovieCrewPerson) object).getFullName().equals(this.fullName));
+	/**
+	 * Default constructor
+	 */
+	public MovieCrewPerson() {
 	}
 
-	return false;
-    }
+	/**
+	 * Creates a new actor, director or screenwriter entity
+	 * 
+	 * @param fullName
+	 *            the name of the crew or cast member
+	 */
+	public MovieCrewPerson(String fullName, MovieCrewPersonType crewPersonType) {
+		this.fullName = fullName;
+		this.crewPersonType = crewPersonType;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	/**
+	 * @return the crewPersonType
+	 */
+	public MovieCrewPersonType getCrewPersonType() {
+		return crewPersonType;
+	}
+
+	/**
+	 * @param crewPersonType
+	 *            the crewPersonType to set
+	 */
+	public void setCrewPersonType(MovieCrewPersonType crewPersonType) {
+		this.crewPersonType = crewPersonType;
+	}
+
+	public String toString() {
+		return this.fullName;
+	}
+
+	public int hashCode() {
+		return this.fullName.hashCode();
+	}
+
+	/**
+	 * Full name column is set as UNIQUE at the DB level
+	 */
+	public boolean equals(Object object) {
+		if (object instanceof MovieCrewPerson) {
+			return (((MovieCrewPerson) object).getFullName().equals(this.fullName));
+		}
+
+		return false;
+	}
 }

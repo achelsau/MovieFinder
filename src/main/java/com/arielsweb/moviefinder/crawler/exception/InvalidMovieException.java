@@ -8,34 +8,34 @@ package com.arielsweb.moviefinder.crawler.exception;
  */
 public class InvalidMovieException extends Exception {
 
-    private static final long serialVersionUID = -8405642458855372939L;
+	private static final long serialVersionUID = -8405642458855372939L;
 
-    public enum Reason {
-	MOVIE_NOT_RELEASED
-    }
+	public enum Reason {
+		MOVIE_NOT_RELEASED
+	}
 
-    private Reason reason;
+	private Reason reason;
 
-    public InvalidMovieException(String msg) {
-	super(msg);
-    }
+	public InvalidMovieException(String msg) {
+		super(msg);
+	}
 
-    public InvalidMovieException(Reason reason) {
-	this.reason = reason;
-    }
+	public InvalidMovieException(Reason reason) {
+		this.reason = reason;
+	}
 
-    /**
-     * @return the reason
-     */
-    public Reason getReason() {
-	return reason;
-    }
+	/**
+	 * @return the reason
+	 */
+	public Reason getReason() {
+		return reason;
+	}
 
-    /**
-     * @param reason
-     *            the reason to set
-     */
-    public void setReason(Reason reason) {
-	this.reason = reason;
-    }
+	/**
+	 * @param reason
+	 *            the reason to set
+	 */
+	public void setReason(Reason reason) {
+		this.reason = reason;
+	}
 }

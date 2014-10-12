@@ -10,15 +10,15 @@ package com.arielsweb.moviefinder.webservice.security;
  * 
  */
 public class ReturnCode {
-    
-    // 1xx - Indexing Engine Errors
 
-    // 2xx - Query Engine Errors
-    public static final String QUERY_NULL_OR_EMPTY = "201"; // query is null or
-							    // empty
-    public static final String MALFORMED_QUERY_ID = "202"; // query id is
-							    // malformed
+	// 1xx - Indexing Engine Errors
 
-    // 3xx - Relevance Feedback Errors
+	// 2xx - Query Engine Errors
+	public static final String QUERY_NULL_OR_EMPTY = "201"; // query is null or
+	// empty
+	public static final String MALFORMED_QUERY_ID = "202"; // query id is
+	// malformed
+
+	// 3xx - Relevance Feedback Errors
 
 }

@@ -26,31 +26,31 @@ import com.arielsweb.moviefinder.service.exceptions.InvalidIndexPopulationExcept
 @Scope("singleton")
 public class IndexPopulatorServiceImpl {
 
-    private MovieDescriptorService movieDescriptorService;
+	private MovieDescriptorService movieDescriptorService;
 
-    protected org.apache.log4j.Logger log = Logger.getLogger(IndexPopulatorServiceImpl.class);
+	protected org.apache.log4j.Logger log = Logger.getLogger(IndexPopulatorServiceImpl.class);
 
-    /* Prevent direct access to the constructor */
-    private IndexPopulatorServiceImpl() {
-    }
+	/* Prevent direct access to the constructor */
+	private IndexPopulatorServiceImpl() {
+	}
 
-    /**
-     * Populates the memory based index (inverted-index)
-     * 
-     * @throws InvalidIndexPopulationException
-     *             thrown if the index alredy contains data
-     * @throws InvalidMovieDescriptorException
-     * @throws ClassNotFoundException
-     * @throws IOException
-     */
-    @PostConstruct
-    public void populateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException, IOException,
-	    ClassNotFoundException {
-	movieDescriptorService.populateIndex();
-    }
+	/**
+	 * Populates the memory based index (inverted-index)
+	 * 
+	 * @throws InvalidIndexPopulationException
+	 *             thrown if the index alredy contains data
+	 * @throws InvalidMovieDescriptorException
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
+	@PostConstruct
+	public void populateIndex() throws InvalidIndexPopulationException, InvalidMovieDescriptorException, IOException,
+			ClassNotFoundException {
+		movieDescriptorService.populateIndex();
+	}
 
-    @Autowired
-    public void setMovieDescriptor(MovieDescriptorService movieDescriptorService) {
-	this.movieDescriptorService = movieDescriptorService;
-    }
+	@Autowired
+	public void setMovieDescriptor(MovieDescriptorService movieDescriptorService) {
+		this.movieDescriptorService = movieDescriptorService;
+	}
 }

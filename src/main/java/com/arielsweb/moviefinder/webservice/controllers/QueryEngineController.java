@@ -47,150 +47,150 @@ import com.arielsweb.moviefinder.webservice.security.ReturnCode;
 @RequestMapping("/query")
 public class QueryEngineController {
 
-    private PersistentQueryService persistentQueryService;
+	private PersistentQueryService persistentQueryService;
 
-    private IQueryEngine queryEngine;
+	private IQueryEngine queryEngine;
 
-    @RequestMapping(value = "/quickQuery", method = RequestMethod.POST, headers = "content-type=text/plain")
-    @ResponseBody
-    public ResultInfoResponse quickQuery(@RequestBody String queryString, HttpServletRequest request,
-	    HttpServletResponse resp, User user) throws InvalidQuickQueryException {
-	if (queryString == null || queryString.isEmpty()) {
-	    throw new InvalidQuickQueryException("The query string is invalid");
+	@RequestMapping(value = "/quickQuery", method = RequestMethod.POST, headers = "content-type=text/plain")
+	@ResponseBody
+	public ResultInfoResponse quickQuery(@RequestBody String queryString, HttpServletRequest request,
+			HttpServletResponse resp, User user) throws InvalidQuickQueryException {
+		if (queryString == null || queryString.isEmpty()) {
+			throw new InvalidQuickQueryException("The query string is invalid");
+		}
+
+		List<ResultInfo> queryResults = queryEngine.queryIndex(queryString);
+		ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults);
+		return resultInfoResponse;
 	}
 
-	List<ResultInfo> queryResults = queryEngine.queryIndex(queryString);
-	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults);
-	return resultInfoResponse;
-    }
+	@RequestMapping(value = "/searchPersistentQuery", method = RequestMethod.POST, headers = "content-type=json/application")
+	@ResponseBody
+	public ResultInfoResponse searchPersistentQuery(@RequestBody PersistentQuery persistentQuery,
+			HttpServletRequest request, HttpServletResponse response, User user) throws InvalidPersistentQueryException {
+		if (persistentQuery.getQueryString() == null || persistentQuery.getQueryString().isEmpty()) {
+			throw new InvalidPersistentQueryException("The persistent query is malformed");
+		}
 
-    @RequestMapping(value = "/searchPersistentQuery", method = RequestMethod.POST, headers = "content-type=json/application")
-    @ResponseBody
-    public ResultInfoResponse searchPersistentQuery(@RequestBody PersistentQuery persistentQuery,
-	    HttpServletRequest request, HttpServletResponse response, User user) throws InvalidPersistentQueryException {
-	if (persistentQuery.getQueryString() == null || persistentQuery.getQueryString().isEmpty()) {
-	    throw new InvalidPersistentQueryException("The persistent query is malformed");
+		List<ResultInfo> queryResults = null;
+		if (persistentQuery.getTokens() != null && persistentQuery.getTokens().size() > 0) {
+			List<PersistentQueryToken> persistentQueryTokens = persistentQuery.getTokens();
+
+			Map<String, Float> queryWeights = TextParsingHelper.getQueryWeights(persistentQueryTokens);
+
+			queryResults = queryEngine.queryIndex(queryWeights);
+		} else {
+			queryResults = queryEngine.queryIndex(persistentQuery.getQueryString());
+		}
+
+		// return both the results and the id of the query
+		ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults, persistentQuery.getId());
+		return resultInfoResponse;
 	}
 
-	List<ResultInfo> queryResults = null;
-	if (persistentQuery.getTokens() != null && persistentQuery.getTokens().size() > 0) {
-	    List<PersistentQueryToken> persistentQueryTokens = persistentQuery.getTokens();
+	@RequestMapping(value = "/storePersistentQuery", method = RequestMethod.POST, headers = "content-type=json/application")
+	@ResponseBody
+	public ResultInfoResponse persistQuery(@RequestBody PersistentQuery persistentQuery, HttpServletRequest request,
+			HttpServletResponse response, User user) throws InvalidPersistentQueryException {
+		if (persistentQuery.getQueryString() == null || persistentQuery.getQueryString().isEmpty()) {
+			throw new InvalidPersistentQueryException("The persistent query is malformed");
+		}
 
-	    Map<String, Float> queryWeights = TextParsingHelper.getQueryWeights(persistentQueryTokens);
+		// bind the user performing the op. (since only him can share movies for
+		// himself)
+		persistentQuery.setOwner(user);
 
-	    queryResults = queryEngine.queryIndex(queryWeights);
-	} else {
-	    queryResults = queryEngine.queryIndex(persistentQuery.getQueryString());
+		List<PersistentQueryToken> persistentQueryTokens = persistentQueryService.getQueryTokens(persistentQuery);
+
+		persistentQuery.setTokens(persistentQueryTokens);
+
+		// service operation
+		Long queryId = (Long) persistentQueryService.save(persistentQuery);
+
+		// return both the results and the id of the query
+		ResultInfoResponse resultInfoResponse = new ResultInfoResponse(null, queryId);
+		return resultInfoResponse;
 	}
 
-	// return both the results and the id of the query
-	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults, persistentQuery.getId());
-	return resultInfoResponse;
-    }
+	@RequestMapping(value = "/updatePersistentQuery/", method = RequestMethod.POST, headers = "content-type=json/application")
+	@ResponseBody
+	public ResultInfoResponse updatePersistentQuery(@RequestBody PersistentQuery persistentQuery,
+			HttpServletRequest request, HttpServletResponse response, User user) throws InvalidPersistentQueryException {
+		if (persistentQuery.getQueryString() == null || persistentQuery.getQueryString().isEmpty()
+				|| persistentQuery.getInterval() < 0) {
+			throw new InvalidPersistentQueryException("The persistent query is malformed");
+		}
 
-    @RequestMapping(value = "/storePersistentQuery", method = RequestMethod.POST, headers = "content-type=json/application")
-    @ResponseBody
-    public ResultInfoResponse persistQuery(@RequestBody PersistentQuery persistentQuery, HttpServletRequest request,
-	    HttpServletResponse response, User user) throws InvalidPersistentQueryException {
-	if (persistentQuery.getQueryString() == null || persistentQuery.getQueryString().isEmpty()) {
-	    throw new InvalidPersistentQueryException("The persistent query is malformed");
+		persistentQuery.setOwner(user);
+
+		// service operation
+		persistentQueryService.update(persistentQuery);
+
+		// actual query operation
+		List<ResultInfo> queryResults = queryEngine.queryIndex(persistentQuery.getQueryString());
+		ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults, persistentQuery.getId());
+		return resultInfoResponse;
 	}
 
-	// bind the user performing the op. (since only him can share movies for
-	// himself)
-	persistentQuery.setOwner(user);
-	
-	List<PersistentQueryToken> persistentQueryTokens = persistentQueryService.getQueryTokens(persistentQuery);
+	@RequestMapping(value = "/deletePersistentQuery/{persistentQueryId}", method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.OK)
+	public void removePersistQuery(@PathVariable("persistentQueryId") String queryIdStr, HttpServletRequest request,
+			HttpServletResponse response, User user) throws InvalidPersistentQueryIdException {
+		Long queryId = null;
+		try {
+			queryId = Long.parseLong(queryIdStr);
+		} catch (NumberFormatException nfe) {
+			throw new InvalidPersistentQueryIdException("The persistent query id is malformed");
+		}
 
-	persistentQuery.setTokens(persistentQueryTokens);
-
-	// service operation
-	Long queryId = (Long) persistentQueryService.save(persistentQuery);
-
-	// return both the results and the id of the query
-	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(null, queryId);
-	return resultInfoResponse;
-    }
-
-    @RequestMapping(value = "/updatePersistentQuery/", method = RequestMethod.POST, headers = "content-type=json/application")
-    @ResponseBody
-    public ResultInfoResponse updatePersistentQuery(@RequestBody PersistentQuery persistentQuery,
-	    HttpServletRequest request, HttpServletResponse response, User user) throws InvalidPersistentQueryException {
-	if (persistentQuery.getQueryString() == null || persistentQuery.getQueryString().isEmpty()
-		|| persistentQuery.getInterval() < 0) {
-	    throw new InvalidPersistentQueryException("The persistent query is malformed");
+		// service operation
+		persistentQueryService.delete(queryId);
 	}
 
-	persistentQuery.setOwner(user);
+	@RequestMapping(value = "/getAllQueries/{userId}", method = RequestMethod.GET, headers = "content-type=text/plain")
+	@ResponseBody
+	public List<PersistentQuery> getAllPersistedQueriesForUser(@PathVariable("userId") String userIdStr,
+			HttpServletRequest request, HttpServletResponse response, User user)
+			throws InvalidPersistentQueryIdException {
+		Long userId = null;
+		try {
+			userId = Long.parseLong(userIdStr);
+		} catch (NumberFormatException nfe) {
+			throw new InvalidPersistentQueryIdException("The persistent query id is malformed");
+		}
 
-	// service operation
-	persistentQueryService.update(persistentQuery);
-
-	// actual query operation
-	List<ResultInfo> queryResults = queryEngine.queryIndex(persistentQuery.getQueryString());
-	ResultInfoResponse resultInfoResponse = new ResultInfoResponse(queryResults, persistentQuery.getId());
-	return resultInfoResponse;
-    }
-
-    @RequestMapping(value = "/deletePersistentQuery/{persistentQueryId}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.OK)
-    public void removePersistQuery(@PathVariable("persistentQueryId") String queryIdStr, HttpServletRequest request,
-	    HttpServletResponse response, User user) throws InvalidPersistentQueryIdException {
-	Long queryId = null;
-	try {
-	    queryId = Long.parseLong(queryIdStr);
-	} catch (NumberFormatException nfe) {
-	    throw new InvalidPersistentQueryIdException("The persistent query id is malformed");
+		// service operation
+		List<PersistentQuery> queriesForUser = persistentQueryService.getQueriesForUser(userId);
+		return queriesForUser;
 	}
 
-	// service operation
-	persistentQueryService.delete(queryId);
-    }
+	/**
+	 * Error handling operations
+	 */
+	@ExceptionHandler(InvalidQuickQueryException.class)
+	@ResponseStatus(value = HttpStatus.FORBIDDEN, reason = ReturnCode.QUERY_NULL_OR_EMPTY)
+	public void handleInvalidQuickQuery(InvalidQuickQueryException invalidQueryException) {
 
-    @RequestMapping(value = "/getAllQueries/{userId}", method = RequestMethod.GET, headers = "content-type=text/plain")
-    @ResponseBody
-    public List<PersistentQuery> getAllPersistedQueriesForUser(@PathVariable("userId") String userIdStr,
-	    HttpServletRequest request,
-	    HttpServletResponse response, User user) throws InvalidPersistentQueryIdException {
-	Long userId = null;
-	try {
-	    userId = Long.parseLong(userIdStr);
-	} catch (NumberFormatException nfe) {
-	    throw new InvalidPersistentQueryIdException("The persistent query id is malformed");
 	}
 
-	// service operation
-	List<PersistentQuery> queriesForUser = persistentQueryService.getQueriesForUser(userId);
-	return queriesForUser;
-    }
+	@ExceptionHandler(InvalidPersistentQueryException.class)
+	@ResponseStatus(value = HttpStatus.FORBIDDEN, reason = ReturnCode.QUERY_NULL_OR_EMPTY)
+	public void handleInvalidPersistentQuery(InvalidPersistentQueryException invalidQueryException) {
 
-    /**
-     * Error handling operations
-     */
-    @ExceptionHandler(InvalidQuickQueryException.class)
-    @ResponseStatus(value = HttpStatus.FORBIDDEN, reason = ReturnCode.QUERY_NULL_OR_EMPTY)
-    public void handleInvalidQuickQuery(InvalidQuickQueryException invalidQueryException) {
+	}
 
-    }
+	@ExceptionHandler(InvalidPersistentQueryIdException.class)
+	@ResponseStatus(value = HttpStatus.FORBIDDEN, reason = ReturnCode.MALFORMED_QUERY_ID)
+	public void handleInvalidPersistentQueryId(InvalidPersistentQueryIdException invalidQueryIdException) {
+	}
 
-    @ExceptionHandler(InvalidPersistentQueryException.class)
-    @ResponseStatus(value = HttpStatus.FORBIDDEN, reason = ReturnCode.QUERY_NULL_OR_EMPTY)
-    public void handleInvalidPersistentQuery(InvalidPersistentQueryException invalidQueryException) {
+	@Autowired
+	public void setQueryEngine(IQueryEngine queryEngine) {
+		this.queryEngine = queryEngine;
+	}
 
-    }
-
-    @ExceptionHandler(InvalidPersistentQueryIdException.class)
-    @ResponseStatus(value = HttpStatus.FORBIDDEN, reason = ReturnCode.MALFORMED_QUERY_ID)
-    public void handleInvalidPersistentQueryId(InvalidPersistentQueryIdException invalidQueryIdException) {
-    }
-
-    @Autowired
-    public void setQueryEngine(IQueryEngine queryEngine) {
-	this.queryEngine = queryEngine;
-    }
-
-    @Autowired
-    public void setPersistentQueryService(PersistentQueryService persistentQueryService) {
-	this.persistentQueryService = persistentQueryService;
-    }
+	@Autowired
+	public void setPersistentQueryService(PersistentQueryService persistentQueryService) {
+		this.persistentQueryService = persistentQueryService;
+	}
 }

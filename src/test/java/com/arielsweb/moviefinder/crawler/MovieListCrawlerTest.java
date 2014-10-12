@@ -32,53 +32,52 @@ import com.arielsweb.moviefinder.service.MovieSourceService;
 @Transactional(TransactionMode.ROLLBACK)
 public class MovieListCrawlerTest {
 
-    @SpringBeanByType
-    public MovieListCrawler movieListCrawler;
-    @SpringBeanByType
-    public MovieDescriptorService movieDescriptorService;
-    @SpringBeanByType
-    public MovieSourceService movieSourceService;
+	@SpringBeanByType
+	public MovieListCrawler movieListCrawler;
+	@SpringBeanByType
+	public MovieDescriptorService movieDescriptorService;
+	@SpringBeanByType
+	public MovieSourceService movieSourceService;
 
-    /**
-     * Tests parsing http://www.arielsweb.com/utils/list_of_movies.html
-     * 
-     * @throws IOException
-     * @throws ParseException
-     * @throws InterruptedException
-     */
-    @Test
-    public void testParseListOfMovies() throws IOException, ParseException, InterruptedException {
-	// setup
-	MovieSource movieSource = movieListCrawler.getMovieSource("IMDB", "http://www.imdb.com");
+	/**
+	 * Tests parsing http://www.arielsweb.com/utils/list_of_movies.html
+	 * 
+	 * @throws IOException
+	 * @throws ParseException
+	 * @throws InterruptedException
+	 */
+	@Test
+	public void testParseListOfMovies() throws IOException, ParseException, InterruptedException {
+		// setup
+		MovieSource movieSource = movieListCrawler.getMovieSource("IMDB", "http://www.imdb.com");
 
-	// execute
-	movieListCrawler.parseMovieList("http://www.arielsweb.com/utils/list_of_movies.html", movieSource);
+		// execute
+		movieListCrawler.parseMovieList("http://www.arielsweb.com/utils/list_of_movies.html", movieSource);
 
-	// verify
-	List<MovieDescriptor> movieDescriptors = movieDescriptorService.list();
-	
-	assertEquals(5, movieDescriptors.size());
+		// verify
+		List<MovieDescriptor> movieDescriptors = movieDescriptorService.list();
 
-	MovieDescriptor movieDescriptor1 = movieDescriptors.get(0);
-	assertEquals("Man of Steel", movieDescriptor1.getName());
-	assertEquals("tt0770828", movieDescriptor1.getRemoteId());
+		assertEquals(5, movieDescriptors.size());
 
-	MovieDescriptor movieDescriptor2 = movieDescriptors.get(1);
-	assertEquals("World War Z", movieDescriptor2.getName());
-	assertEquals("tt0816711", movieDescriptor2.getRemoteId());
+		MovieDescriptor movieDescriptor1 = movieDescriptors.get(0);
+		assertEquals("Man of Steel", movieDescriptor1.getName());
+		assertEquals("tt0770828", movieDescriptor1.getRemoteId());
 
-	MovieDescriptor movieDescriptor3 = movieDescriptors.get(2);
-	assertEquals("The Lone Ranger", movieDescriptor3.getName());
-	assertEquals("tt1210819", movieDescriptor3.getRemoteId());
+		MovieDescriptor movieDescriptor2 = movieDescriptors.get(1);
+		assertEquals("World War Z", movieDescriptor2.getName());
+		assertEquals("tt0816711", movieDescriptor2.getRemoteId());
 
-	MovieDescriptor movieDescriptor4 = movieDescriptors.get(3);
-	assertEquals("Despicable Me 2", movieDescriptor4.getName());
-	assertEquals("tt1690953", movieDescriptor4.getRemoteId());
+		MovieDescriptor movieDescriptor3 = movieDescriptors.get(2);
+		assertEquals("The Lone Ranger", movieDescriptor3.getName());
+		assertEquals("tt1210819", movieDescriptor3.getRemoteId());
 
-	MovieDescriptor movieDescriptor5 = movieDescriptors.get(4);
-	assertEquals("Evil Dead", movieDescriptor5.getName());
-	assertEquals("tt1288558", movieDescriptor5.getRemoteId());
-    }
+		MovieDescriptor movieDescriptor4 = movieDescriptors.get(3);
+		assertEquals("Despicable Me 2", movieDescriptor4.getName());
+		assertEquals("tt1690953", movieDescriptor4.getRemoteId());
 
-    
+		MovieDescriptor movieDescriptor5 = movieDescriptors.get(4);
+		assertEquals("Evil Dead", movieDescriptor5.getName());
+		assertEquals("tt1288558", movieDescriptor5.getRemoteId());
+	}
+
 }

@@ -37,62 +37,62 @@ import com.arielsweb.moviefinder.webservice.dto.RelevanceFeedbackRequest;
 @RequestMapping("/relevanceFeedback")
 public class RelevanceFeedbackController {
 
-    private UserService userService;
+	private UserService userService;
 
-    private MovieDescriptorService movieDescriptorService;
+	private MovieDescriptorService movieDescriptorService;
 
-    private RelevanceFeedbackEngine relevanceFeedbackEngine;
+	private RelevanceFeedbackEngine relevanceFeedbackEngine;
 
-    private PersistentQueryService persistentQueryService;
+	private PersistentQueryService persistentQueryService;
 
-    @RequestMapping(value = "/markIt", method = RequestMethod.POST, headers = "content-type=json/application")
-    @ResponseBody
-    public List<PersistentQueryToken> markIt(@RequestBody RelevanceFeedbackRequest relevanceFeedbackRequest,
-	    HttpServletRequest request, HttpServletResponse resp, User user) throws InvalidRelationIdException {
-	Long movieIdLong = 0L;
-	Long persistentQueryLong = 0L;
-	try {
-	    movieIdLong = Long.parseLong(relevanceFeedbackRequest.getRelevantMovieId());
-	    persistentQueryLong = Long.parseLong(relevanceFeedbackRequest.getPersistentQueryId());
-	} catch (NumberFormatException ex) {
-	    throw new InvalidRelationIdException(ex.getMessage());
+	@RequestMapping(value = "/markIt", method = RequestMethod.POST, headers = "content-type=json/application")
+	@ResponseBody
+	public List<PersistentQueryToken> markIt(@RequestBody RelevanceFeedbackRequest relevanceFeedbackRequest,
+			HttpServletRequest request, HttpServletResponse resp, User user) throws InvalidRelationIdException {
+		Long movieIdLong = 0L;
+		Long persistentQueryLong = 0L;
+		try {
+			movieIdLong = Long.parseLong(relevanceFeedbackRequest.getRelevantMovieId());
+			persistentQueryLong = Long.parseLong(relevanceFeedbackRequest.getPersistentQueryId());
+		} catch (NumberFormatException ex) {
+			throw new InvalidRelationIdException(ex.getMessage());
+		}
+
+		MovieDescriptor movieDescriptor = movieDescriptorService.find(movieIdLong);
+		userService.saveRelevantResult(user.getId(), movieDescriptor);
+
+		PersistentQuery persistentQuery = persistentQueryService.find(persistentQueryLong);
+		Map<String, Float> queryWeights = TextParsingHelper.getQueryWeights(persistentQuery.getTokens());
+
+		Long[] relevantEntries = new Long[] { movieIdLong };
+		queryWeights = relevanceFeedbackEngine.getRefinedQuery(queryWeights, relevantEntries);
+
+		List<PersistentQueryToken> persistentQueryTokens = TextParsingHelper.getQueryTokensListFromMap(persistentQuery,
+				queryWeights);
+
+		persistentQuery.setTokens(persistentQueryTokens);
+		persistentQueryService.update(persistentQuery);
+
+		return persistentQueryTokens;
 	}
 
-	MovieDescriptor movieDescriptor = movieDescriptorService.find(movieIdLong);
-	userService.saveRelevantResult(user.getId(), movieDescriptor);
+	@Autowired
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
 
-	PersistentQuery persistentQuery = persistentQueryService.find(persistentQueryLong);
-	Map<String, Float> queryWeights = TextParsingHelper.getQueryWeights(persistentQuery.getTokens());
+	@Autowired
+	public void setMovieDescriptorService(MovieDescriptorService movieDescriptorService) {
+		this.movieDescriptorService = movieDescriptorService;
+	}
 
-	Long[] relevantEntries = new Long[] { movieIdLong };
-	queryWeights = relevanceFeedbackEngine.getRefinedQuery(queryWeights, relevantEntries);
+	@Autowired
+	public void setRelevanceFeedbackEngine(RelevanceFeedbackEngine relevanceFeedbackEngine) {
+		this.relevanceFeedbackEngine = relevanceFeedbackEngine;
+	}
 
-	List<PersistentQueryToken> persistentQueryTokens = TextParsingHelper.getQueryTokensListFromMap(persistentQuery,
-		queryWeights);
-
-	persistentQuery.setTokens(persistentQueryTokens);
-	persistentQueryService.update(persistentQuery);
-
-	return persistentQueryTokens;
-    }
-
-    @Autowired
-    public void setUserService(UserService userService) {
-	this.userService = userService;
-    }
-
-    @Autowired
-    public void setMovieDescriptorService(MovieDescriptorService movieDescriptorService) {
-	this.movieDescriptorService = movieDescriptorService;
-    }
-
-    @Autowired
-    public void setRelevanceFeedbackEngine(RelevanceFeedbackEngine relevanceFeedbackEngine) {
-	this.relevanceFeedbackEngine = relevanceFeedbackEngine;
-    }
-
-    @Autowired
-    public void setPersistentQueryService(PersistentQueryService persistentQueryService) {
-	this.persistentQueryService = persistentQueryService;
-    }
+	@Autowired
+	public void setPersistentQueryService(PersistentQueryService persistentQueryService) {
+		this.persistentQueryService = persistentQueryService;
+	}
 }

@@ -17,9 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
-    @RequestMapping("home.html")
-    public ModelAndView handleHomePage(HttpServletRequest request,
-	                               HttpServletResponse response) {
-	return new ModelAndView("home");
-    }
+	@RequestMapping("home.html")
+	public ModelAndView handleHomePage(HttpServletRequest request, HttpServletResponse response) {
+		return new ModelAndView("home");
+	}
 }

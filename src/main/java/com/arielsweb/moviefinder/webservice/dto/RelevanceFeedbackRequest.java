@@ -10,46 +10,46 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class RelevanceFeedbackRequest {
 
-    private String persistentQueryId;
+	private String persistentQueryId;
 
-    private String relevantMovieId;
+	private String relevantMovieId;
 
-    public RelevanceFeedbackRequest() {
+	public RelevanceFeedbackRequest() {
 
-    }
+	}
 
-    public RelevanceFeedbackRequest(String persistentQueryId, String relevantMovieId) {
-	this.persistentQueryId = persistentQueryId;
-	this.relevantMovieId = relevantMovieId;
-    }
+	public RelevanceFeedbackRequest(String persistentQueryId, String relevantMovieId) {
+		this.persistentQueryId = persistentQueryId;
+		this.relevantMovieId = relevantMovieId;
+	}
 
-    /**
-     * @return the persistentQuery
-     */
-    public String getPersistentQueryId() {
-	return persistentQueryId;
-    }
+	/**
+	 * @return the persistentQuery
+	 */
+	public String getPersistentQueryId() {
+		return persistentQueryId;
+	}
 
-    /**
-     * @param persistentQuery
-     *            the persistentQuery to set
-     */
-    public void setPersistentQueryId(String persistentQueryId) {
-	this.persistentQueryId = persistentQueryId;
-    }
+	/**
+	 * @param persistentQuery
+	 *            the persistentQuery to set
+	 */
+	public void setPersistentQueryId(String persistentQueryId) {
+		this.persistentQueryId = persistentQueryId;
+	}
 
-    /**
-     * @return the relevantMovieId
-     */
-    public String getRelevantMovieId() {
-	return relevantMovieId;
-    }
+	/**
+	 * @return the relevantMovieId
+	 */
+	public String getRelevantMovieId() {
+		return relevantMovieId;
+	}
 
-    /**
-     * @param relevantMovieId
-     *            the relevantMovieId to set
-     */
-    public void setRelevantMovieId(String relevantMovieId) {
-	this.relevantMovieId = relevantMovieId;
-    }
+	/**
+	 * @param relevantMovieId
+	 *            the relevantMovieId to set
+	 */
+	public void setRelevantMovieId(String relevantMovieId) {
+		this.relevantMovieId = relevantMovieId;
+	}
 }

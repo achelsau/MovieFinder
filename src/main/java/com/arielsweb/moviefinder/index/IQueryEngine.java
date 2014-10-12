@@ -16,31 +16,33 @@ import com.arielsweb.moviefinder.index.exception.InvalidQueryException;
  */
 public interface IQueryEngine {
 
-    /**
-     * Runs the query against the index
-     * 
-     * @param queryWeights
-     *            the map containing <word, weight> pairs
-     * @return a list of pairs of <Id of the movie, {@link ResultInfo}> for the
-     *         results
-     */
-    List<ResultInfo> queryIndex(Map<String, Float> queryWeights) throws InvalidQueryException;
-    
-    /**
-     * Runs the query against the index
-     * 
-     * @param query
-     *            the query in natural language; for example: "moon landing"
-     * @return a list of pairs of <Id of the movie, {@link ResultInfo}> for the
-     *         results
-     */
-    List<ResultInfo> queryIndex(String query) throws InvalidQueryException;
+	/**
+	 * Runs the query against the index
+	 * 
+	 * @param queryWeights
+	 *            the map containing <word, weight> pairs
+	 * @return a list of pairs of <Id of the movie, {@link ResultInfo}> for the
+	 *         results
+	 */
+	List<ResultInfo> queryIndex(Map<String, Float> queryWeights) throws InvalidQueryException;
 
-    /**
-     * Sets the flag indicating that the score should be normalized against the length of the document
-     * 
-     * @param normalizeScoreToDocumentLength 
-     * 		whether to divide the score by the length of the document or not
-     */
-    void setNormalizeScoreToDocumentLength(String normalizeScoreToDocumentLength);
+	/**
+	 * Runs the query against the index
+	 * 
+	 * @param query
+	 *            the query in natural language; for example: "moon landing"
+	 * @return a list of pairs of <Id of the movie, {@link ResultInfo}> for the
+	 *         results
+	 */
+	List<ResultInfo> queryIndex(String query) throws InvalidQueryException;
+
+	/**
+	 * Sets the flag indicating that the score should be normalized against the
+	 * length of the document
+	 * 
+	 * @param normalizeScoreToDocumentLength
+	 *            whether to divide the score by the length of the document or
+	 *            not
+	 */
+	void setNormalizeScoreToDocumentLength(String normalizeScoreToDocumentLength);
 }

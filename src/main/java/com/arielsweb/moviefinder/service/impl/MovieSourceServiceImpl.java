@@ -15,9 +15,9 @@ import com.arielsweb.moviefinder.service.MovieSourceService;
 @Repository("movieSourceServiceImpl")
 public class MovieSourceServiceImpl extends GenericServiceImpl<MovieSource> implements MovieSourceService {
 
-    @Override
-    protected String getTableName() {
-	return MovieSource.class.getSimpleName().toUpperCase();
-    }
+	@Override
+	protected String getTableName() {
+		return MovieSource.class.getSimpleName().toUpperCase();
+	}
 
 }

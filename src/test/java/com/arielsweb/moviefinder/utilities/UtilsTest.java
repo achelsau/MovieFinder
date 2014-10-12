@@ -19,11 +19,11 @@ import com.arielsweb.moviefinder.model.User;
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 public class UtilsTest {
 
-    @Test
-    public void testGetTableForEntity() {
-	Class<? extends Object> clazz = User.class;
-	String tableName = Utils.getTableForEntity(clazz);
+	@Test
+	public void testGetTableForEntity() {
+		Class<? extends Object> clazz = User.class;
+		String tableName = Utils.getTableForEntity(clazz);
 
-	Assert.assertEquals(User.class.getSimpleName().toUpperCase(), tableName);
-    }
+		Assert.assertEquals(User.class.getSimpleName().toUpperCase(), tableName);
+	}
 }

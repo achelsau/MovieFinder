@@ -26,61 +26,59 @@ import com.arielsweb.moviefinder.utilities.Utils;
 @Repository("persistentQueryService")
 public class PersistentQueryServiceImpl extends GenericServiceImpl<PersistentQuery> implements PersistentQueryService {
 
-    private static final String queryColumns = "query.id, query.query_string, query.owner, query.interv ";
+	private static final String queryColumns = "query.id, query.query_string, query.owner, query.interv ";
 
-    /**
-     * Gets the queries that belong to users that are online
-     * */
-    @Override
-    @SuppressWarnings("unchecked")
-    @Transactional(readOnly = true)
-    public List<PersistentQuery> getQueriesForOnlineUsers() {
-	SQLQuery query = createSQLQuery(
-		"SELECT " + queryColumns + " FROM " + getTableName() + " query INNER JOIN "
-			+ Utils.getTableForEntity(User.class) + " ON query.owner = user.id "
-			+ "WHERE user.is_online = " + 1)
-		.addEntity(PersistentQuery.class);
+	/**
+	 * Gets the queries that belong to users that are online
+	 * */
+	@Override
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
+	public List<PersistentQuery> getQueriesForOnlineUsers() {
+		SQLQuery query = createSQLQuery(
+				"SELECT " + queryColumns + " FROM " + getTableName() + " query INNER JOIN "
+						+ Utils.getTableForEntity(User.class) + " ON query.owner = user.id "
+						+ "WHERE user.is_online = " + 1).addEntity(PersistentQuery.class);
 
-	List<PersistentQuery> queries = query.list();
-	return queries;
-    }
-
-    /**
-     * Gets the list of {@PersistentQuery}ies for a specific
-     * {@link User} (given by its userId)
-     **/
-    @Override
-    @SuppressWarnings("unchecked")
-    @Transactional(readOnly = true)
-    public List<PersistentQuery> getQueriesForUser(Long userId) {
-	List<PersistentQuery> queries = sessionFactory.getCurrentSession().createCriteria(PersistentQuery.class)
-		.add(Restrictions.eq("owner.id", userId))
-		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-
-	return queries;
-    }
-
-    @Override
-    public List<PersistentQueryToken> getQueryTokens(PersistentQuery persistentQuery) {
-	String[] queryTokens = TextParsingHelper.parseText(persistentQuery.getQueryString());
-
-	Map<String, Float> queryWeights = TextParsingHelper.getQueryWeights(queryTokens);
-
-	List<PersistentQueryToken> persistentQueryTokens = new ArrayList<PersistentQueryToken>();
-
-	for (Map.Entry<String, Float> entry : queryWeights.entrySet()) {
-	    PersistentQueryToken persistentQueryToken = new PersistentQueryToken();
-	    persistentQueryToken.setToken(entry.getKey());
-	    persistentQueryToken.setWeight(entry.getValue());
-	    persistentQueryToken.setParentQuery(persistentQuery);
-
-	    persistentQueryTokens.add(persistentQueryToken);
+		List<PersistentQuery> queries = query.list();
+		return queries;
 	}
-	return persistentQueryTokens;
-    }
 
-    @Override
-    protected String getTableName() {
-	return Utils.getTableForEntity(PersistentQuery.class);
-    }
+	/**
+	 * Gets the list of {@PersistentQuery}ies for a specific
+	 * {@link User} (given by its userId)
+	 **/
+	@Override
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
+	public List<PersistentQuery> getQueriesForUser(Long userId) {
+		List<PersistentQuery> queries = sessionFactory.getCurrentSession().createCriteria(PersistentQuery.class)
+				.add(Restrictions.eq("owner.id", userId)).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+
+		return queries;
+	}
+
+	@Override
+	public List<PersistentQueryToken> getQueryTokens(PersistentQuery persistentQuery) {
+		String[] queryTokens = TextParsingHelper.parseText(persistentQuery.getQueryString());
+
+		Map<String, Float> queryWeights = TextParsingHelper.getQueryWeights(queryTokens);
+
+		List<PersistentQueryToken> persistentQueryTokens = new ArrayList<PersistentQueryToken>();
+
+		for (Map.Entry<String, Float> entry : queryWeights.entrySet()) {
+			PersistentQueryToken persistentQueryToken = new PersistentQueryToken();
+			persistentQueryToken.setToken(entry.getKey());
+			persistentQueryToken.setWeight(entry.getValue());
+			persistentQueryToken.setParentQuery(persistentQuery);
+
+			persistentQueryTokens.add(persistentQueryToken);
+		}
+		return persistentQueryTokens;
+	}
+
+	@Override
+	protected String getTableName() {
+		return Utils.getTableForEntity(PersistentQuery.class);
+	}
 }

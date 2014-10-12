@@ -20,63 +20,63 @@ import com.arielsweb.moviefinder.service.MovieDescriptorService;
  */
 @Component
 public class MemoryIndexPopulatorFromDB {
-    
-    @Autowired
-    private static MovieDescriptorService movieDescriptorService;
 
-    @Autowired
-    private static IndexEngine indexEngine;
-    
-    protected static org.apache.log4j.Logger log = Logger.getLogger(MemoryIndexPopulatorFromDB.class);
+	@Autowired
+	private static MovieDescriptorService movieDescriptorService;
 
-    private static long indexDataFromDB(long count) {
-	// populate the index
-	for (int i = 1; i <= count; i++) {
-	    MovieDescriptor movieDescriptor = movieDescriptorService.find((long) i);
-	    if (movieDescriptor != null) {
-		try {
-		    indexEngine.addEntry(movieDescriptor);
+	@Autowired
+	private static IndexEngine indexEngine;
 
-		    log.warn("indexed: " + i);
-		} catch (InvalidMovieDescriptorException imde) {
-		    log.warn("didn't index " + i + " because of not enough data");
+	protected static org.apache.log4j.Logger log = Logger.getLogger(MemoryIndexPopulatorFromDB.class);
+
+	private static long indexDataFromDB(long count) {
+		// populate the index
+		for (int i = 1; i <= count; i++) {
+			MovieDescriptor movieDescriptor = movieDescriptorService.find((long) i);
+			if (movieDescriptor != null) {
+				try {
+					indexEngine.addEntry(movieDescriptor);
+
+					log.warn("indexed: " + i);
+				} catch (InvalidMovieDescriptorException imde) {
+					log.warn("didn't index " + i + " because of not enough data");
+				}
+			}
 		}
-	    }
+		return count;
 	}
-	return count;
-    }
-    
-    /**
-     * Index data from the database
-     * 
-     * @throws IOException
-     * @throws InvalidMovieDescriptorException
-     * 
-     */
-    public static void indexFromDatabase() throws IOException, InvalidMovieDescriptorException {
-	long start = System.currentTimeMillis();
-	long end = System.currentTimeMillis();
 
-	// 1. get movies from the database
-	indexDataFromDB(16100);
+	/**
+	 * Index data from the database
+	 * 
+	 * @throws IOException
+	 * @throws InvalidMovieDescriptorException
+	 * 
+	 */
+	public static void indexFromDatabase() throws IOException, InvalidMovieDescriptorException {
+		long start = System.currentTimeMillis();
+		long end = System.currentTimeMillis();
 
-	end = System.currentTimeMillis();
+		// 1. get movies from the database
+		indexDataFromDB(16100);
 
-	log.warn("indexing took: " + (end - start));
+		end = System.currentTimeMillis();
 
-	// 2. serialize the MBI
-	IndexReadWriteHelper.serializeIndex(indexEngine);
-    }
-    
-    /**
-     * @param args
-     * @throws InvalidMovieDescriptorException 
-     * @throws IOException 
-     */
-    public static void main(String[] args) throws IOException, InvalidMovieDescriptorException {
-	
-	indexFromDatabase();
-	
-    }
+		log.warn("indexing took: " + (end - start));
+
+		// 2. serialize the MBI
+		IndexReadWriteHelper.serializeIndex(indexEngine);
+	}
+
+	/**
+	 * @param args
+	 * @throws InvalidMovieDescriptorException
+	 * @throws IOException
+	 */
+	public static void main(String[] args) throws IOException, InvalidMovieDescriptorException {
+
+		indexFromDatabase();
+
+	}
 
 }

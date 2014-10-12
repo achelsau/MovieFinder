@@ -8,6 +8,6 @@ package com.arielsweb.moviefinder.webservice.exceptions;
  */
 public class InvalidMovieIdException extends Exception {
 
-    private static final long serialVersionUID = -3075170737364647752L;
+	private static final long serialVersionUID = -3075170737364647752L;
 
 }

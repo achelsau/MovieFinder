@@ -23,83 +23,83 @@ import com.arielsweb.moviefinder.service.impl.IndexEngineServiceImpl;
 /**
  * Tests the methods of IndexEngineController (using mocks)
  * 
- * @author Ariel 
+ * @author Ariel
  */
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 @SpringApplicationContext({ "applicationContext-data-test.xml" })
 @Transactional(TransactionMode.ROLLBACK)
 public class IndexEngineControllerTest {
 
-    private IndexEngineServiceImpl indexEngineController;
-    private MovieDescriptorService mockMovieDescriptorService;
-    private IndexEngine mockIndexEngine;
+	private IndexEngineServiceImpl indexEngineController;
+	private MovieDescriptorService mockMovieDescriptorService;
+	private IndexEngine mockIndexEngine;
 
-    @Before
-    public void setUp() {
-	mockMovieDescriptorService = mock(MovieDescriptorService.class);
-	mockIndexEngine = mock(IndexEngine.class);
+	@Before
+	public void setUp() {
+		mockMovieDescriptorService = mock(MovieDescriptorService.class);
+		mockIndexEngine = mock(IndexEngine.class);
 
-	indexEngineController = new IndexEngineServiceImpl();
-	indexEngineController.setMovieDescriptorService(mockMovieDescriptorService);
-	indexEngineController.setIndexingEngine(mockIndexEngine);
-    }
-    
-    @Test
-    public void testAddEntry() throws InvalidMovieDescriptorException {
-	// setup
-	MovieSource source = new MovieSource();
-	source.setLocation("http://www.imdb.com");
-	source.setName("IMDB");
-	source.setId(1L);
+		indexEngineController = new IndexEngineServiceImpl();
+		indexEngineController.setMovieDescriptorService(mockMovieDescriptorService);
+		indexEngineController.setIndexingEngine(mockIndexEngine);
+	}
 
-	MovieDescriptor movieDescriptor = new MovieDescriptor();
-	movieDescriptor.setSynopsis("ABCD");
-	movieDescriptor.setName("A");
-	movieDescriptor.setSource(source);
-	movieDescriptor.setRemoteId("123");
-	
-	// execute
-	indexEngineController.addEntry(movieDescriptor);
-	
-	// verify
-	InOrder order = inOrder(mockMovieDescriptorService, mockIndexEngine);
-	order.verify(mockMovieDescriptorService).save(movieDescriptor);
-	order.verify(mockIndexEngine).addEntry(movieDescriptor);
-    }
-    
-    @Test
-    public void testRemoveEntry() throws InvalidMovieDescriptorException {
-	// execute
-	indexEngineController.removeEntry("1");
-	
-	// verify
-	InOrder order = inOrder(mockMovieDescriptorService, mockIndexEngine);
-	order.verify(mockMovieDescriptorService).delete(1L);
-	order.verify(mockIndexEngine).removeEntry(1L);
-    }
-    
-    @Test
-    public void testUpdateEntry() throws InvalidMovieDescriptorException {
-	// setup
-	User user = new User();
-	user.setId(1L);
+	@Test
+	public void testAddEntry() throws InvalidMovieDescriptorException {
+		// setup
+		MovieSource source = new MovieSource();
+		source.setLocation("http://www.imdb.com");
+		source.setName("IMDB");
+		source.setId(1L);
 
-	MovieSource source = new MovieSource();
-	source.setLocation("http://www.rottenttomatoes.com");
-	source.setName("Rotten Tomatoes");
+		MovieDescriptor movieDescriptor = new MovieDescriptor();
+		movieDescriptor.setSynopsis("ABCD");
+		movieDescriptor.setName("A");
+		movieDescriptor.setSource(source);
+		movieDescriptor.setRemoteId("123");
 
-	MovieDescriptor movieDescriptor = new MovieDescriptor();
-	movieDescriptor.setSynopsis("ABCD");
-	movieDescriptor.setName("A");
-	movieDescriptor.setId(1L);
-	movieDescriptor.setSource(source);
-	
-	// execute
-	indexEngineController.updateEntry(movieDescriptor);
-	
-	// verify
-	InOrder order = inOrder(mockMovieDescriptorService, mockIndexEngine);
-	order.verify(mockMovieDescriptorService).update(movieDescriptor);
-	order.verify(mockIndexEngine).updateEntry(movieDescriptor);
-    }
+		// execute
+		indexEngineController.addEntry(movieDescriptor);
+
+		// verify
+		InOrder order = inOrder(mockMovieDescriptorService, mockIndexEngine);
+		order.verify(mockMovieDescriptorService).save(movieDescriptor);
+		order.verify(mockIndexEngine).addEntry(movieDescriptor);
+	}
+
+	@Test
+	public void testRemoveEntry() throws InvalidMovieDescriptorException {
+		// execute
+		indexEngineController.removeEntry("1");
+
+		// verify
+		InOrder order = inOrder(mockMovieDescriptorService, mockIndexEngine);
+		order.verify(mockMovieDescriptorService).delete(1L);
+		order.verify(mockIndexEngine).removeEntry(1L);
+	}
+
+	@Test
+	public void testUpdateEntry() throws InvalidMovieDescriptorException {
+		// setup
+		User user = new User();
+		user.setId(1L);
+
+		MovieSource source = new MovieSource();
+		source.setLocation("http://www.rottenttomatoes.com");
+		source.setName("Rotten Tomatoes");
+
+		MovieDescriptor movieDescriptor = new MovieDescriptor();
+		movieDescriptor.setSynopsis("ABCD");
+		movieDescriptor.setName("A");
+		movieDescriptor.setId(1L);
+		movieDescriptor.setSource(source);
+
+		// execute
+		indexEngineController.updateEntry(movieDescriptor);
+
+		// verify
+		InOrder order = inOrder(mockMovieDescriptorService, mockIndexEngine);
+		order.verify(mockMovieDescriptorService).update(movieDescriptor);
+		order.verify(mockIndexEngine).updateEntry(movieDescriptor);
+	}
 }

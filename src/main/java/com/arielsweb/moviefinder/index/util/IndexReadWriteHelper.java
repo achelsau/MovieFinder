@@ -22,48 +22,48 @@ import com.arielsweb.moviefinder.index.dto.MovieDetailsDTO;
  */
 public class IndexReadWriteHelper {
 
-    public static boolean serializedIndexExists(String indexFile) throws FileNotFoundException {
-	File file = new File("D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\" + indexFile);
-	
-	return file.exists() && !file.isDirectory();
-    }
+	public static boolean serializedIndexExists(String indexFile) throws FileNotFoundException {
+		File file = new File("D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\" + indexFile);
 
-    public static void setCorpusAndMovieDetails(IndexEngine indexEngine, String fileName) throws IOException,
-	    ClassNotFoundException {
-	FileInputStream inStream = new FileInputStream(new File(
-		"D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\" + fileName));
-	ObjectInputStream ois = new ObjectInputStream(inStream);
+		return file.exists() && !file.isDirectory();
+	}
 
-	HashMap<String, IndexEntry> invertedIndex = readInvertedIndex(ois);
-	HashMap<Long, MovieDetailsDTO> movieDetails = readMovieDetails(ois);
+	public static void setCorpusAndMovieDetails(IndexEngine indexEngine, String fileName) throws IOException,
+			ClassNotFoundException {
+		FileInputStream inStream = new FileInputStream(new File(
+				"D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\" + fileName));
+		ObjectInputStream ois = new ObjectInputStream(inStream);
 
-	indexEngine.setCorpus(invertedIndex);
-	indexEngine.setMovieDetails(movieDetails);
-    }
+		HashMap<String, IndexEntry> invertedIndex = readInvertedIndex(ois);
+		HashMap<Long, MovieDetailsDTO> movieDetails = readMovieDetails(ois);
 
-    @SuppressWarnings("unchecked")
-    private static HashMap<String, IndexEntry> readInvertedIndex(ObjectInputStream ois) throws IOException,
-	    ClassNotFoundException {
-	HashMap<String, IndexEntry> invertedIndex = (HashMap<String, IndexEntry>) ois.readObject();
+		indexEngine.setCorpus(invertedIndex);
+		indexEngine.setMovieDetails(movieDetails);
+	}
 
-	return invertedIndex;
-    }
+	@SuppressWarnings("unchecked")
+	private static HashMap<String, IndexEntry> readInvertedIndex(ObjectInputStream ois) throws IOException,
+			ClassNotFoundException {
+		HashMap<String, IndexEntry> invertedIndex = (HashMap<String, IndexEntry>) ois.readObject();
 
-    @SuppressWarnings("unchecked")
-    private static HashMap<Long, MovieDetailsDTO> readMovieDetails(ObjectInputStream ois) throws IOException,
-	    ClassNotFoundException {
+		return invertedIndex;
+	}
 
-	HashMap<Long, MovieDetailsDTO> movieDetails = (HashMap<Long, MovieDetailsDTO>) ois.readObject();
+	@SuppressWarnings("unchecked")
+	private static HashMap<Long, MovieDetailsDTO> readMovieDetails(ObjectInputStream ois) throws IOException,
+			ClassNotFoundException {
 
-	return movieDetails;
-    }
+		HashMap<Long, MovieDetailsDTO> movieDetails = (HashMap<Long, MovieDetailsDTO>) ois.readObject();
 
-    public static void serializeIndex(IndexEngine indexEngine) throws FileNotFoundException, IOException {
-	FileOutputStream outStream = new FileOutputStream(new File(
-		"D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\index_serialized"));
-	ObjectOutputStream oos = new ObjectOutputStream(outStream);
-	oos.writeObject(indexEngine.getInvertedIndex());
-	oos.writeObject(indexEngine.getMovieDetails());
-    }
+		return movieDetails;
+	}
+
+	public static void serializeIndex(IndexEngine indexEngine) throws FileNotFoundException, IOException {
+		FileOutputStream outStream = new FileOutputStream(new File(
+				"D:\\.facultate\\dizertatie\\MovieFinderServer\\dbscript\\index_serialized"));
+		ObjectOutputStream oos = new ObjectOutputStream(outStream);
+		oos.writeObject(indexEngine.getInvertedIndex());
+		oos.writeObject(indexEngine.getMovieDetails());
+	}
 
 }
