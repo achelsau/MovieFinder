@@ -11,6 +11,7 @@ define(['quickSearchPage',
 		bindEventHandlers();
 		
 		quickSearchPage.attachBody();
+		
 	}
 	
 	function bindEventHandlers() {
